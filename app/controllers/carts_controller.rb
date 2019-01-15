@@ -1,14 +1,16 @@
 class CartsController < ApplicationController
   def index
-  	cart = Cart.new(cart_params)
+  	carts = Cart.all
   end
+
   def confirm
-    
+    carts = Cart.all
   end
-  
 
   def create
-
+    cart = Cart.new(cart_params)
+    cart.save
+    redirect_to 
   end
 
   def update

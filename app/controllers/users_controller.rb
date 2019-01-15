@@ -17,10 +17,10 @@ class UsersController < ApplicationController
   def udpate
   	user = User.find(params[:id])
     user.udpate
-    redirect_to 
+    redirect_to users_show_path
   end
   private
   def user_params
-    params.require
+    params.require(:name, :name_kana, :postal_code, :address, :phone_number, :email, :encrypted_password, :deleted_user)
   end
 end
