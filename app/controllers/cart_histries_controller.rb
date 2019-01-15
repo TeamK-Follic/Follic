@@ -1,0 +1,2 @@
+class CartHistriesController < ApplicationController
+end
