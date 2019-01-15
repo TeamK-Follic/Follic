@@ -1,0 +1,2 @@
+module CartHistriesHelper
+end
