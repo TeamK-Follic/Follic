@@ -1,6 +1,8 @@
 class DiscsController < ApplicationController
 	def create
-		
+		disc = Disc.new(disc_params)
+		disc.save
+		redirect_to
 	end
 
 	def update
@@ -11,5 +13,8 @@ class DiscsController < ApplicationController
 		
 	end
 
-	
+	private
+	def disc_params
+		
+	end
 end
