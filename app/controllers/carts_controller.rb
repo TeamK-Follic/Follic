@@ -2,8 +2,6 @@ class CartsController < ApplicationController
   def index
   	cart = Cart.new(cart_params)
   end
-
-
   def confirm
     
   end
