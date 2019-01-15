@@ -11,4 +11,10 @@ class LabelsController < ApplicationController
   def label_params
     
   end
+
+  def create
+  end
+
+  def destroy
+  end
 end
