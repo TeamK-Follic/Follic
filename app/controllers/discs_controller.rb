@@ -14,7 +14,7 @@ class DiscsController < ApplicationController
 	end
 
 	private
-	def
+	def disc_params
 		
 	end
 end
