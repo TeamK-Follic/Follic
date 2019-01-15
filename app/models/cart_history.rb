@@ -1,0 +1,2 @@
+class CartHistory < ApplicationRecord
+end
