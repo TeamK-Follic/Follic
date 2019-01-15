@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'users/about'
   get 'users/show'
   get 'users/index'
-  get 'users/dit'
+  get 'users/edit'
   get 'users/update'
   devise_for :users
 
