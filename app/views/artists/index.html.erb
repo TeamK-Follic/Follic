@@ -12,6 +12,7 @@
 <div>
   <% @search_artists.each do |artist| %>
     <div class="thumbnail-contents">
+      <%= attachment_image_tag artist, :image %>
       <%= artist.name %>
     </div>
   <% end %>

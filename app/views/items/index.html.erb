@@ -12,6 +12,7 @@
 <div>
   <% @search_items.each do |item| %>
     <div class="thumbnail-contents">
+      <%= attachment_image_tag item, :image %>
       <%= item.artist.name %>
       <%= item.name %>
       <%= item.price %>
