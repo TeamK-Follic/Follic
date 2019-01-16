@@ -16,3 +16,25 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+.header {
+	width: 100%;
+}
+
+.navbar-nav {
+	
+}
+
+.nav-item {
+	display: none;
+	display: inline-block;
+
+}
+
+/*.nav-item::nth-child(-n + 2) {
+	text-align: right;
+}*/
+
+.nav-item::nth-child(n + 3){
+	margin-right: 20px;
+}
