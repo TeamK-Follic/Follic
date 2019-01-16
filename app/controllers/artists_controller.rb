@@ -5,11 +5,13 @@ class ArtistsController < ApplicationController
 
   def show
   	@artist = Artist.find(params[:id])
+    @items = Artist.items.all.reverse_order.limit(3)
+    @events = Artist.events.all.reverse_order
   end
 
   def index
     @search = Artist.ransack(params[:q])
-    @search_artists = @search.result
+    @search_artists = @search.result.page(params[:page]).reverse_order
   end
 
   def edit
