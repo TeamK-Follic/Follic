@@ -1,2 +1,40 @@
-<h1>Items#show</h1>
-<p>Find me in app/views/items/show.html.erb</p>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h3>商品詳細</h3>
+	<div>
+		<div>
+			<%= attachment_image_tag @item, :item_image %>
+			<%= @item.label_id %>
+		</div>
+		<div>
+			<%= @item.type_id %>
+			<%= @item.title %>
+			<%= @item.artist_id %>
+			<%= @item.genre_id %>
+		</div>
+		<div>
+			<%= @item.price %>
+			<%- from_for(@cart) do |f| %>
+				<%= f.text_field :amount %>
+				<%= f.submit 'カートに入れる' %>
+			<% end %>
+		</div>
+		<div>
+			<%= @disc.each do |disc| %>
+			  <p class="music_list">収録曲</p>
+			  <%= disc.name %>
+				  <%= @music.each do |music| %>
+				    <%= music.name %>
+				  <% end %>
+			<% end %>
+		</div>
+	</div>
+</body>
+</html>
+
