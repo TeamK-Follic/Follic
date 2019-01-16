@@ -1,4 +1,4 @@
-<h2>新規登録</h2>
+<h3>新規登録</h3>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -38,8 +38,8 @@
       <td><%= f.password_field :password_confirmation, autocomplete: "パスワード(確認)" %></td>
     </tr>
   </table>
-  <p>戻る 
-  <%= f.submit "登録" %></p>
+  <p><span class="d-btn">戻る</span> 
+  <%= f.submit "登録", class:"d-btn" %></p>
 
 
 <% end %>

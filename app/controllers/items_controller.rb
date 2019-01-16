@@ -8,7 +8,8 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @search = Item.ransack(params[:q])
+    @search_items = @search.result
   end
 
   def edit

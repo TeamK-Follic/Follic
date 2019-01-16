@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'items#index'
+
   get 'labels/index'
   get 'labels/edit'
   get 'following_artists/index'
