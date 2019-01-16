@@ -32,9 +32,6 @@ header {
 	width: 100%;
 	background-color: #FF9966;
 }
-.nav {
-	width: 90%;
-}
 .nav-item {
 	margin: 10px 30px;
 	text-align: center;
@@ -44,4 +41,8 @@ header {
 }
 .nav-item:nth-child(n + 4){
 	float: right;
+}
+h3 {
+	background-color: #FFFFCC;
+	border :solid 1px #FFFFFF;
 }

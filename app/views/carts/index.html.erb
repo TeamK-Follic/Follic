@@ -1,2 +1,12 @@
-<h1>Carts#index</h1>
-<p>Find me in app/views/carts/index.html.erb</p>
+<h3>ショッピングカート</h3>
+
+<div class="item-box">
+  <% @items.each do |item| %>
+  	<div class="item-image"><%= image_tag ('') %></div>
+  	<!-- シングル/アルバム名 -->
+  	<!-- タイトル -->
+  	<%= f.text_field :item_id %>
+  	<%= f.text_field : %>
+  <% end %>
+</div>
+<%= paginate @items %>
