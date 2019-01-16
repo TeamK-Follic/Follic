@@ -39,7 +39,7 @@
              <!--  <a href="navbar-brand" href="#">follic</a> -->
 
               <li class="nav-item">
-                <a  href="nav-link" href="#"><i class="fas fa-sign-in-alt"></i>
+                <a href="nav-link" href="#"><i class="fas fa-sign-in-alt"></i>
                 </a>
               </li>
 
@@ -47,7 +47,7 @@
                 <a href="nav-link" title="#"><i class="fas fa-user-plus"></i></a>
               </li>
               <li class="nav-item">
-                <a href="new_user_registration_path">ログアウト</a>
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
               </li>
             </ul>
           </div>
