@@ -17,31 +17,24 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-.clearfix::after {
-	content: "";
-	display: block;
-	clear: both;
-}
-header {
+.header {
 	width: 100%;
-	background-color: #FF9966;
 }
-.nav {
-	width: 90%;
+
+.navbar-nav {
+	
 }
+
 .nav-item {
-	margin: 10px 30px;
-	text-align: center;
+	display: none;
+	display: inline-block;
+
 }
-.nav-item:nth-child(-n + 3 ){
-	float: left;
-}
-.nav-item:nth-child(n + 4){
-	float: right;
+
+/*.nav-item::nth-child(-n + 2) {
+	text-align: right;
+}*/
+
+.nav-item::nth-child(n + 3){
+	margin-right: 20px;
 }
