@@ -8,7 +8,8 @@ class ArtistsController < ApplicationController
   end
 
   def index
-  	@artists = Artist.all
+    @search = Artist.ransack(params[:q])
+    @search_artists = @search.result
   end
 
   def edit
