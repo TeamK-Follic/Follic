@@ -21,6 +21,6 @@ class HistoryController < ApplicationController
 
   private
   def history_params
-    
+    params.require(:user_id, :payment_id, :status_id, :postal_code, :address, :name)
   end
 end

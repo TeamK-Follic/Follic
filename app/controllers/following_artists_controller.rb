@@ -5,6 +5,8 @@ class FollowingArtistsController < ApplicationController
 
   def create
   	fartist = Fartist.new(fartist_params)
+    fartist.save
+    redirect_to following_artists_index_path
   end
 
   def destroy
@@ -15,6 +17,6 @@ class FollowingArtistsController < ApplicationController
 
   private
   def following_artist_params
-  	
+    params.require(:fartist).permit(:user_id, :artist_id)
   end
 end

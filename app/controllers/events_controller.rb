@@ -24,11 +24,13 @@ class EventsController < ApplicationController
   end
 
   def destroy
-  	event = Event.find(event_params)
+  	event = Event.find(params[:id])
+    event.destroy
+    redirect_to artists_show_path
   end
 
   private
   def event_params
-    
+    params.require(:event).permit(:name, :artist_id, :detail, :datetime)
   end
 end
