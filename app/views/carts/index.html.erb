@@ -1,12 +1,15 @@
 <h3>ショッピングカート</h3>
 
-<div class="item-box">
-  <% @items.each do |item| %>
-  	<div class="item-image"><%= image_tag ('') %></div>
-  	<!-- シングル/アルバム名 -->
-  	<!-- タイトル -->
-  	<%= f.text_field :item_id %>
-  	<%= f.text_field : %>
+<div class="cart-box">
+  <% @carts.each do |cart| %>
+  	<%= cart.attachment_tag :image %>
+  	<%= cart.title %>
+
+  	<%= form_for(@cart) do |f| %>
+  		<p>数量</p><%= f.text_field :amount %>
+  		<p>在庫数</p>
+  		<p>単価（税込）</p>
+
+  	<% end %>
   <% end %>
 </div>
-<%= paginate @items %>
