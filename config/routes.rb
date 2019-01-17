@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :managers
+  # devise_for :managers
   root 'items#index'
 
   get 'carts/confirm'
