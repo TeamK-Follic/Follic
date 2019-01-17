@@ -17,6 +17,46 @@
 
   <body>
     <header class="clearfix">
+      <% if user_signed_in? %>
+      <div class="nav">
+        <div class="nav-item ">
+
+          <a class="nav-link" href="/items">
+            <i class="glyphicon glyphicon-cd"></i><p>CD</p>
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-link" href="/artists">
+            <i class="fas fa-users"></i><p>アーティスト</p>
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <a class="nav-link" href="/carts">
+            <i class="fas fa-cart-plus"></i><p>カート</p>
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        </div>
+
+       <div class="nav-item">
+         <a class="nav-link" href="/users/:id">
+          <i class="fas fa-user-tag"></i><p>マイページ</p>
+         </a>
+       </div>
+
+
+       <div class="nav-item">
+         <a class="nav-link" href="/following_artists">
+          <i class="fas fa-user-check"></i><p>フォローアーティスト</p>
+        </a>
+       </div>
+      </div>
+
+      <% else %>
       <div class="nav">
         <div class="nav-item ">
 
@@ -47,13 +87,14 @@
          </a>
        </div>
 
-
        <div class="nav-item">
          <a class="nav-link" href="/users/sign_in">
           <i class="fas fa-sign-in-alt"></i><p>ログイン</p>
         </a>
        </div>
       </div>
+      <% end %>
+
     </header><!-- /header -->
     <h3></h3>
     <%= yield %>
