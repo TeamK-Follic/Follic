@@ -3,13 +3,14 @@ Rails.application.routes.draw do
 
   get 'carts/confirm'
   get 'users/about'
+  get 'events/new/:id' => 'events#new', as: 'new_event'
 
   devise_for :users
 
   resources :users, :only => [:show, :index, :edit, :index, :update]
   resources :artists
   resources :items
-  resources :events, :only => [:new, :show, :edit, :create, :update, :destroy]
+  resources :events, :only => [:show, :edit, :create, :update, :destroy]
   resources :discs, :only => [:create, :update, :destroy]
   resources :musics, :only => [:create, :update, :destroy]
   resources :carts, :only => [:index, :create, :update, :destroy]
