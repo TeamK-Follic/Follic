@@ -35,8 +35,9 @@
 			</tr>
 		</table>
 		<div>
-			<%= link_to "会員情報の編集", edit_user_id_path %>
-			<%= link_to "購入履歴", historise_user_id_path %>
+			<%= link_to "会員情報の編集", edit_user_path(@user.id) %>
+			<br>
+			<%= link_to "購入履歴", histories_path %>
 		</div>
 	</div>
 </body>

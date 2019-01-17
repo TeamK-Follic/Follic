@@ -36,8 +36,8 @@
 			</tr>
 		</table>
 		<div>
+			<%= link_to "戻る", user_path(@user.id) %>
 			<%= f.submit "登録" %>
-			<%= link_to "戻る", user_id_path %>
 		</div>
 		<% end %>
 	</div>
