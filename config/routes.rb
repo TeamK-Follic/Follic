@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
+  devise_for :managers, controllers: {
+    sessions: 'managers/sessions',
+    passwords: 'managers/passwords',
+    registrations: 'managers/registrations'
+  }
+
   root 'items#index'
 
   get 'carts/confirm'
   get 'users/about'
   get 'events/new/:id' => 'events#new', as: 'new_event'
 
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
 
   resources :users, :only => [:show, :index, :edit, :index, :update]
   resources :artists
