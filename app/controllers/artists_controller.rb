@@ -5,8 +5,8 @@ class ArtistsController < ApplicationController
 
   def show
   	@artist = Artist.find(params[:id])
-    @items = Artist.items.all.reverse_order.limit(3)
-    @events = Artist.events.all.reverse_order
+    @items = @artist.items.all.reverse_order.limit(3)
+    @events = @artist.events.all.reverse_order
   end
 
   def index
@@ -20,8 +20,8 @@ class ArtistsController < ApplicationController
 
   def create
   	artist = Artist.new(artist_params)
-  	atist.save
-  	redirect_to artists_show_path
+  	artist.save
+  	redirect_to artist_path(artist.id)
   end
 
   def update
@@ -38,6 +38,6 @@ class ArtistsController < ApplicationController
 
   private
   def artist_params
-  	params.require(:artist).permit(:name, :name_kana, :img, :intro)
+  	params.require(:artist).permit(:name, :name_kana, :image, :intro)
   end
 end
