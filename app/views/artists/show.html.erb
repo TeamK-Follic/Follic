@@ -1,2 +1,19 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h3>アーティスト詳細</h3>
+
+<%= @artist.name %>
+<%= attachment_image_tag @artist, :image %>
+<%= @artist.intro %>
+
+<h4>CD情報</h4>
+<% @items.each do |item| %>
+  <div class="thumbnail-contents">
+    <%= attachment_image_tag item, :image %>
+    <%= item.artist.name %>
+    <%= item.name %>
+    <%= item.price %>
+    <% if item.stock == 0 %>
+      <span>売切</span>
+    <% end %>
+  </div>
+<% end %>
+<h4>イベント情報</h4>

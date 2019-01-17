@@ -19,17 +19,16 @@
     <header class="clearfix">
       <% if user_signed_in? %>
       <div class="nav">
-        <div class="nav-item ">
-
-          <a class="nav-link" href="/items">
+        <div class="nav-item">
+          <%= link_to(items_path, class:'nav-link') do %>
             <i class="glyphicon glyphicon-cd"></i><p>CD</p>
-          </a>
+          <% end %>
         </div>
 
         <div class="nav-item">
-          <a class="nav-link" href="/artists">
+          <%= link_to(artists_path, class:'nav-link') do %>
             <i class="fas fa-users"></i><p>アーティスト</p>
-          </a>
+          <% end %>
         </div>
 
         <div class="nav-item">
@@ -43,9 +42,9 @@
         </div>
 
        <div class="nav-item">
-         <a class="nav-link" href="/users/:id">
+         <%= link_to(user_path(current_user.id), class:'nav-link') do %>
           <i class="fas fa-user-tag"></i><p>マイページ</p>
-         </a>
+         <% end %>
        </div>
 
 
@@ -58,17 +57,16 @@
 
       <% else %>
       <div class="nav">
-        <div class="nav-item ">
-
-          <a class="nav-link" href="/items">
+        <div class="nav-item">
+          <%= link_to(items_path, class:'nav-link') do %>
             <i class="glyphicon glyphicon-cd"></i><p>CD</p>
-          </a>
+          <% end %>
         </div>
 
         <div class="nav-item">
-          <a class="nav-link" href="/artists">
+          <%= link_to(artists_path, class:'nav-link') do %>
             <i class="fas fa-users"></i><p>アーティスト</p>
-          </a>
+          <% end %>
         </div>
 
         <div class="nav-item">
