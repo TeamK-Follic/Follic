@@ -1,2 +1,36 @@
-<h1>Carts#confirm</h1>
-<p>Find me in app/views/carts/confirm.html.erb</p>
+<h3>ショッピングカート</h3>
+
+<div class="cart-item-tag">
+  <p>カート内の商品</p>
+</div>
+
+<div class="cart-area clearfix">
+ <% @carts.each do |cart| %>
+  <div class="cart_box">
+  	<%= cart.attachment_tag :image %>
+  </div>
+  <div class="cart-box">
+  	<%= cart.title %>
+    <%= cart.artist :name %>
+  </div>
+  <div class="cart-box">
+  	<%= form_for(cart) do |f| %>
+  		<p>数量</p><%= f.text_field :amount %>
+<!--   		<p>在庫数</p><%= cart.item.count :stock %> -->
+  		<p>単価（税込）</p><%= cart.item :price %>
+
+  	<% end %>
+  </div>
+ <% end %>
+
+ <div class="total-price">
+   <!-- お買い物合計額 -->  
+ </div>
+</div>
+
+<div class="destination-tag">送付先</div>
+<div class="address-box">
+  <%= @cart.user :address %>
+  <%= link_to
+</div>
+

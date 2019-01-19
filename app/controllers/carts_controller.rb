@@ -11,19 +11,19 @@ class CartsController < ApplicationController
   def create
     cart = Cart.new(cart_params)
     cart.save
-    redirect_to 
+    redirect_to carts_path
   end
 
   def update
   	cart = Cart.find(params[:id])
     cart.update(cart_params)
-    render :index
+    redirect_to carts_path
   end
 
   def destroy
   	cart = Cart.find(params[:id])
     cart.destroy
-    render :index
+    redirect_to cart_path(params[:id])
   end
 
   private
