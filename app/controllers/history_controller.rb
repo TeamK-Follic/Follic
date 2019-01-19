@@ -1,6 +1,8 @@
 class HistoryController < ApplicationController
   def show
     @history = History.find(params[:id])
+    cart_history = Cart_history.find(params[:id])
+    item = Item.find(params[:id])
   end
 
   def index
