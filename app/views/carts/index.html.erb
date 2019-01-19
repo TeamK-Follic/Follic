@@ -1,16 +1,38 @@
 <h3>ショッピングカート</h3>
 
-<div class="cart-box">
-  <% @carts.each do |cart| %>
-  	<%= cart.attachment_tag :image %>
-  	<%= cart.title %>
+<div class="cart-item-tag">
+  <p>カート内の商品</p>
+</div>
 
+<div class="cart-area clearfix">
+ <% @carts.each do |cart| %>
+  <div class="cart_box">
+  	<%= cart.attachment_tag :image %>
+  </div>
+  <div class="cart-box">
+  	<%= cart.title %>
+    <%= cart.artist :name %>
+  </div>
+  <div class="cart-box">
   	<%= form_for(@cart) do |f| %>
   		<p>数量</p><%= f.text_field :amount %>
-  		<p>在庫数</p>
-  		<p>単価（税込）</p>
+  		<p>在庫数</p><%= cart.item.count :stock %>
+  		<p>単価（税込）</p><%= cart.item :price %>
 
-  		<%= link_to "削除", carts_path, class: 'btn btn-default' %>
+  		<%= link_to "カートから削除", cart_path(cart), class: 'btn btn-default', method: :delete  %>
   	<% end %>
+  </div>
+ <% end %>
+ <div class="update-box">
+  <%= form_for(@cart) do |f| %>
+   <%= f.submit "カートの更新",class: 'btn btn-default' %>
   <% end %>
+ </div>
+ <div class="total-price">
+   <!-- お買い物合計額 -->  
+ </div>
+</div>
+
+<div class="buy-button">
+  <%= link_to "購入手続きへ進む", carts_confirm_path %>
 </div>
