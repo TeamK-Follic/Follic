@@ -4,6 +4,7 @@ class CartsController < ApplicationController
     @carts = Cart.page(params[:page]).per(10)
   end
 
+
   def confirm
     carts = Cart.all
   end
