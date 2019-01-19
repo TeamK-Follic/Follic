@@ -1,9 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :managers, controllers: {
-    sessions: 'managers/sessions',
-    passwords: 'managers/passwords',
-    registrations: 'managers/registrations'
-  }
 
   root 'items#index'
 
@@ -11,11 +6,20 @@ Rails.application.routes.draw do
   get 'users/about'
   get 'events/new/:id' => 'events#new', as: 'new_event'
 
-  devise_for :users, controllers: {
-    sessions: 'users/sessions',
-    passwords: 'users/passwords',
-    registrations: 'users/registrations'
-  }
+  devise_for :managers
+  #, :controllers => {
+  #  :sessions => 'managers/sessions'
+  #}
+
+
+
+  devise_for :users
+  #, :controllers => {
+  #  :registrations => 'users/registrations',
+  #  :sessions => 'users/sessions'
+  #}
+
+
 
   resources :users, :only => [:show, :index, :edit, :index, :update]
   resources :artists
