@@ -1,6 +1,9 @@
 <h3>アーティスト詳細</h3>
 
 <p><%= @artist.name %></p>
+<% if user_signed_in? %>
+  <p>follow</p> <!-- フォローリンク追加予定 -->
+<% end %>
 <p><%= attachment_image_tag @artist, :image, :fill, 300, 300 %></p>
 <p><%= @artist.intro %></p>
 
@@ -20,7 +23,7 @@
 <h4>イベント情報</h4>
 <p><%= link_to 'イベント追加', new_event_path(@artist.id) %></p>
 
-<table>
+<table class="table">
   <% @events.each do |event| %>
     <tr>
       <td><%= event.datetime %></td>

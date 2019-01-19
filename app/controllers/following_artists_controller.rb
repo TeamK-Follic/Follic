@@ -4,19 +4,16 @@ class FollowingArtistsController < ApplicationController
   end
 
   def create
-  	fartist = FollowingArtist.new(fartist_params)
-    fartist.save
-    redirect_to following_artists_index_path
+  	artist = Artist.find(params[:artist_id])
+    follow = current_user.folloing_artists.new(artist_id: artist.id)
+    follow.save
+    redirect_to artist_path(artist)
   end
 
   def destroy
-  	fartist = FollowingArtist.find(params[:id])
-  	fartist.destroy
-  	redirect_to artists_show_path
-  end
-
-  private
-  def following_artist_params
-    params.require(:fartist).permit(:user_id, :artist_id)
+    artist = Artist.find(params[:artist_id])
+    follow = current_user.following_artists.find_by(artist_id: artist.id)
+    follow.destroy
+    redirect_to artist_path(artist)
   end
 end
