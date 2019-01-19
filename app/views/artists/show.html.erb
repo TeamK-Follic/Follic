@@ -1,8 +1,8 @@
 <h3>アーティスト詳細</h3>
 
-<%= @artist.name %>
-<%= attachment_image_tag @artist, :image %>
-<%= @artist.intro %>
+<p><%= @artist.name %></p>
+<p><%= attachment_image_tag @artist, :image, :fill, 300, 300 %></p>
+<p><%= @artist.intro %></p>
 
 <h4>CD情報</h4>
 <% @items.each do |item| %>
@@ -16,4 +16,15 @@
     <% end %>
   </div>
 <% end %>
+
 <h4>イベント情報</h4>
+<p><%= link_to 'イベント追加', new_event_path(@artist.id) %></p>
+
+<table>
+  <% @events.each do |event| %>
+    <tr>
+      <td><%= event.datetime %></td>
+      <td><%= event.name %></td>
+    </tr>
+  <% end %>
+</table>

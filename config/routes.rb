@@ -1,11 +1,25 @@
 Rails.application.routes.draw do
+
   root 'items#index'
 
   get 'carts/confirm'
   get 'users/about'
   get 'events/new/:id' => 'events#new', as: 'new_event'
 
+  devise_for :managers
+  #, :controllers => {
+  #  :sessions => 'managers/sessions'
+  #}
+
+
+
   devise_for :users
+  #, :controllers => {
+  #  :registrations => 'users/registrations',
+  #  :sessions => 'users/sessions'
+  #}
+
+
 
   resources :users, :only => [:show, :index, :edit, :index, :update]
   resources :artists

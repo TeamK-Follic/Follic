@@ -9,12 +9,16 @@
 </div>
 
 <!-- 一覧表示 -->
-<div>
-  <% @search_artists.each do |artist| %>
-    <div class="thumbnail-contents">
-      <%= attachment_image_tag artist, :image, :fill, 100, 100 %>
-      <%= artist.name %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-9">
+      <% @search_artists.each do |artist| %>
+        <div class="thumbnail-contents">
+          <%= attachment_image_tag artist, :image, :fill, 100, 100 %>
+          <%= link_to artist.name, artist_path(artist.id) %>
+        </div>
+      <% end %>
     </div>
-  <% end %>
   <%= paginate @search_artists, class: "paginate" %>
+  </div>
 </div>
