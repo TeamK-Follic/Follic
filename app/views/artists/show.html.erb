@@ -2,7 +2,15 @@
 
 <p><%= @artist.name %></p>
 <% if user_signed_in? %>
-  <p>follow</p> <!-- フォローリンク追加予定 -->
+  <% if @artist.followed_by?(current_user) %>
+    <%= link_to artist_following_artists_path(@artist), method: :delete do %>
+      <span class="d-btn">フォローを外す</span>
+    <% end %>
+  <% else %>
+    <%= link_to artist_following_artists_path(@artist), method: :post do %>
+      <span class="d-btn">フォローする</span>
+    <% end %>
+  <% end %>
 <% end %>
 <p><%= attachment_image_tag @artist, :image, :fill, 300, 300 %></p>
 <p><%= @artist.intro %></p>

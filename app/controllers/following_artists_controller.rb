@@ -1,11 +1,7 @@
 class FollowingArtistsController < ApplicationController
-  def index
-  	@fartists = FollowingArtist.all
-  end
-
   def create
   	artist = Artist.find(params[:artist_id])
-    follow = current_user.folloing_artists.new(artist_id: artist.id)
+    follow = current_user.following_artists.new(artist_id: artist.id)
     follow.save
     redirect_to artist_path(artist)
   end
