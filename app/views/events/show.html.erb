@@ -11,15 +11,15 @@
 
 <h3>イベント詳細</h3>
   <div>
-    <%= attachment_image_tag @artist.image, :artist_image %>
+    <%= attachment_image_tag @artist, :image, :fill, 300, 300 %>
   </div>
   <div>
-    <%= @event.name %>
-    <%= @event.artist_id %>
-    <%= @event.datetime %>
-    <%= @event.detail %>
+    <p><%= @event.name %></p>
+    <p><%= @event.artist_id %></p>
+    <p><%= @event.datetime %></p>
+    <p><%= @event.detail %></p>
   </div>
-<%= link_to "戻る", artists_show_path(@event.artist_id) %>
+<%= link_to "戻る", artist_path(@event.artist_id) %>
 
 <!--
 </body>
