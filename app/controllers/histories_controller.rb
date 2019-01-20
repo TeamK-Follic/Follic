@@ -1,10 +1,10 @@
-class HistoryController < ApplicationController
+class HistoriesController < ApplicationController
   def show
-    @history = current_user.history.find(params[:id])
+    @history = current_user.histories.find(params[:id])
   end
 
   def index
-    @histories = current_user.history.all
+    @histories = current_user.histories.all
   end
 
   def create
