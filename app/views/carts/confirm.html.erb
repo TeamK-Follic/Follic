@@ -7,18 +7,18 @@
 <div class="cart-area clearfix">
  <% @carts.each do |cart| %>
   <div class="cart_box">
-  	<%= cart.attachment_tag :image %>
+    <%= cart.attachment_tag :image %>
   </div>
   <div class="cart-box">
-  	<%= cart.title %>
+    <%= cart.title %>
     <%= cart.artist :name %>
   </div>
   <div class="cart-box">
-  	<%= form_for(cart) do |f| %>
-  		<p>数量</p><%= cart.amount %>
-  		<p>単価（税込）</p><%= cart.item :price %>
+    <%= form_for(cart) do |f| %>
+      <p>数量</p><%= cart.amount %>
+      <p>単価（税込）</p><%= cart.item :price %>
 
-  	<% end %>
+    <% end %>
   </div>
  <% end %>
 

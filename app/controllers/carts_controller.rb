@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   def index
-  	@carts = current_user.carts.all
+    @carts = current_user.carts.all
     @cart = Cart.new
   end
 
@@ -15,13 +15,13 @@ class CartsController < ApplicationController
   end
 
   def update
-  	cart = Cart.find(params[:id])
+    cart = Cart.find(params[:id])
     cart.update(cart_params)
     redirect_to carts_path
   end
 
   def destroy
-  	cart = Cart.find(params[:id])
+    cart = Cart.find(params[:id])
     cart.destroy
     redirect_to carts_path
   end
