@@ -1,6 +1,7 @@
 class CartsController < ApplicationController
   def index
   	@carts = current_user.carts.all
+    @cart = Cart.new
   end
 
   def confirm

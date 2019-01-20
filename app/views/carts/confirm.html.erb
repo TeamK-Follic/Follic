@@ -29,7 +29,7 @@
 
 <div class="destination-tag">送付先</div>
 <div class="address-box">
-  <%= @cart.user :address %>
+  <%= current_user.address %>
   <%= link_to "住所を変更する方は\nマイページから編集をお願いします", user_path(user.id), class: 'btn btn-default' %>
 </div>
 <div class="payment-select-box">

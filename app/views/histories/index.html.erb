@@ -7,23 +7,24 @@
 <% @histories.each do |history| %>
 	<!-- ステータス -->
 	<div class="purchase-area">
-		<% users.each do |i| %>
+
+		<% history.item.each do |h| %>
 			<table class="inline-table">
 				<tbody>
 					<tr>
-						<td><%=  %></td>
-						<td><%= i.artist.name %></td>
-						<td><%= i.cart.amount %></td>
-						<td><%= %></td>
+						<td><%= h.item.title %></td>
+						<td><%= h.artist.name %></td>
+						<td><%= h.cart.amount %></td>
 					</tr>
 				</tbody>
 			</table>
 		<% end %>
+
 		<div class="total-price">
 			
 		</div>
 		<div class="payment-method">
-			
+			<%= payment.name %>
 		</div>
 		<div class="user-address">
 			<%= user.address %>
