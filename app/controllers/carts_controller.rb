@@ -1,15 +1,10 @@
 class CartsController < ApplicationController
   def index
-  	@carts = Cart.all
-    # @carts = Cart.page(params[:page]).per(10)
-    @artist = Artist.find(params[:id])
-    @item = Item.find(params[:id])
+  	@carts = current_user.cart.all
   end
 
   def confirm
-    @cart = current_user.cart.find(params[:id])
-    @artist = Artist.find(params[:id])
-    @item = Item.find(params[:id])
+    @carts = current_user.cart.all
   end
 
   def create
