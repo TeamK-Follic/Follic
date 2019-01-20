@@ -15,6 +15,10 @@
 						<td><%= h.item.title %></td>
 						<td><%= h.artist.name %></td>
 						<td><%= h.cart.amount %></td>
+						<td>
+							<p>小計</p>
+							<% sub_total = cart_history.amount * cart_history.price %><%= sub_total %>
+						</td>
 					</tr>
 				</tbody>
 			</table>

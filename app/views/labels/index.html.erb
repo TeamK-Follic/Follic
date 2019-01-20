@@ -1,2 +1,13 @@
-<h1>Labels#index</h1>
-<p>Find me in app/views/labels/index.html.erb</p>
+<h3>レーベル一覧</h3>
+
+<% @labels .each do |label| %>
+	<table class="label-name">
+		<tbody>
+			<tr>
+				<td><%= label.name %></td>
+				<td><%= link_to "編集", edit_label_path, class: 'btn btn-default' %></td>
+				<td><%= link_to "削除", labels_path class: 'btn btn-default', method: :delete%></td>
+			</tr>
+		</tbody>
+	</table>
+<% end %>
