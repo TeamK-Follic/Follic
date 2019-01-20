@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def new
+    @artist = Artist.find(params[:id])
     @item = Item.new
   end
 
@@ -36,6 +37,9 @@ class ItemsController < ApplicationController
 
   private
   def item_params
-    params.require(:item).permit(:title, :image, :type_id, :artist_id, :genre_id, :label_id, :price, :stock)
+    params.require(:item).permit(
+      :title, :image_id, :type_id, :artist_id, :genre_id, :label_id, :price, :stock,
+      discs_attributes: [:id, :item_id, :name, :_destroy]
+    )
   end
 end

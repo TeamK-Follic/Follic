@@ -16,6 +16,7 @@
 <p><%= @artist.intro %></p>
 
 <h4>CD情報</h4>
+<%= link_to "新規追加", new_item_path(@artist.id), class:"d-btn" %>
 <% @items.each do |item| %>
   <div class="thumbnail-contents">
     <%= attachment_image_tag item, :image %>

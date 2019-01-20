@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'carts/confirm'
   get 'users/about'
   get 'events/new/:id' => 'events#new', as: 'new_event'
+  get 'items/new/:id' => 'items#new', as: 'new_item'
 
   devise_for :managers
   #, :controllers => {
@@ -21,11 +22,11 @@ Rails.application.routes.draw do
 
 
 
-  resources :users, :only => [:show, :index, :edit, :index, :update]
+  resources :users, :only => [:show, :index, :edit, :update]
   resources :artists do
     resource :following_artists, only: [:create, :destroy]
   end
-  resources :items
+  resources :items, :only => [:show, :index, :edit, :create, :update, :destroy]
   resources :events, :only => [:show, :edit, :create, :update, :destroy]
   resources :discs, :only => [:create, :update, :destroy]
   resources :musics, :only => [:create, :update, :destroy]
