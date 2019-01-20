@@ -9,4 +9,6 @@ class Item < ApplicationRecord
   has_many :discs, dependent: :destroy
 
 	attachment :image
+
+  accepts_nested_attributes_for :discs, allow_destroy: true
 end

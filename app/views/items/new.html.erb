@@ -1,2 +1,27 @@
-<h1>Items#new</h1>
-<p>Find me in app/views/items/new.html.erb</p>
+<h3>商品情報の追加</h3>
+
+
+<%= form_for(@item) do |f| %>
+  <p>アーティスト名 <%= @artist.name %></p>
+  <p>アルバム・シングル名 <%= f.text_field :title %></p>
+  <p>値段 <%= f.text_field :price %></p>
+  <p>レーベル名</p>
+  <p>ジャンル</p>
+
+  <p>ディスク</p>
+  <%= f.nested_fields_for :discs do |ff| %>
+    <div>
+      <p><%= ff.text_field :name, placeholder:"ディスク名" %> / <%= ff.remove_nested_fields_link 'ディスクの削除' %></p>
+
+      <%= ff.nested_fields_for :musics do |fff| %>
+        <p><%= fff.text_field :name, placeholder:"曲名" %> / <%= fff.remove_nested_fields_link '曲の削除', class:"d-btn" %></p>
+      <% end %>
+      <p><%= ff.add_nested_fields_link :musics, '曲の追加' %></p>
+    </div>
+  <% end %>
+  <%= f.add_nested_fields_link :discs, 'ディスクの追加' %></p>
+
+
+  <p>在庫数 <%= f.text_field :stock %></p>
+  <p>ジャケット画像 <%= f.attachment_field :image %></p>
+<% end %>
