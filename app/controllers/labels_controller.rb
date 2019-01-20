@@ -1,4 +1,8 @@
 class LabelsController < ApplicationController
+  def new
+    @label = Label.new
+  end
+
   def index
     @labels = Label.all
   end

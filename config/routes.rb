@@ -8,17 +8,8 @@ Rails.application.routes.draw do
   get 'items/new/:id' => 'items#new', as: 'new_item'
 
   devise_for :managers
-  #, :controllers => {
-  #  :sessions => 'managers/sessions'
-  #}
-
-
-
   devise_for :users
-  #, :controllers => {
-  #  :registrations => 'users/registrations',
-  #  :sessions => 'users/sessions'
-  #}
+
 
 
 
@@ -34,28 +25,7 @@ Rails.application.routes.draw do
   resources :cart_histories, :only => [:create]
   resources :histories, :only => [:show, :index, :create, :update]
   resources :following_artists, :only => [:index, :create, :destroy]
-  resources :labels, :only => [:index, :edit, :create, :destroy]
+  resources :labels, :only => [:index, :edit, :new, :create, :update, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-  # get 'labels/index'
-  # get 'labels/edit'
-  # get 'following_artists/index'
-  # get 'history/show'
-  # get 'history/index'
-  # get 'carts/index'
-  # get 'events/new'
-  # get 'events/show'
-  # get 'events/edit'
-  # get 'items/new'
-  # get 'items/show'
-  # get 'items/index'
-  # get 'items/edit'
-  # get 'artists/new'
-  # get 'artists/show'
-  # get 'artists/index'
-  # get 'artists/edit'
-  # get 'users/show'
-  # get 'users/index'
-  # get 'users/edit'
 
 end

@@ -1,0 +1,5 @@
+<h3>レーベル追加</h3>
+<%= form_for(@label) do |f| %>
+  <%= f.text_field :name, placeholder:"レーベル名" %>
+  <%= f.submit "送信" %>
+<% end %>
