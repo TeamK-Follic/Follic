@@ -1,26 +1,42 @@
-<h3>受注ステータス</h3>
-
-<div class="puchase-day-member-tag">
-	<%= @current_user.cart.updated_at %>/<%= @current_user.name %>
-</div>
-
-<div class="satus-field">
-	<!-- ステータス enum -->
-</div>
-<div class="">
-	<%= @item.name %>
-	<%= @cart.amount %>
-</div>
-
-<div class="">
-	<%= @payment.name %>
-</div>
-
-<div class="destination-tag">
-	<p>送付先</p>
-</div>
-<div class="">
-	<%= @user.address %>
-</div>
-
-<%= link_to "ステータスの変更", histories_path, class: 'btn btn-default' %>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<h3>受注ステータス</h3>
+	<div>
+		<div><%= @history.creared_at %>/<%= @history.user_id %></div>
+		<%= form_for(@history) do |f| %>
+		<!-- ステータスのラジオボタン -->
+		<div>
+			<table>
+        		<% @history.cart_history.item.each do |cart_historise_items| %>
+	    			<tr><%= cart_history.item :title %></tr>
+	    			<tr><%= cart_history.item :amount %></tr>
+	    			<tr><%= cart_history.item :price %></tr><!-- 単価は、非表示? -->
+	    			<!-- 小計の計算 -->
+	    			<tr><p>小計</p><% sub_total = cart_history.item :amount * cart_history.item :price %><%= sub_total %></tr>
+        		<% end %>
+        	</table>
+        	<div>
+        		<table>
+        			<tr>お買い物合計金額（税込）</tr>
+        			<tr><% sub_total.inject(:+) %></tr>
+        		</table>
+        		<%= @history.payment_id %>
+        	</div>
+    		<div>
+    			<table>
+    				<th>送付先</th>
+    				<th><%= @history.address %></th>
+    			</table>
+    		</div>
+		</div>
+		<%= f.submit "ステータス更新" class:"d-btn" %>
+		<% end %>
+	</div>
+</body>
+</html>
