@@ -1,10 +1,10 @@
 class CartsController < ApplicationController
   def index
-  	@carts = current_user.cart.all
+  	@carts = current_user.carts.all
   end
 
   def confirm
-    @carts = current_user.cart.all
+    @carts = current_user.carts.all
   end
 
   def create
