@@ -1,8 +1,9 @@
 <h3>商品情報の追加</h3>
 
 
-<%= form_for(@item) do |f| %>
+<%= form_for[@artist,@item] do |f| %>
   <p>アーティスト名 <%= @artist.name %></p>
+  <p><%= f.radio_button :type_id, 1 %>アルバム <%= f.radio_button :type_id, 2 %>シングル</p>
   <p>アルバム・シングル名 <%= f.text_field :title %></p>
   <p>値段 <%= f.text_field :price %></p>
   <p>レーベル名 <%= f.collection_select :label_id, Label.all, :id, :name %></p>
