@@ -1,6 +1,17 @@
 <h3>アーティスト詳細</h3>
 
 <p><%= @artist.name %></p>
+<% if user_signed_in? %>
+  <% if @artist.followed_by?(current_user) %>
+    <%= link_to artist_following_artists_path(@artist), method: :delete do %>
+      <span class="d-btn">フォローを外す</span>
+    <% end %>
+  <% else %>
+    <%= link_to artist_following_artists_path(@artist), method: :post do %>
+      <span class="d-btn">フォローする</span>
+    <% end %>
+  <% end %>
+<% end %>
 <p><%= attachment_image_tag @artist, :image, :fill, 300, 300 %></p>
 <p><%= @artist.intro %></p>
 
@@ -20,7 +31,7 @@
 <h4>イベント情報</h4>
 <p><%= link_to 'イベント追加', new_event_path(@artist.id) %></p>
 
-<table>
+<table class="table">
   <% @events.each do |event| %>
     <tr>
       <td><%= event.datetime %></td>

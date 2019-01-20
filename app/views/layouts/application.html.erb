@@ -55,7 +55,7 @@
        </div>
       </div>
 
-      <% if manager_signed_in? %>
+      <% elsif manager_signed_in? %>
       <div class="nav">
         <div class="nav-item">
           <%= link_to(items_path, class:'nav-link') do %>
@@ -90,7 +90,7 @@
        <div class="nav-item">
           <%= link_to(users_path, class:'nav-link') do %>
           <i class="far fa-address-card"></i><p>会員一覧</p>
-        <% end %>
+          <% end %>
        </div>
       </div>
 
