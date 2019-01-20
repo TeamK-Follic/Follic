@@ -1,24 +1,24 @@
 class DiscsController < ApplicationController
    def create
-	disc = Disc.new(disc_params)
-	disc.save
-	redirect_to
+   	disc = Disc.new(disc_params)
+   	disc.save
    end
 
    def update
-	disc = Disc.find(disc_params)
-	disc.update
-	redirect_to discs_path
+   	disc = Disc.find(disc_params)
+   	disc.update
    end
 
    def destroy
-	disc = Disc.find(params[:id])
-	disc.destroy
-	redirect_to
+   	disc = Disc.find(params[:id])
+   	disc.destroy
    end
 
    private
+
    def disc_params
-   params.require(:disc).permit(:item_id, :name)
+      params.require(:disc).permit(:item_id, :name,
+         musics_attributes: [:id, :disc_id, :track_number, :name, :_destroy]
+      )
    end
 end

@@ -10,13 +10,13 @@ class LabelsController < ApplicationController
   def create
     label = Label.new(label_params)
     label.save
-    redirect_to labels_index_path
+    redirect_to labels_path
   end
 
   def destroy
     label = Label.find(params[:id])
     label.destroy
-    redirect_to labels_index_path
+    redirect_to labels_path
   end
 
   private
