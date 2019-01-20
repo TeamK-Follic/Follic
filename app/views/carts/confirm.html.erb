@@ -1,2 +1,45 @@
-<h1>Carts#confirm</h1>
-<p>Find me in app/views/carts/confirm.html.erb</p>
+<h3>カート内容確認</h3>
+
+<div class="cart-item-tag">
+  <p>カート内の商品</p>
+</div>
+
+<div class="cart-area clearfix">
+ <% @carts.each do |cart| %>
+  <div class="cart_box">
+  	<%= cart.attachment_tag :image %>
+  </div>
+  <div class="cart-box">
+  	<%= cart.title %>
+    <%= cart.artist :name %>
+  </div>
+  <div class="cart-box">
+  	<%= form_for(cart) do |f| %>
+  		<p>数量</p><%= cart.amount %>
+  		<p>単価（税込）</p><%= cart.item :price %>
+
+  	<% end %>
+  </div>
+ <% end %>
+
+ <div class="total-price">
+   <!-- お買い物合計額 -->  
+ </div>
+</div>
+
+<div class="destination-tag">送付先</div>
+<div class="address-box">
+  <%= current_user.address %>
+  <%= link_to "住所を変更する方は\nマイページから編集をお願いします", user_path(user.id), class: 'btn btn-default' %>
+</div>
+<div class="payment-select-box">
+  <!-- 支払方法　enum -->
+</div>
+<div>
+  <p class="confirm-character">
+    以上の内容で購入します。<br>よろしければ「購入」、<br>内容を変更する場合は「カートに戻る」を<br>クリックしてください。
+  </p>
+</div>
+
+<%= link_to "カートに戻る",carts_path, class: "d-inline bg-primary" %>
+<%= link_to "購入",histories_path, class: "d-inline bg-primary" %>

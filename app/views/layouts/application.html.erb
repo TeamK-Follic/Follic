@@ -55,6 +55,45 @@
        </div>
       </div>
 
+      <% elsif manager_signed_in? %>
+      <div class="nav">
+        <div class="nav-item">
+          <%= link_to(items_path, class:'nav-link') do %>
+            <i class="glyphicon glyphicon-cd"></i><p>CD</p>
+          <% end %>
+        </div>
+
+        <div class="nav-item">
+          <%= link_to(artists_path, class:'nav-link') do %>
+            <i class="fas fa-users"></i><p>アーティスト</p>
+          <% end %>
+        </div>
+
+        <!-- 非表示 -->
+        <div class="nav-item">
+          <a class="nav-link" href="/carts">
+            <i></i><p></p>
+          </a>
+        </div>
+
+        <div class="nav-item">
+          <%= link_to "ログアウト", destroy_manager_session_path, method: :delete %>
+        </div>
+
+       <div class="nav-item">
+         <%= link_to(histories_path, class:'nav-link') do %>
+          <i class="far fa-file-alt"></i><p>受注一覧</p>
+         <% end %>
+       </div>
+
+
+       <div class="nav-item">
+          <%= link_to(users_path, class:'nav-link') do %>
+          <i class="far fa-address-card"></i><p>会員一覧</p>
+          <% end %>
+       </div>
+      </div>
+
       <% else %>
       <div class="nav">
         <div class="nav-item">

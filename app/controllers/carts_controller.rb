@@ -1,12 +1,11 @@
 class CartsController < ApplicationController
   def index
-  	@carts = Cart.all
-    @carts = Cart.page(params[:page]).per(10)
+  	@carts = current_user.carts.all
+    @cart = Cart.new
   end
 
-
   def confirm
-    carts = Cart.all
+    @carts = current_user.carts.all
   end
 
   def create

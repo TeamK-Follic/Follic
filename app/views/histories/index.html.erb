@@ -1,0 +1,33 @@
+<h3>購入履歴</h3>
+
+<div class="purchase-day-tag">
+	<p>購入日時</p>
+</div>
+
+<% @histories.each do |history| %>
+	<!-- ステータス -->
+	<div class="purchase-area">
+
+		<% history.item.each do |h| %>
+			<table class="inline-table">
+				<tbody>
+					<tr>
+						<td><%= h.item.title %></td>
+						<td><%= h.artist.name %></td>
+						<td><%= h.cart.amount %></td>
+					</tr>
+				</tbody>
+			</table>
+		<% end %>
+
+		<div class="total-price">
+			
+		</div>
+		<div class="payment-method">
+			<%= payment.name %>
+		</div>
+		<div class="user-address">
+			<%= user.address %>
+		</div>
+	</div>
+<% end %>
