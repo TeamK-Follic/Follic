@@ -7,7 +7,7 @@
   <p>アルバム・シングル名 <%= f.text_field :title %></p>
   <p>値段 <%= f.text_field :price %></p>
   <p>レーベル名 <%= f.collection_select :label_id, Label.all, :id, :name %></p>
-  <p>ジャンル <%= f.select :genre_id, Item.genre_ids.keys.to_a, {} %></p>
+  <p>ジャンル <%= f.collection_select :genre_id, Genre.all, :id, :name %></p>
 
   <p>ディスク</p>
   <%= f.nested_fields_for :discs do |ff| %>

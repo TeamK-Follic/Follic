@@ -1,7 +1,5 @@
 class Item < ApplicationRecord
 
-  enum genre_id: [:jpop, :kpop, :yougaku, :HARDCORE]
-
   belongs_to :artist
   belongs_to :type
   belongs_to :genre

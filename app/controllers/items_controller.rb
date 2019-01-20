@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @cart = Cart.new
   end
 
   def index
@@ -20,11 +21,9 @@ class ItemsController < ApplicationController
   def create
   	artist = Artist.find(params[:artist_id])
     item = artist.items.new(item_params)
-    genre_id = params[:genre_id].to_s
     item.artist_id = artist.id
-    item.save!
-    # saveにgenre_idを引数として設定できるか？
-    redirect_to items_path
+    item.save
+    redirect_to item_path(item.id)
   end
 
   def update
