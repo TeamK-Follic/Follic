@@ -1,44 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	<h3>マイページ</h3>
+<h3>マイページ</h3>
+<div>
+	<table>
+		<tr>
+			<th><p class="user_item">名前</p></th>
+			<th><%= @user.name %></th>
+		</tr>
+		<tr>
+			<th><p class="user_item">名前（カナ）</p></th>
+			<th><%= @user.name_kana %></th>
+		</tr>
+		<tr>
+			<th><p class="user_item">郵便番号</p></th>
+			<th><%= @user.postal_code %></th>
+		</tr>
+		<tr>
+			<th><p class="user_item">住所</p></th>
+			<th><%= @user.address %></th>
+		</tr>
+		<tr>
+			<th><p class="user_item">電話番号</p></th>
+			<th><%= @user.phone_number %></th>
+		</tr>
+		<tr>
+			<th><p class="user_item">メールアドレス</p></th>
+			<th><%= @user.email %></th>
+		</tr>
+	</table>
 	<div>
-		<table>
-			<tr>
-				<th><p class="user_item">名前</p></th>
-				<th><%= @user.name %></th>
-			</tr>
-			<tr>
-				<th><p class="user_item">名前（カナ）</p></th>
-				<th><%= @user.name_kana %></th>
-			</tr>
-			<tr>
-				<th><p class="user_item">郵便番号</p></th>
-				<th><%= @user.postal_code %></th>
-			</tr>
-			<tr>
-				<th><p class="user_item">住所</p></th>
-				<th><%= @user.address %></th>
-			</tr>
-			<tr>
-				<th><p class="user_item">電話番号</p></th>
-				<th><%= @user.phone_number %></th>
-			</tr>
-			<tr>
-				<th><p class="user_item">メールアドレス</p></th>
-				<th><%= @user.email %></th>
-			</tr>
-		</table>
-		<div>
-			<%= link_to "会員情報の編集", edit_user_path(@user.id) %>
-			<br>
-			<%= link_to "購入履歴", histories_path %>
-		</div>
+		<%= link_to "会員情報の編集", edit_user_path(@user.id) %>
+		<br>
+		<%= link_to "購入履歴", histories_path %>
 	</div>
-</body>
-</html>
+</div>
