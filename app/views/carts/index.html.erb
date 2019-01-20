@@ -7,20 +7,20 @@
 <div class="cart-area clearfix">
  <% @carts.each do |cart| %>
   <div class="cart_box">
-  	<%= cart.attachment_tag :image %>
+    <%= cart.attachment_tag :image %>
   </div>
   <div class="cart-box">
-  	<%= cart.title %>
+    <%= cart.title %>
     <%= cart.artist :name %>
   </div>
   <div class="cart-box">
-  	<%= form_for(cart) do |f| %>
-  		<p>数量</p><%= f.text_field :amount %>
-  		<p>在庫数</p><%= cart.item.count :stock %>
-  		<p>単価（税込）</p><%= cart.item :price %>
+    <%= form_for(cart) do |f| %>
+      <p>数量</p><%= f.text_field :amount %>
+      <p>在庫数</p><%= cart.item.count :stock %>
+      <p>単価（税込）</p><%= cart.item :price %>
 
-  		<%= link_to "カートから削除", carts_path, class: 'btn btn-default', method: :delete  %>
-  	<% end %>
+      <%= link_to "カートから削除", carts_path, class: 'btn btn-default', method: :delete  %>
+    <% end %>
   </div>
  <% end %>
  <div class="update-box">
