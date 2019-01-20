@@ -1,42 +1,54 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	<h3>受注ステータス</h3>
-	<div>
-		<div><%= @history.creared_at %>/<%= @history.user_id %></div>
-		<%= form_for(@history) do |f| %>
-		<!-- ステータスのラジオボタン -->
-		<div>
-			<table>
-        		<% @history.cart_history.item.each do |ch_item| %>
-	    			<tr><%= ch_item.title %></tr>
-	    			<tr><%= ch_item.amount %></tr>
-	    			<tr><%= ch_item.price %></tr><!-- 単価は、非表示? -->
-	    			<!-- 小計の計算 -->
-	    			<tr><p>小計</p><% sub_total = ch_item.amount * ch_item.price %><%= sub_total %></tr>
-        		<% end %>
-        	</table>
-        	<div>
-        		<table>
-        			<tr>お買い物合計金額（税込）</tr>
-        			<tr><% sub_total.inject(:+) %></tr>
-        		</table>
-        		<%= @history.payment_id %>
-        	</div>
-    		<div>
-    			<table>
-    				<th>送付先</th>
-    				<th><%= @history.address %></th>
-    			</table>
-    		</div>
-		</div>
-		<%= f.submit "ステータス更新" class:"d-btn" %>
-		<% end %>
+<h3>受注ステータス</h3>
+<div>
+	<div><%= @history.creared_at %>/<%= @history.user_id %></div>
+	<%= form_for(@history) do |f| %>
+	<!-- ステータスのラジオボタン -->
+	<div class="field">
+	  <div class="radio-status">
+	    <%= f.radio_button :status, :receptionist, checked: "checked" %>
+	    <%= f.label :status, :receptionist %>
+
+	  </div>
+	  <div class="radio-status">
+	    <%= f.radio_button :status, :preparation, checked: "checked" %>
+	    <%= f.label :status, :preparation %>
+
+	  </div>
+	  <div class="radio-status">
+	    <%= f.radio_button :status, :shipped, checked: "checked" %>
+	    <%= f.label :status, :shipped %>
+
+	  </div>
+	  <div class="radio-status">
+	    <%= f.radio_button :status, :cancel, checked: "checked" %>
+	    <%= f.label :status, :cancel %>
+
+	  </div>
 	</div>
-</body>
-</html>
+	<div>
+		<table>
+       		<% @history.cart_history.item.each do |ch_item| %>
+    			<tr><%= ch_item.title %></tr>
+    			<tr><%= ch_item.amount %></tr>
+    			<tr><%= ch_item.price %></tr><!-- 単価は、非表示? -->
+    			<!-- 小計の計算 -->
+    			<tr><p>小計</p><% sub_total = ch_item.amount * ch_item.price %><%= sub_total %></tr>
+       		<% end %>
+       	</table>
+       	<div>
+       		<table>
+       			<tr>お買い物合計金額（税込）</tr>
+       			<tr><% sub_total.inject(:+) %></tr>
+       		</table>
+       		<%= @history.payment_id %>
+       	</div>
+   		<div>
+   			<table>
+   				<th>送付先</th>
+   				<th><%= @history.address %></th>
+   			</table>
+   		</div>
+	</div>
+	<%= f.submit "ステータス更新" class:"d-btn" %>
+	<% end %>
+</div>
