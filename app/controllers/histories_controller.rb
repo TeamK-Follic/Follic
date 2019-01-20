@@ -1,10 +1,16 @@
 class HistoriesController < ApplicationController
   def show
-    @history = current_user.histories.find(params[:id])
+    @history = histories.find(params[:id])
   end
 
   def index
-    @histories = current_user.histories.all
+    if current_manager_sigh_in?
+      @histories = histories.all
+    elsif current_user_sigh_in?
+      @histories = current_user.histories.all
+    else
+      redirect_to users_about_path
+    end
   end
 
   def create

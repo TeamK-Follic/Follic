@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   devise_for :managers
   devise_for :users
 
+
+
+
   resources :users, :only => [:show, :index, :edit, :update]
   resources :artists do
     resource :following_artists, only: [:create, :destroy]
