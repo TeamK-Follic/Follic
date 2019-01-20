@@ -1,4 +1,7 @@
 class Item < ApplicationRecord
+
+  enum genre_id: { jpop: 1, kpop: 2, yougaku: 3, HARDCORE: 4 }
+
   belongs_to :artist
   belongs_to :type
   belongs_to :genre
@@ -9,4 +12,6 @@ class Item < ApplicationRecord
   has_many :discs, dependent: :destroy
 
 	attachment :image
+
+  accepts_nested_attributes_for :discs, allow_destroy: true
 end
