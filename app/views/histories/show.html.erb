@@ -1,16 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title></title>
-	<link rel="stylesheet" href="">
-</head>
-<body>
-	<h3>受注ステータス</h3>
-	<div>
-		<div><%= @history.creared_at %>/<%= @history.user_id %></div>
-		<%= form_for(@history) do |f| %>
-		<!-- ステータスのラジオボタン -->
+<h3>受注ステータス</h3>
+<div>
+	<div><%= @history.creared_at %>/<%= @history.user_id %></div>
+	<%= form_for(@history) do |f| %>
+	<!-- ステータスのラジオボタン -->
+	<div class="field">
+	  <div class="radio-status">
+	    <%= f.radio_button :status, :receptionist, checked: "checked" %>
+	    <%= f.label :status, :receptionist %>
+
+	  </div>
+	  <div class="radio-status">
+	    <%= f.radio_button :status, :preparation, checked: "checked" %>
+	    <%= f.label :status, :preparation %>
+
+	  </div>
+	  <div class="radio-status">
+	    <%= f.radio_button :status, :shipped, checked: "checked" %>
+	    <%= f.label :status, :shipped %>
+
+	  </div>
+	  <div class="radio-status">
+	    <%= f.radio_button :status, :cancel, checked: "checked" %>
+	    <%= f.label :status, :cancel %>
+
+	  </div>
+	</div>
 		<div>
 			<table>
         		<% @cart_histories.each do |ch_item| %>
@@ -35,8 +49,6 @@
     			</table>
     		</div>
 		</div>
-		<%= f.submit "ステータス更新" class:"d-btn" %>
-		<% end %>
-	</div>
-</body>
-</html>
+	  <%= f.submit "ステータス更新" class:"d-btn" %>
+	<% end %>
+</div>
