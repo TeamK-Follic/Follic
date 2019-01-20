@@ -1,2 +1,32 @@
-<h1>History#index</h1>
-<p>Find me in app/views/history/index.html.erb</p>
+<h3>購入履歴</h3>
+
+<div class="purchase-day-tag">
+	<p>購入日時</p>
+</div>
+
+<% @histories.each do |history| %>
+	<!-- ステータス -->
+	<div class="purchase-area">
+		<% users.each do |i| %>
+			<table class="inline-table">
+				<tbody>
+					<tr>
+						<td><%=  %></td>
+						<td><%= i.artist.name %></td>
+						<td><%= i.cart.amount %></td>
+						<td><%= %></td>
+					</tr>
+				</tbody>
+			</table>
+		<% end %>
+		<div class="total-price">
+			
+		</div>
+		<div class="payment-method">
+			
+		</div>
+		<div class="user-address">
+			<%= user.address %>
+		</div>
+	</div>
+<% end %>

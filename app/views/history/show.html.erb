@@ -1,2 +1,26 @@
-<h1>History#show</h1>
-<p>Find me in app/views/history/show.html.erb</p>
+<h3>受注ステータス</h3>
+
+<div class="puchase-day-member-tag">
+	<%= @current_user.cart.updated_at %>/<%= @current_user.name %>
+</div>
+
+<div class="satus-field">
+	<!-- ステータス enum -->
+</div>
+<div class="">
+	<%= @item.name %>
+	<%= @cart.amount %>
+</div>
+
+<div class="">
+	<%= @payment.name %>
+</div>
+
+<div class="destination-tag">
+	<p>送付先</p>
+</div>
+<div class="">
+	<%= @user.address %>
+</div>
+
+<%= link_to "ステータスの変更", histories_path, class: 'btn btn-default' %>

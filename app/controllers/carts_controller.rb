@@ -1,11 +1,15 @@
 class CartsController < ApplicationController
   def index
   	@carts = Cart.all
-    @carts = Cart.page(params[:page]).per(10)
+    # @carts = Cart.page(params[:page]).per(10)
+    @artist = Artist.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def confirm
-    carts = Cart.all
+    @cart = current_user.cart.find(params[:id])
+    @artist = Artist.find(params[:id])
+    @item = Item.find(params[:id])
   end
 
   def create
@@ -23,7 +27,7 @@ class CartsController < ApplicationController
   def destroy
   	cart = Cart.find(params[:id])
     cart.destroy
-    redirect_to cart_path(params[:id])
+    redirect_to carts_path
   end
 
   private

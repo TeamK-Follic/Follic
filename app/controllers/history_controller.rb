@@ -1,22 +1,25 @@
 class HistoryController < ApplicationController
   def show
     @history = History.find(params[:id])
+    @user = current_user
   end
 
   def index
     @histories = History.all
+    @artist = artist.find(params[:id])
+    @cart = current_user.cart.find(params[:id])
   end
 
   def create
   	history = History.new
     history.save
-    redirect_to history_index_path
+    redirect_to histories_path
   end
 
   def update
   	history = History.find(params[:id])
     history.update
-    redirect_to history_index_path
+    redirect_to histories_path
   end
 
   private
