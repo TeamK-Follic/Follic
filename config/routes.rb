@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :users, :only => [:show, :index, :edit, :update]
   resources :artists do
     resource :following_artists, only: [:create, :destroy]
+    resource :items, only: [:create, :destroy]
+    resource :events, only: [:create, :destroy]
   end
   resources :items, :only => [:show, :index, :edit, :create, :update, :destroy]
   resources :events, :only => [:show, :edit, :create, :update, :destroy]
