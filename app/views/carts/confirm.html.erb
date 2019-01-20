@@ -29,8 +29,8 @@
 
 <div class="destination-tag">送付先</div>
 <div class="address-box">
-  <%= @cart.user :address %>
-  <%= link_to "住所を変更する方は\nマイページから編集をお願いします", user_path(user.id), class: 'btn btn-default' %>
+  <%= current_user.address %>
+  <%= link_to "住所を変更する方は\nマイページから編集をお願いします", user_path(current_user), class: 'btn btn-default' %>
 </div>
 <div class="payment-select-box">
   <!-- 支払方法　enum -->
@@ -41,5 +41,5 @@
   </p>
 </div>
 
-<%= link_to "カートに戻る",carts_path, class: "d-inline bg-primary" %>
-<%= link_to "購入",histories_path, class: "d-inline bg-primary" %>
+<%= link_to "カートに戻る",carts_path, class: "d-inline bg-default" %>
+<%= link_to "購入",histories_path, class: "d-inline bg-default" %>

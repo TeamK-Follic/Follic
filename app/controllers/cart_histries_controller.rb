@@ -5,7 +5,7 @@ class CartHistriesController < ApplicationController
    end
 
    private
-   def cart_params
+   def cart_history_params
    	params.require(:cart_history).permit(:history_id, :item_id, :price, :amount, )
    end
 end

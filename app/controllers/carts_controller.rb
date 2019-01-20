@@ -1,6 +1,12 @@
 class CartsController < ApplicationController
   def index
   	@carts = current_user.carts.all
+    @cart = Cart.new
+  end
+
+  def show
+    @cart_history = current_user.cart_history.find(params[:id])
+    @history = current_user.hitory.find(params[:id])
   end
 
   def confirm
