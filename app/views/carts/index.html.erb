@@ -14,12 +14,12 @@
     <%= cart.artist :name %>
   </div>
   <div class="cart-box">
-  	<%= form_for(@cart) do |f| %>
+  	<%= form_for(cart) do |f| %>
   		<p>数量</p><%= f.text_field :amount %>
   		<p>在庫数</p><%= cart.item.count :stock %>
   		<p>単価（税込）</p><%= cart.item :price %>
 
-  		<%= link_to "カートから削除", cart_path(cart), class: 'btn btn-default', method: :delete  %>
+  		<%= link_to "カートから削除", carts_path, class: 'btn btn-default', method: :delete  %>
   	<% end %>
   </div>
  <% end %>
