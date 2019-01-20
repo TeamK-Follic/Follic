@@ -1,2 +1,14 @@
-<h1>Labels#edit</h1>
-<p>Find me in app/views/labels/edit.html.erb</p>
+<h3>レーベル編集</h3>
+
+
+<table>
+	<tbody>
+		<tr>
+			<%= form_for(@label) do |f| %>
+				<td colspan="3">レーベル名</td>
+				<td><%= f.text_field%></td>
+				<td><%= f.submit "完了", labels_path %></td>
+			<% end %>
+		</tr>
+	</tbody>
+</table>

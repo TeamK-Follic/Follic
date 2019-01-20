@@ -13,7 +13,7 @@
 		<!-- ステータスのラジオボタン -->
 		<div>
 			<table>
-        		<% @history.cart_history.item.each do |ch_item| %>
+        		<% @cart_histories.each do |ch_item| %>
 	    			<tr><%= ch_item.title %></tr>
 	    			<tr><%= ch_item.amount %></tr>
 	    			<tr><%= ch_item.price %></tr><!-- 単価は、非表示? -->
