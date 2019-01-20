@@ -4,10 +4,10 @@ class HistoriesController < ApplicationController
   end
 
   def index
-    if current_manager_sigh_in?
-      @histories = histories.all
-    elsif current_user_sigh_in?
-      @histories = current_user.histories.all
+    if manager_signed_in?
+      @histories = History.all
+    elsif user_signed_in?
+      @histories = current_user.history.all
     else
       redirect_to users_about_path
     end
