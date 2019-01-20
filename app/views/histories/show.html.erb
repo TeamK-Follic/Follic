@@ -13,12 +13,12 @@
 		<!-- ステータスのラジオボタン -->
 		<div>
 			<table>
-        		<% @history.cart_history.item.each do |cart_historise_items| %>
-	    			<tr><%= cart_history.item :title %></tr>
-	    			<tr><%= cart_history.item :amount %></tr>
-	    			<tr><%= cart_history.item :price %></tr><!-- 単価は、非表示? -->
+        		<% @history.cart_history.item.each do |ch_item| %>
+	    			<tr><%= ch_item.title %></tr>
+	    			<tr><%= ch_item.amount %></tr>
+	    			<tr><%= ch_item.price %></tr><!-- 単価は、非表示? -->
 	    			<!-- 小計の計算 -->
-	    			<tr><p>小計</p><% sub_total = cart_history.item :amount * cart_history.item :price %><%= sub_total %></tr>
+	    			<tr><p>小計</p><% sub_total = ch_item.amount * ch_item.price %><%= sub_total %></tr>
         		<% end %>
         	</table>
         	<div>
