@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit(
       :title, :image, :type_id, :artist_id, :genre_id, :label_id, :price, :stock,
       discs_attributes: [:id, :item_id, :name, :_destroy,
-        musics_attributes: [:id, :disc_id, :track_number, :name, :_destroy]
+        musics_attributes: [:id, :disc_id, :name, :_destroy]
       ]
     )
   end
