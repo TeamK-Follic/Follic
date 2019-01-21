@@ -29,13 +29,13 @@ class ItemsController < ApplicationController
   def update
   	item = Item.find(params[:id])
     item.update
-    redirect_to items_show_path
+    redirect_to item_path(params[:id])
   end
 
   def destroy
   	item = Item.find(params[:id])
     item.destroy
-    redirect_to items_index_path
+    redirect_to items_path
   end
 
   private
