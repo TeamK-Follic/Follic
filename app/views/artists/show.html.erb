@@ -1,22 +1,35 @@
 <h3>アーティスト詳細</h3>
 
-<p><%= @artist.name %></p>
-<% if user_signed_in? %>
-  <% if @artist.followed_by?(current_user) %>
-    <%= link_to artist_following_artists_path(@artist), method: :delete do %>
-      <span class="d-btn">フォローを外す</span>
+<div class="artist-title">
+  <span class="artist-name">
+    <%= @artist.name %>
+  </span>
+
+  <% if user_signed_in? %>
+
+    <% if @artist.followed_by?(current_user) %>
+      <%= link_to artist_following_artists_path(@artist), method: :delete do %>
+        <span class="d-btn follow-btn">フォローを外す</span>
+      <% end %>
+
+    <% else %>
+      <%= link_to artist_following_artists_path(@artist), method: :post do %>
+        <span class="d-btn follow-btn">フォローする</span>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= link_to artist_following_artists_path(@artist), method: :post do %>
-      <span class="d-btn">フォローする</span>
-    <% end %>
+
+  <% else manager_signed_in? %>
+      <%= link_to edit_artist_path do %><i class="fas fa-cogs edit-btn"></i><% end %>
   <% end %>
-<% end %>
+</div>
+
 <p><%= attachment_image_tag @artist, :image, :fill, 300, 300 %></p>
 <p><%= @artist.intro %></p>
 
-<h4>CD情報</h4>
-<%= link_to "新規追加", new_item_path(@artist.id), class:"d-btn" %>
+<h4 class="artist-show-item">CD情報
+  <% if manager_signed_in? %>
+    <%= link_to "新規追加", new_item_path(@artist.id), class:"d-btn new-btn" %>
+  <% end %></h4>
 <% @items.each do |item| %>
   <div class="thumbnail-contents">
     <%= attachment_image_tag item, :image, :fill, 100, 100 %>
@@ -29,8 +42,11 @@
   </div>
 <% end %>
 
-<h4>イベント情報</h4>
-<p><%= link_to 'イベント追加', new_event_path(@artist.id) %></p>
+<h4 class="artist-show-item">イベント情報
+  <% if manager_signed_in? %>
+    <%= link_to 'イベント追加', new_event_path(@artist.id), class:"d-btn new-btn" %>
+  <% end %>
+</h4>
 
 <table class="table">
   <% @events.each do |event| %>
