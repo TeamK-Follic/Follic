@@ -21,8 +21,8 @@
 		<p class="music_list">収録曲</p>
 		<% @item.discs.each do |disc| %>
 		  <p><%= disc.name %></p>
-			<% disc.musics.each_with_index(1) do |music, i| %>
-			  <p><%= "#{i}.#{music.name}" %></p>
+			<% disc.musics.each_with_index do |music, i| %>
+			  <p><%= "#{i+1}.#{music.name}" %></p>
 			<% end %>
 		<% end %>
 	</div>
