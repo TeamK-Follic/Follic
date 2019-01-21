@@ -1,29 +1,29 @@
 <h3>商品詳細</h3>
 <div>
 	<div>
-		<%= attachment_image_tag @item, :item_image %>
-		<%= @item.label_id %>
+		<%= attachment_image_tag @item, :image %>
+		<p><%= @item.label.name %></p>
 	</div>
 	<div>
-		<%= @item.type_id %>
+		<%= @item.type.name %>
 		<%= @item.title %>
-		<%= @item.artist_id %>
-		<%= @item.genre_id %>
+		<%= @item.artist.name %>
+		<%= @item.genre.name %>
 	</div>
 	<div>
 		<%= @item.price %>
-		<%- from_for(@cart) do |f| %>
+		<%= form_for(@cart) do |f| %>
 			<%= f.text_field :amount %>
 			<%= f.submit 'カートに入れる' %>
 		<% end %>
 	</div>
 	<div>
-		<%= @disc.each do |disc| %>
+		<%= @item.discs.each do |disc| %>
 		  <p class="music_list">収録曲</p>
-		  <%= disc.name %>
-			  <%= @music.each do |music| %>
-			    <%= music.name %>
-			  <% end %>
+		  <p><%= disc.name %></p>
+			<%= disc.musics.each do |music| %>
+			  <p><%= music.name %></p>
+			<% end %>
 		<% end %>
 	</div>
 </div>

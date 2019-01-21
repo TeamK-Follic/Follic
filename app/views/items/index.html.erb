@@ -12,10 +12,9 @@
 <div>
   <% @search_items.each do |item| %>
     <div class="thumbnail-contents">
-      <%= attachment_image_tag item, :image %>
-      <%= item.artist.name %>
-      <%= item.name %>
-      <%= item.price %>
+      <%= attachment_image_tag item, :image, :fill ,150, 150 %>
+      <p><%= item.artist.name %></p>
+      <p><%= item.title %> / <%= item.price %>円</p>
       <% if item.stock == 0 %>
         <span>売切</span>
       <% end %>

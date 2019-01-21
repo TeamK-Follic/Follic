@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
+    @cart = Cart.new
   end
 
   def index
@@ -18,9 +19,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	item = Item.new(item_params)
+  	artist = Artist.find(params[:artist_id])
+    item = artist.items.new(item_params)
+    item.artist_id = artist.id
     item.save
-    redirect_to artists_show_path
+    redirect_to item_path(item.id)
   end
 
   def update
@@ -38,8 +41,10 @@ class ItemsController < ApplicationController
   private
   def item_params
     params.require(:item).permit(
-      :title, :image_id, :type_id, :artist_id, :genre_id, :label_id, :price, :stock,
-      discs_attributes: [:id, :item_id, :name, :_destroy]
+      :title, :image, :type_id, :artist_id, :genre_id, :label_id, :price, :stock,
+      discs_attributes: [:id, :item_id, :name, :_destroy,
+        musics_attributes: [:id, :disc_id, :track_number, :name, :_destroy]
+      ]
     )
   end
 end

@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :users, :only => [:show, :index, :edit, :update]
   resources :artists do
     resource :following_artists, only: [:create, :destroy]
+    resource :items, only: [:create, :destroy]
+    resource :events, only: [:create, :destroy]
   end
   resources :items, :only => [:show, :index, :edit, :create, :update, :destroy]
   resources :events, :only => [:show, :edit, :create, :update, :destroy]
@@ -26,6 +28,7 @@ Rails.application.routes.draw do
   resources :histories, :only => [:show, :index, :create, :update]
   resources :following_artists, :only => [:index, :create, :destroy]
   resources :labels, :only => [:index, :edit, :new, :create, :update, :destroy]
+  resources :genres, :only => [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
