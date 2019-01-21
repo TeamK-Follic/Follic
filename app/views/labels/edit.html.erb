@@ -6,8 +6,8 @@
 		<tr>
 			<%= form_for(@label) do |f| %>
 				<td colspan="3">レーベル名</td>
-				<td><%= f.text_field%></td>
-				<td><%= f.submit "完了", labels_path %></td>
+				<td><%= f.text_field :name %></td>
+				<td><%= f.submit "完了" %></td>
 			<% end %>
 		</tr>
 	</tbody>
