@@ -1,10 +1,12 @@
 <h3>アーティストプロフィール編集</h3>
 
 <div>
-	<% form_for(@artist) do |f| %>
+	<%= form_for(@artist) do |f| %>
 	<%= f.text_field :name %>
 	<%= f.attachment_field :image %>
 	<%= f.text_area :intro %>
+	<div>
+		<%= f.submit '更新', class:"d-btn" %>
+	</div>
+	<% end %>
 </div>
-
-

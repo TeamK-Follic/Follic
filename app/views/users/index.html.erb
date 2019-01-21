@@ -1,2 +1,20 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h3>会員一覧</h3>
+
+<!-- 検索バー 未作成 -->
+
+<div>
+	<table>
+		<tr>
+			<th>名前</th>
+			<th>名前（カナ）</th>
+		</tr>
+		<% @users.each do |user| %>
+		<tr>
+			<th><%= user.name %></th>
+			<th><%= user.name_kana %></th>
+		</tr>
+		<% end %>
+	</table>
+</div>
+
+<%= paginate @users %>
