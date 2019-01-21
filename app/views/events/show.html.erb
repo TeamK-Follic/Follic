@@ -1,4 +1,9 @@
-<h3>イベント詳細</h3>
+<h3>イベント詳細
+	<% if manager_signed_in? %>
+      <%= link_to edit_event_path do %><i class="fas fa-cogs edit-btn"></i><% end %>
+    <% end %>
+</h3>
+
   <div>
     <%= attachment_image_tag @artist, :image, :fill, 300, 300 %>
   </div>

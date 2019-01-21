@@ -1,6 +1,11 @@
 <h3>会員一覧</h3>
 
-<!-- 検索バー 未作成 -->
+<div class="searchbox">
+	<%= search_form_for @search do |f| %>
+	<%= f.text_field :name_cont ,placeholder: '会員名' %>
+	<%= f.submit ("検索") , class: 'd-btn' %>
+	<% end %>
+</div>
 
 <div>
 	<table>
@@ -8,13 +13,13 @@
 			<th>名前</th>
 			<th>名前（カナ）</th>
 		</tr>
-		<% @users.each do |user| %>
+		<% @search_users.each do |user| %>
 		<tr>
-			<th><%= user.name %></th>
+			<th><%= link_to user.name, user_path(user.id) %></th>
 			<th><%= user.name_kana %></th>
 		</tr>
 		<% end %>
 	</table>
 </div>
 
-<%= paginate @users %>
+<%= paginate @search_users %>

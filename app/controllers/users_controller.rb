@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.page(params[:page])
+    @search = User.ransack(params[:q])
+    @search_users = @search.result.page(params[:page])
   end
 
   def edit

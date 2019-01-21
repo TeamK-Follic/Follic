@@ -1,4 +1,8 @@
-<h3>商品詳細</h3>
+<h3>商品詳細
+	<% if manager_signed_in? %>
+      <%= link_to edit_item_path do %><i class="fas fa-cogs edit-btn"></i><% end %>
+    <% end %>
+</h3>
 <div>
 	<div>
 		<%= attachment_image_tag @item, :image %>
