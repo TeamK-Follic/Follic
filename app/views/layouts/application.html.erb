@@ -15,55 +15,59 @@
 
   <body>
     <header class="clearfix">
-      <h2>follic</h2>
       <% if user_signed_in? %>
 
       <nav>
         <ul>
           <li>
             <div class="nav-item">
-             <%= link_to(items_path, class:'nav-link') do %>
+             <%= link_to items_path do %>
               <i class="glyphicon glyphicon-cd"></i><p>CD</p>
              <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
-              <%= link_to(artists_path, class:'nav-link') do %>
+              <%= link_to artists_path do %>
                <i class="fas fa-users"></i><p>アーティスト</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
-             <a class="nav-link" href="/carts">
-              <i class="fas fa-cart-plus"></i><p>カート</p>
-             </a>
+              <%= link_to carts_path do %>
+               <i class="fas fa-cart-plus"></i><p>カート</p>
+             <% end %>
             </div>
-         </li>
-         <li>
+          </li>
+          <li>
+            <div class="nav-item-logo">
+              <%= link_to items_path do %>
+                <p>follic</p>
+              <% end %>
+            </div>
+          </li>
+          <li>
            <div class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-           </div>
-         </li>
-         <li>
+            <%= link_to following_artists_path do %>
+              <i class="fas fa-user-check"></i><p>フォローアーティスト</p>
+            <% end %>
+          </div>
+          </li>
+          <li>
            <div class="nav-item">
-            <%= link_to(user_path(current_user.id), class:'nav-link') do %>
+            <%= link_to user_path(current_user.id)  do %>
               <i class="fas fa-user-tag"></i><p>マイページ</p>
             <% end %>
            </div>
-         </li>
-         <li>
+          </li>
+          <li>
            <div class="nav-item">
-            <a class="nav-link" href="/following_artists">
-              <i class="fas fa-user-check"></i><p>フォローアーティスト</p>
-            </a>
-          </div>
-         </li>
-         <li></li>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+           </div>
+          </li>
         </ul>
       </nav>
-
         
 
       <!-- 管理者権限 -->
@@ -72,22 +76,42 @@
       <nav>
         <ul>
           <li>
-            <div>
-              <%= link_to(items_path, class:'nav-link') do %>
+            <div class= "nav-item">
+              <%= link_to items_path do %>
                 <i class="glyphicon glyphicon-cd"></i><p>CD</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
-              <%= link_to(artists_path, class:'nav-link') do %>
+              <%= link_to artists_path do %>
                 <i class="fas fa-users"></i><p>アーティスト</p>
               <% end %>
             </div>
           </li>
           <li>
+            <div>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item-logo">
+              <%= link_to items_path do %>
+                <p>follic</p>
+              <% end %>
+            </div>
+          </li>
+          <li>
             <div class="nav-item">
-              <a class="nav-link" href="/carts"></a>
+              <%= link_to users_path do %>
+                <i class="far fa-address-card"></i><p>会員一覧</p>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item">
+              <%= link_to histories_path do %>
+                <i class="far fa-file-alt"></i><p>受注一覧</p>
+              <% end %>
             </div>
           </li>
           <li>
@@ -95,23 +119,8 @@
               <%= link_to "ログアウト", destroy_manager_session_path, method: :delete %>
             </div>
           </li>
-          <li>
-            <div class="nav-item">
-              <%= link_to(histories_path, class:'nav-link') do %>
-                <i class="far fa-file-alt"></i><p>受注一覧</p>
-              <% end %>
-            </div>
-          </li>
-          <li>
-            <div class="nav-item">
-              <%= link_to(users_path, class:'nav-link') do %>
-                <i class="far fa-address-card"></i><p>会員一覧</p>
-              <% end %>
-            </div>
-          </li>
         </ul>
       </nav>
-        
       <!-- 未ログインユーザー -->
       <% else %>
 
@@ -119,42 +128,49 @@
         <ul>
           <li>
             <div class="nav-item">
-              <%= link_to(items_path, class:'nav-link') do %>
+              <%= link_to items_path do %>
                 <i class="glyphicon glyphicon-cd"></i><p>CD</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
-              <%= link_to(artists_path, class:'nav-link') do %>
+              <%= link_to artists_path do %>
                 <i class="fas fa-users"></i><p>アーティスト</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
-              <a class="nav-link" href="/users/about">
+              <%= link_to users_about_path  do %>
                 <i class="fas fa-question-circle"></i><p>follicとは</p>
-              </a>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item-logo">
+              <%= link_to items_path do %>
+                <p>follic</p>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item">
+              <%= link_to new_user_session_path do %>
+                <i class="fas fa-sign-in-alt"></i><p>ログイン</p>
+              <% end %>
+            </div>
+          </li>
+          <li>
+            <div class="nav-item">
+              <%= link_to new_user_registration_path do %>
+                <i class="fas fa-user-plus"></i><p>新規登録</p>
+              <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            </div>
-          </li>
-          <li>
-            <div class="nav-item">
-              <a class="nav-link" href="/users/sign_up">
-                <i class="fas fa-user-plus"></i><p>新規登録</p>
-              </a>
-            </div>
-          </li>
-          <li>
-            <div class="nav-item">
-              <a class="nav-link" href="/users/sign_in">
-                <i class="fas fa-sign-in-alt"></i><p>ログイン</p>
-              </a>
             </div>
           </li>
         </ul>
