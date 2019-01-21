@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.page(params[:gage])
+    @users = User.all.page(params[:page])
   end
 
   def edit
