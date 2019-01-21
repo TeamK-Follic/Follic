@@ -31,25 +31,22 @@
 header {
 	width: 100%;
 	background-color: #FF9966;
-	height: 70px;
+	height: 80px;
 	margin: 0  auto;
 	text-align: center;
 }
- /*li {
-	display: inline-block;
-	
-}*/
 
 li {
 	list-style: none;
-	padding: 0 20px;
+	display: inline-block;
+	padding: 20px 60px;
 }
-
-li:nth-child(-n + 2){
-	float: left;
+p {
+	font-size: 14px;
+	font-family:"Helvetica Neue";
 }
-li:nth-child(n + 4){
-	float: right;
+.nav-item-logo p {
+	font-size: 35px;
 }
 h3 {
 	background-color: #FFFFCC;
