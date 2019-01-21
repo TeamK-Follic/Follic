@@ -17,6 +17,12 @@ class LabelsController < ApplicationController
     redirect_to labels_path
   end
 
+  def update
+    label = Label.find(params[:id])
+    label.update(label_params)
+    redirect_to labels_path
+  end
+
   def destroy
     label = Label.find(params[:id])
     label.destroy
