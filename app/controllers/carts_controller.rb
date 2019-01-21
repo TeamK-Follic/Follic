@@ -1,20 +1,23 @@
 class CartsController < ApplicationController
   def index
-    @carts = current_user.carts.all
+    @carts = User.find(current_user.id).carts.all
     @cart = Cart.new
   end
 
   def show
-    @cart_history = current_user.cart_history.find(params[:id])
+    @cart_history = User.find(current_user.id).cart_history.find(params[:id])
     @history = current_user.hitory.find(params[:id])
   end
 
   def confirm
-    @carts = current_user.carts.all
+    @carts = User.find(current_user.id).carts.all
   end
 
   def create
-    cart = Cart.new(cart_params)
+    item = Item.find(params[:item_id])
+    cart = item.carts.new(cart_params)
+    cart.item_id = item.id
+    cart.user_id = current_user.id
     cart.save
     redirect_to carts_path
   end

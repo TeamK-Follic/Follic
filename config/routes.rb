@@ -19,7 +19,9 @@ Rails.application.routes.draw do
     resource :items, only: [:create, :destroy]
     resource :events, only: [:create, :destroy]
   end
-  resources :items, :only => [:show, :index, :edit, :create, :update, :destroy]
+  resources :items, :only => [:show, :index, :edit, :create, :update, :destroy] do
+    resource :carts, only: [:create, :destroy]
+  end
   resources :events, :only => [:show, :edit, :create, :update, :destroy]
   resources :discs, :only => [:create, :update, :destroy]
   resources :musics, :only => [:create, :update, :destroy]

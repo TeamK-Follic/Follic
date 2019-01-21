@@ -16,7 +16,7 @@
 	</div>
 	<div>
 		<%= @item.price %>
-		<%= form_for(@cart) do |f| %>
+		<%= form_for [@item, @cart] do |f| %>
 			<%= f.text_field :amount %>
 			<%= f.submit 'カートに入れる' %>
 		<% end %>
