@@ -25,9 +25,9 @@ class ArtistsController < ApplicationController
   end
 
   def update
-  	artist = Artsit.find(params[:id])
+  	artist = Artist.find(params[:id])
   	artist.update(artist_params)
-  	redirect_to artists_show_path
+  	redirect_to artist_path
   end
 
   def destroy
