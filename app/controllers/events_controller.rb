@@ -14,9 +14,11 @@ class EventsController < ApplicationController
   end
 
   def create
-  	@event = Event.new(event_params)
-    @event.save
-    redirect_to event_path(@event.id)
+    artist = Artist.find(params[:artist_id])
+  	event.artist_id = artist.id
+    event = artist.events.new(event_params)
+    event.save
+    redirect_to event_path(event.id)
   end
 
   def update
