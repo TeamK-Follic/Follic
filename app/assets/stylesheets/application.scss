@@ -28,6 +28,19 @@
 	display: block;
 	clear: both;
 }
+
+.notice {
+  background-color: #58ACFA;
+  color: white;
+  text-align: center;
+}
+
+.alert {
+  background-color: red;
+  color: white;
+  text-align: center;
+}
+
 header {
 	width: 100%;
 	background-color: #FFFFFF;

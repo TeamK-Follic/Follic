@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def udpate
+  def update
   	user = User.find(params[:id])
     user.udpate
     redirect_to users_show_path
