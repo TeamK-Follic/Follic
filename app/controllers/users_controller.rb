@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  # before_action :authenticate_manager!, only: [:index]
+  # before_action :authenticate_user!
   def about
   end
 

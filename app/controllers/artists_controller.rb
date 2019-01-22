@@ -1,4 +1,6 @@
 class ArtistsController < ApplicationController
+  # before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+
   def new
   	@artist = Artist.new
   end

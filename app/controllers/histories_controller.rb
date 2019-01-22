@@ -1,4 +1,5 @@
 class HistoriesController < ApplicationController
+  # before_action :authenticate_manager!, only: [:update, :destroy]
   def show
     @history = histories.find(params[:id])
   end

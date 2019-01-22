@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  # before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+
   def new
     @event = Event.new
     @artist = Artist.find(params[:id])
