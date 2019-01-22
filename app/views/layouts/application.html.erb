@@ -63,7 +63,9 @@
           </li>
           <li>
            <div class="nav-item">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to destroy_user_session_path, method: :delete do %>
+             <i class="fas fa-sign-out-alt"></i><p>ログアウト</p>
+            <% end %>
            </div>
           </li>
         </ul>
@@ -116,7 +118,9 @@
           </li>
           <li>
             <div class="nav-item">
-              <%= link_to "ログアウト", destroy_manager_session_path, method: :delete %>
+              <%= link_to destroy_manager_session_path, method: :delete do %>
+                <i class="fas fa-sign-out-alt"></i><p>ログアウト</p>
+              <% end %>
             </div>
           </li>
         </ul>
@@ -170,7 +174,6 @@
           </li>
           <li>
             <div class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
             </div>
           </li>
         </ul>
