@@ -18,9 +18,11 @@
     <!-- フラッシュメッセージ -->
     <% flash.each do |key, value| %>
       <p>
-        <% if user_signed_in? %><i class="fas fa-cogs edit-btn"></i> <% end %>
-        <%= content_tag(:div, value, class: "#{key}") %>
-        <% if user_signed_in? %> <i class="fas fa-cogs edit-btn"></i><% end %>
+        <% if manager_signed_in? %>
+          <%= content_tag(:div, "[管理者権限]#{value}", class: "#{key}") %>
+        <% else %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
       </p>
     <% end %>
     <!-- フラッシュメッセージ ここまで -->
