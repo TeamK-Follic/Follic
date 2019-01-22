@@ -23,13 +23,13 @@ class ItemsController < ApplicationController
     item = artist.items.new(item_params)
     item.artist_id = artist.id
     item.save
-    redirect_to item_path(item.id)
+    redirect_to item_path(@item)
   end
 
   def update
   	item = Item.find(params[:id])
-    item.update
-    redirect_to item_path(params[:id])
+    item.update(item_params)
+    redirect_to item_path(@item)
   end
 
   def destroy
