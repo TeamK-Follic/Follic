@@ -18,9 +18,13 @@ class UsersController < ApplicationController
   end
 
   def update
-  	user = User.find(params[:id])
-    user.udpate
-    redirect_to users_show_path
+  	@user = User.find(params[:id])
+    if @user.udpate
+      redirect_to user_path(@user.id), notice: '会員情報を編集しました'
+    else
+      flash.now[:alert] = '会員情報の追加に失敗しました'
+      render :edit
+    end
   end
   private
   def user_params
