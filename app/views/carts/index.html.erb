@@ -1,44 +1,45 @@
 <h3>ショッピングカート</h3>
-
-<div class="cart-item-tag">
-  <p>カート内の商品</p>
-</div>
-
-<div>
-<% @carts.each do |cart| %>
-  <div class="cart-area clearfix">
-    <div class="cart_box">
-      <%= attachment_image_tag cart.item , :image, :fill, 60, 60 %>
-    </div>
-    <div class="cart-box">
-      <p><%= cart.item.title %> / <%= cart.item.artist.name %></p>
-    </div>
-
-
-  <%= form_for(cart) do |f| %>
-
-    <div class="cart-box">
-      <p>数量 : <%= f.text_field :amount %></p>
-      <p>在庫数 : <%= cart.item.stock %></p>
-      <p>単価（税込）: <%= cart.item.price %> 円</p>
-      <p><%= link_to "カートから削除", cart_path(cart), class: 'btn btn-default', method: :delete %></p>
-    </div>
+<div class="center-block">
+  <div class="cart-item-tag">
+    <p>カート内の商品</p>
   </div>
 
-  <div class="update-box">
-    <%= f.submit "カートの更新",class: 'btn btn-default' %>
-  </div>
+  <div>
+  <% @carts.each do |cart| %>
+    <div class="cart-area clearfix">
+      <div class="cart_box">
+        <%= attachment_image_tag cart.item , :image, :fill, 60, 60 %>
+      </div>
+      <div class="cart-box">
+        <p><%= cart.item.title %> / <%= cart.item.artist.name %></p>
+      </div>
+
+
+    <%= form_for(cart) do |f| %>
+
+      <div class="cart-box">
+        <p>数量 : <%= f.text_field :amount %></p>
+        <p>在庫数 : <%= cart.item.stock %></p>
+        <p>単価（税込）: <%= cart.item.price %> 円</p>
+        <p><%= link_to "カートから削除", cart_path(cart), class: 'btn btn-default', method: :delete %></p>
+      </div>
+    </div>
+
+    <div class="update-box">
+      <%= f.submit "カートの更新",class: 'btn btn-default' %>
+    </div>
+
+    <% end %>
 
   <% end %>
 
-<% end %>
 
+  <div class="total-price">
 
-<div class="total-price">
-   
-</div>
-</div>
+  </div>
+  </div>
 
-<div class="buy-button">
-  <%= link_to "購入手続きへ進む", carts_confirm_path %>
+  <div class="buy-button">
+    <%= link_to "購入手続きへ進む", carts_confirm_path %>
+  </div>
 </div>

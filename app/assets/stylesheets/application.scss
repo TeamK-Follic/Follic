@@ -23,6 +23,10 @@
 	padding: 0;
 	box-sizing: border-box;
 }
+html, body {
+	width: 100%;
+	height: 100%;
+}
 .clearfix::after {
 	content: "";
 	display: block;
@@ -34,6 +38,7 @@ header {
 	height: 80px;
 	margin: 0  auto;
 	text-align: center;
+	top: 0px;
 }
 
 li {
@@ -42,12 +47,16 @@ li {
 	padding: 20px 60px;
 }
 p {
-	font-size: 14px;
+	font-size: 15px;
 	font-family:"Helvetica Neue";
 	color: #428bca;
 }
 i {
 	color: #428bca;
+	font-size: 20px;
+}
+.nav-item-logo {
+
 }
 .nav-item-logo p {
 	font-size: 35px;
