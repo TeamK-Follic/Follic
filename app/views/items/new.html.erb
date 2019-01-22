@@ -5,7 +5,7 @@
   <p>アーティスト名 <%= @artist.name %></p>
   <p><%= f.radio_button :type_id, 1 %>アルバム <%= f.radio_button :type_id, 2 %>シングル</p>
   <p>アルバム・シングル名 <%= f.text_field :title %></p>
-  <p>値段 <%= f.text_field :price %></p>
+  <p>値段 <%= f.text_field :price %>円(税込)</p>
   <p>レーベル名 <%= f.collection_select :label_id, Label.all, :id, :name %></p>
   <p>ジャンル <%= f.collection_select :genre_id, Genre.all, :id, :name %></p>
 

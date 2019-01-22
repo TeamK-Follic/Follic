@@ -4,25 +4,24 @@
   <% end %>
 </h3>
 
-<!-- 検索バー -->
-<div>
+<div class="center-block">
+  <!-- 検索バー -->
   <%= search_form_for @search do |f| %>
     <%= f.search_field :name_cont, placeholder: 'アーティスト名で検索' %>
     <%= f.submit ("検索") , class: 'd-btn'%>
   <% end %>
-</div>
-
-<!-- 一覧表示 -->
-<div class="container">
-  <div class="row">
-    <div class="col-xs-9">
-      <% @search_artists.each do |artist| %>
-        <div class="thumbnail-contents">
-          <%= attachment_image_tag artist, :image, :fill, 100, 100 %>
+  <!-- 一覧表示 -->
+  <div class="center-block-artists">
+    <% @search_artists.each do |artist| %>
+      <div class="thumbnail-contents">
+        <div>
+          <%= attachment_image_tag artist, :image, :fill, 120, 120, class:"contents-item" %>
+          <br>
           <%= link_to artist.name, artist_path(artist.id) %>
         </div>
-      <% end %>
-    </div>
-  <%= paginate @search_artists, class: "paginate" %>
+
+      </div>
+    <% end %>
+    <%= paginate @search_artists, class: "paginate" %>
   </div>
 </div>
