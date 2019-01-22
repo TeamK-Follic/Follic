@@ -1,26 +1,27 @@
 <h3>商品一覧</h3>
 
-<!-- 検索バー -->
-<div>
+<div class="center-block">
+  <!-- 検索バー -->
   <%= search_form_for @search do |f| %>
     <%= f.search_field :title_or_artist_name_cont ,placeholder: '商品名・アーティスト名で検索' %>
     <%= f.submit ("検索") , class: 'd-btn'%>
   <% end %>
-</div>
 
-<!-- 一覧表示 -->
-<div>
-  <% @search_items.each do |item| %>
-    <div class="thumbnail-contents">
-      <%= link_to (item_path(item.id)) do %>
-      <%= attachment_image_tag item, :image, :fill ,150, 150 %>
-        <p><%= item.artist.name %></p>
-        <p><%= item.title %> / <%= item.price %>円</p>
-        <% if item.stock == 0 %>
-          <span>売切</span>
+  <!-- 一覧表示 -->
+  <div class="center-block-artists">
+    <% @search_items.each do |item| %>
+      <div class="thumbnail-contents">
+        <%= link_to (item_path(item.id)) do %>
+        <%= attachment_image_tag item, :image, :fill ,150, 150, class:"contents-item" %>
+          <p><%= item.artist.name %></p>
+          <p><%= item.title %> / <%= item.price %>円(税込)
+          </p>
+          <% if item.stock == 0 %>
+            <span>売切</span>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
-  <% end %>
+      </div>
+    <% end %>
   <%= paginate @search_items, class: "paginate" %>
+  </div>
 </div>
