@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'types/new'
+  get 'types/create'
   root 'items#index'
 
   get 'carts/confirm'

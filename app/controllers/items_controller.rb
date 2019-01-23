@@ -26,8 +26,9 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item), notice: '商品を追加しました'
     else
+      binding.pry
       flash.now[:alert] = '商品の追加に失敗しました'
-      render :new
+      render "items/new"
     end
   end
 
