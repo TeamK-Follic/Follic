@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  # before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
   def new
     @artist = Artist.find(params[:id])
     @item = Item.new
@@ -19,23 +20,31 @@ class ItemsController < ApplicationController
   end
 
   def create
-  	artist = Artist.find(params[:artist_id])
-    item = artist.items.new(item_params)
-    item.artist_id = artist.id
-    item.save
-    redirect_to item_path(@item)
+  	@artist = Artist.find(params[:artist_id])
+    @item = artist.items.new(item_params)
+    @item.artist_id = artist.id
+    if @item.save
+      redirect_to item_path(@item), notice: '商品を追加しました'
+    else
+      flash.now[:alert] = '商品の追加に失敗しました'
+      render :new
+    end
   end
 
   def update
-  	item = Item.find(params[:id])
-    item.update(item_params)
-    redirect_to item_path(@item)
+  	@item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to item_path(@item), notice: '商品情報を編集しました'
+    else
+      flash.now[:alert] = '商品の編集に失敗しました'
+      render :edit
+    end
   end
 
   def destroy
   	item = Item.find(params[:id])
     item.destroy
-    redirect_to items_path
+    redirect_to items_path, notice: '商品情報を削除しました'
   end
 
   private

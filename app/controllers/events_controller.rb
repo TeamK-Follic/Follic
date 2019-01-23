@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  # before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+
   def new
     @event = Event.new
     @artist = Artist.find(params[:id])
@@ -14,23 +16,31 @@ class EventsController < ApplicationController
   end
 
   def create
-    artist = Artist.find(params[:artist_id])
-  	event.artist_id = artist.id
-    event = artist.events.new(event_params)
-    event.save
-    redirect_to event_path(event.id)
+    @artist = Artist.find(params[:artist_id])
+  	@event.artist_id = artist.id
+    @event = artist.events.new(event_params)
+    if @event.save
+      redirect_to event_path(@event.id), notice: 'イベントを追加しました'
+    else
+      flash.now[:alert] = 'イベントの追加に失敗しました'
+      render :new
+    end
   end
 
   def update
-  	event = Event.find(params[:id])
-    event.update(event_params)
-    redirect_to event_path(event.id)
+  	@event = Event.find(params[:id])
+    if @event.update(event_params)
+      redirect_to event_path(@event.id), notice: 'イベントを編集しました'
+    else
+      flash.now[:alert] = 'イベントの編集に失敗しました'
+      render :
+    end
   end
 
   def destroy
   	event = Event.find(params[:id])
     event.destroy
-    redirect_to artists_show_path
+    redirect_to artists_path, notice: 'イベントを削除しました'
   end
 
   private

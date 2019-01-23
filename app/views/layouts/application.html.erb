@@ -14,6 +14,18 @@
   </head>
 
   <body>
+
+    <!-- フラッシュメッセージ -->
+    <% flash.each do |key, value| %>
+      <p>
+        <% if manager_signed_in? %>
+          <%= content_tag(:div, "[管理者権限]#{value}", class: "#{key}") %>
+        <% else %>
+          <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
+      </p>
+    <% end %>
+    <!-- フラッシュメッセージ ここまで -->
     <header class="clearfix">
       <% if user_signed_in? %>
 

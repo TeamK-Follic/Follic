@@ -1,4 +1,5 @@
 class LabelsController < ApplicationController
+  #before_action :authenticate_manager!
   def new
     @label = Label.new
   end

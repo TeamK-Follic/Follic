@@ -2,9 +2,12 @@
   <div class="form-header">
     <h3>管理者ログイン</h3>
   </div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
   <div class="form-area">
-    <table>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+      <table>
         <tr>
           <td>メールアドレス</td>
           <td><%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %></td>
@@ -13,11 +16,11 @@
           <td>パスワード</td>
           <td><%= f.password_field :password, autocomplete: "パスワード" %></td>
         </tr>
-    </table>
+      </table>
   </div>
   <div class="form-footer">
     <%= f.submit "ログイン", class:"btn btn-primary" %>
-    <%= link_to '会員登録へ', new_manager_registration_path, class:"btn btn-default" %>
   </div>
-  <% end %>
+
+<% end %>
 </div>
