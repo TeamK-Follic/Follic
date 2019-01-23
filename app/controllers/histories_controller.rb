@@ -1,7 +1,7 @@
 class HistoriesController < ApplicationController
   # before_action :authenticate_manager!, only: [:update, :destroy]
   def show
-    @history = histories.find(params[:id])
+    @history = History.find(params[:id])
   end
 
   def index
@@ -9,7 +9,7 @@ class HistoriesController < ApplicationController
       @search = History.ransack(params[:q])
       @search_histories = @search.result.page(params[:page]).reverse_order
     elsif user_signed_in?
-      @histories = current_user.history.all
+      @histories = current_user.histories.all
     else
       redirect_to users_about_path
     end
