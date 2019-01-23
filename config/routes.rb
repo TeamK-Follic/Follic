@@ -32,7 +32,8 @@ Rails.application.routes.draw do
   resources :histories, :only => [:show, :index, :create, :update] do
     resource :cart_histories, only: [:create]
   end
-  resources :following_artists, :only => [:index, :create, :destroy]
+  resources :cart_histories, :only => [:create]
+  resources :following_artists, :only => [:index, :show, :create, :destroy]
   resources :labels, :only => [:index, :edit, :new, :create, :update, :destroy]
   resources :genres, :only => [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
