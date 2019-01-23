@@ -12,4 +12,8 @@ class Item < ApplicationRecord
 	attachment :image
 
   accepts_nested_attributes_for :discs, allow_destroy: true
+
+  validates :title, presence: true
+  validates :price, presence: true
+  validates :stock, presence: true
 end
