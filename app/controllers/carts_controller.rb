@@ -17,7 +17,7 @@ class CartsController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
-    @cart = item.carts.new(cart_params)
+    @cart = @item.carts.new(cart_params)
     @cart.item_id = item.id
     @cart.user_id = current_user.id
     if @cart.save

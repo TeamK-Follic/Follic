@@ -21,8 +21,8 @@ class ItemsController < ApplicationController
 
   def create
   	@artist = Artist.find(params[:artist_id])
-    @item = artist.items.new(item_params)
-    @item.artist_id = artist.id
+    @item = @artist.items.new(item_params)
+    @item.artist_id = @artist.id
     if @item.save
       redirect_to item_path(@item), notice: '商品を追加しました'
     else
