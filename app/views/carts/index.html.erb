@@ -14,9 +14,7 @@
         <p><%= cart.item.title %> / <%= cart.item.artist.name %></p>
       </div>
 
-
     <%= form_for(cart) do |f| %>
-
       <div class="cart-box">
         <p>数量 : <%= f.text_field :amount %></p>
         <p>在庫数 : <%= cart.item.stock %></p>
@@ -28,7 +26,6 @@
     <div class="update-box">
       <%= f.submit "カートの更新",class: 'btn btn-default' %>
     </div>
-
     <% end %>
 
   <% end %>

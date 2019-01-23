@@ -28,7 +28,7 @@ class CartsController < ApplicationController
   def update
     @cart = Cart.find(params[:id])
     if @cart.update(cart_params)
-      redirect_to carts_path, notice: '商品の数量を変更しました'
+      redirect_to carts_path, notice: '商品の内容を変更しました'
     end
   end
 
