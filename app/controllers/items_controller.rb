@@ -17,6 +17,8 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @search = Label.ransack(params[:q])
+    @search_labels = @search.result.page(params[:page]).reverse_order
   end
 
   def create
@@ -26,12 +28,10 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to item_path(@item), notice: '商品を追加しました'
     else
-      binding.pry
       flash.now[:alert] = '商品の追加に失敗しました'
       render "items/new"
     end
   end
-
   def update
   	@item = Item.find(params[:id])
     if @item.update(item_params)
