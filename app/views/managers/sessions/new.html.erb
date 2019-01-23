@@ -1,19 +1,23 @@
-<h3>管理者ログイン</h3>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <p>・メールアドレス</p>
-    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+<div class="form">
+  <div class="form-header">
+    <h3>管理者ログイン</h3>
   </div>
-
-  <div class="field">
-    <p>・パスワード</p>
-    <%= f.password_field :password, autocomplete: "パスワード" %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="form-area">
+    <table>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %></td>
+        </tr>
+        <tr>
+          <td>パスワード</td>
+          <td><%= f.password_field :password, autocomplete: "パスワード" %></td>
+        </tr>
+    </table>
   </div>
-
-  <div class="actions">
-    <%= f.submit "ログイン", class:"d-btn" %>
+  <div class="form-footer">
+    <%= f.submit "ログイン", class:"btn btn-primary" %>
+    <%= link_to '会員登録へ', new_manager_registration_path, class:"btn btn-default" %>
   </div>
-<% end %>
-
-<p><%= link_to '会員登録へ', new_manager_registration_path %></p>
+  <% end %>
+</div>
