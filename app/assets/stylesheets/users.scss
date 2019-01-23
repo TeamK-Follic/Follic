@@ -3,12 +3,15 @@
 	margin: 0 auto;
 }
 .form-header h3 {
-	background-color: #FF9966;
+	background-color: #ffffff;
 	text-align: center;
+	line-height: 10px;
 	margin-top: 20px;
+	margin-bottom: 20px;
 	padding: 20px;
 	border: solid 1px #EEEEEE;
 	color: #428bca;
+	width: 100%;
 }
 .form-area {
 	border: solid 1px #EEEEEE;
@@ -19,4 +22,7 @@
 }
 .btn {
 	width: 100%;
+}
+table {
+	margin: 0 auto;
 }

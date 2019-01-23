@@ -1,35 +1,39 @@
-<h3>マイページ編集</h3>
-<div>
+<div class="form">
+	<div class="form-header">
+		<h3>マイページ編集</h3>
+	</div>
 	<%= form_for(@user) do |f| %>
-	<table>
-		<tr>
-			<th><p class="user_item">名前</p></th>
-			<th><%= f.text_field :name %></th>
-		</tr>
-		<tr>
-			<th><p class="user_item">名前（カナ）</p></th>
-			<th><%= f.text_field :name_kana %></th>
-		</tr>
-		<tr>
-			<th><p class="user_item">郵便番号</p></th>
-			<th><%= f.text_field :postal_code %></th>
-		</tr>
-		<tr>
-			<th><p class="user_item">住所</p></th>
-			<th><%= f.text_field :address %></th>
-		</tr>
-		<tr>
-			<th><p class="user_item">電話番号</p></th>
-			<th><%= f.text_field :phone_number %></th>
-		</tr>
-		<tr>
-			<th><p class="user_item">メールアドレス</p></th>
-			<th><%= f.text_field :email %></th>
-		</tr>
-	</table>
-	<div>
-		<%= link_to "戻る", user_path(@user.id) %>
-		<%= f.submit "登録" %>
+	<div class="form-area">
+			<table>
+				<tr>
+					<td>名前</td>
+					<td><%= f.text_field :name %></td>
+				</tr>
+				<tr>
+					<td>名前（カナ)</td>
+					<td><%= f.text_field :name_kana %></td>
+				</tr>
+				<tr>
+					<td>郵便番号</td>
+					<td><%= f.text_field :postal_code %></td>
+				</tr>
+				<tr>
+					<td>住所</td>
+					<td><%= f.text_field :address %></td>
+				</tr>
+				<tr>
+					<td>電話番号</td>
+					<td><%= f.text_field :phone_number %></td>
+				</tr>
+				<tr>
+					<td>メールアドレス</td>
+					<td><%= f.text_field :email %></td>
+				</tr>
+			</table>
+	</div>
+	<div class="form-footer">
+		<%= link_to "戻る", user_path(@user.id), class:"btn btn-primary" %>
+		<%= f.submit "登録", class:"btn btn-default" %>
 	</div>
 	<% end %>
 </div>
