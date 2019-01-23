@@ -16,19 +16,27 @@ class HistoriesController < ApplicationController
   end
 
   def create
-  	history = History.new(history_params)
-    history.save
-    redirect_to histories_path
+      cart_history = Cart_history.find(params[:id])
+      history.cart_history_id = History.id
+      history.save
+      redirect_to histories_path
   end
 
   def update
-  	history = History.find(params[:id])
-    history.update(history_params)
+  	search = History.find(params[:id])
+    search.update(history_params)
     redirect_to histories_path
   end
 
   private
   def history_params
-    params.require(:user_id, :payment_id, :status_id, :postal_code, :address, :name)
+    params.require(:history).permit(
+      :status_id, :postal_code, :address, :name, :payment_id,
+      users_attributes: [:name, :name_kana, :postal_code, :address, :phone_number, :email, :encrypted_password, :deleted_user
+      ]
+    )
   end
+  # def search_params
+  #   params.require(@search).permit(:user_id, :payment_id, :status_id, :postal_code, :address, :name)
+  # end
 end
