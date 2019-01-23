@@ -57,7 +57,9 @@ header {
 li {
 	list-style: none;
 	display: inline-block;
-	padding: 20px 60px;
+	width: 150px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 p {
 	font-size: 15px;
@@ -67,9 +69,6 @@ p {
 i {
 	color: #428bca;
 	font-size: 20px;
-}
-.nav-item-logo {
-
 }
 .nav-item-logo p {
 	font-size: 35px;
