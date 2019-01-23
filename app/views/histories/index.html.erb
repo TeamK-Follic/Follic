@@ -4,34 +4,48 @@
 	<p>購入日時</p>
 </div>
 
-<% @histories.each do |history| %>
-	<!-- ステータス -->
-	<div class="purchase-area">
+<!-- 会員ログインと管理者ログインで画面の構造が異なるので、if分岐で対応します -->
 
-		<% history.item.each do |h| %>
-			<table class="inline-table">
-				<tbody>
-					<tr>
-						<td><%= h.item.title %></td>
-						<td><%= h.artist.name %></td>
-						<td><%= h.cart.amount %></td>
-						<td>
-							<p>小計</p>
-							<% sub_total = cart_history.amount * cart_history.price %><%= sub_total %>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+<% if manager_signed_in? %>
+
+	<div class="searchbox center-block">
+		<%= search_form_for @search do |f| %>
+		<%= f.text_field :name_cont ,placeholder: '会員名' %>
+		<%= f.submit ("検索") , class: 'd-btn' %>
 		<% end %>
-
-		<div class="total-price">
-			
-		</div>
-		<div class="payment-method">
-			<%= payment.name %>
-		</div>
-		<div class="user-address">
-			<%= user.address %>
-		</div>
 	</div>
+
+
+<% elsif user_signed_in? %>
+	<% @histories.each do |history| %>
+		<!-- ステータス -->
+		<div class="purchase-area">
+
+			<% history.item.each do |h| %>
+				<table class="inline-table">
+					<tbody>
+						<tr>
+							<td><%= h.item.title %></td>
+							<td><%= h.artist.name %></td>
+							<td><%= h.cart.amount %></td>
+							<td>
+								<p>小計</p>
+								<% sub_total = cart_history.amount * cart_history.price %><%= sub_total %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			<% end %>
+
+			<div class="total-price">
+				
+			</div>
+			<div class="payment-method">
+				<%= payment.name %>
+			</div>
+			<div class="user-address">
+				<%= user.address %>
+			</div>
+		</div>
+	<% end %>
 <% end %>

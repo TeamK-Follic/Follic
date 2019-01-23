@@ -6,7 +6,8 @@ class HistoriesController < ApplicationController
 
   def index
     if manager_signed_in?
-      @histories = History.all
+      @search = History.ransack(params[:q])
+      @search_histories = @search.result.page(params[:page]).reverse_order
     elsif user_signed_in?
       @histories = current_user.history.all
     else
