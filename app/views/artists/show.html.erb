@@ -30,6 +30,7 @@
       <%= link_to "新規追加", new_item_path(@artist.id), class:"d-btn new-btn" %>
     <% end %></h4>
   <% @items.each do |item| %>
+    <%= link_to (item_path(item.id)) do %>
     <div class="thumbnail-contents">
       <%= attachment_image_tag item, :image, :fill, 100, 100 %>
       <%= item.artist.name %>
@@ -39,6 +40,7 @@
         <span>売切</span>
       <% end %>
     </div>
+    <% end %>
   <% end %>
 
   <h4 class="artist-show-item">イベント情報
@@ -51,7 +53,7 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.datetime %></td>
-        <td><%= event.name %></td>
+        <td><%= link_to event.name, event_path(event.id) %></td>
       </tr>
     <% end %>
   </table>
