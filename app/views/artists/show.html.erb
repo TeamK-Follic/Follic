@@ -29,19 +29,20 @@
     <% if manager_signed_in? %>
       <%= link_to "新規追加", new_item_path(@artist.id), class:"d-btn new-btn" %>
     <% end %></h4>
-  <% @items.each do |item| %>
-    <%= link_to (item_path(item.id)) do %>
-    <div class="thumbnail-contents">
-      <%= attachment_image_tag item, :image, :fill, 100, 100 %>
-      <%= item.artist.name %>
-      <%= item.title %>
-      <%= item.price %>
-      <% if item.stock == 0 %>
-        <span>売切</span>
+    <% @items.each do |item| %>
+      <%= link_to (item_path(item.id)) do %>
+      <div class="thumbnail-contents">
+        <%= attachment_image_tag item, :image, :fill, 100, 100 %>
+        <%= item.artist.name %>
+        <%= item.title %>
+        <%= item.price %>
+        <% if item.stock == 0 %>
+          <span>売切</span>
+        <% end %>
+      </div>
       <% end %>
-    </div>
     <% end %>
-  <% end %>
+    <p class="d-btn"><%= link_to 'もっと見る', "/items?utf8=✓&q%5Bartist_name_cont%5D=#{@artist.name}" %></p>
 
   <h4 class="artist-show-item">イベント情報
     <% if manager_signed_in? %>
