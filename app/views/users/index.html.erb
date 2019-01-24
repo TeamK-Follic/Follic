@@ -7,9 +7,9 @@
 	<% end %>
 </div>
 
-<div>
-	<table border="1">
-		<tr>
+<div class="center-block">
+	<table border="1" class="user-list">
+		<tr bgcolor="#428bca" class="user-index-item">
 			<th>名前</th>
 			<th>名前（カナ）</th>
 		</tr>
@@ -20,6 +20,6 @@
 		</tr>
 		<% end %>
 	</table>
+	<%= paginate @search_users %>
 </div>
 
-<%= paginate @search_users %>

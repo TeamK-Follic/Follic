@@ -1,13 +1,14 @@
 <h3>アーティストプロフィール編集</h3>
 
-<div>
+<div class="center-block">
 	<%= form_for(@artist) do |f| %>
-	<%= f.text_field :name %>
-	<%= f.attachment_field :image %>
-	<%= f.text_area :intro %>
+	<%= f.text_field :name, class: "profile-item" %>
+	<%= f.attachment_field :image, class: "profile-item" %>
+	<%= f.text_area :intro, class: "profile-item" %>
 	<div>
-		<%= f.submit '更新', class:"d-btn" %>
-		<%= link_to '戻る', artist_path, class:"d-btn" %>
+		<%= link_to '戻る', artist_path, class:"d-btn profile-item" %>
+		<%= f.submit '更新', class:"d-btn profile-item" %>
+		<div class="delete-btn"><%= link_to 'アーティストの削除', artist_path(@artist.id),	 class: "d-btn btn btn-danger", method: :delete %></div>
 	</div>
 	<% end %>
 </div>

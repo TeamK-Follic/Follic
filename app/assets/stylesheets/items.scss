@@ -22,3 +22,33 @@
 table {
 	margin: 0 auto;
 }
+
+/*商品詳細*/
+.item-show-item {
+	float: left;
+}
+.item-img {
+	height: 300px;
+	width: 300px;
+}
+.item-box1 {
+	width: 330px;
+	padding: 0 20px;
+}
+.item-name {
+	font-weight: bold;
+	font-size: 20px;
+}
+.item-box2{
+	margin: 30px 0;
+}
+.item-box3{
+	width: 120px;
+	height: 300px;
+}
+.item-price {
+	font-size: 20px;
+}
+.price-tax {
+	font-size: 10px;
+}

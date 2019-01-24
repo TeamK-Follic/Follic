@@ -33,7 +33,7 @@ class EventsController < ApplicationController
       redirect_to event_path(@event.id), notice: 'イベントを編集しました'
     else
       flash.now[:alert] = 'イベントの編集に失敗しました'
-      render :
+      render :new
     end
   end
 
