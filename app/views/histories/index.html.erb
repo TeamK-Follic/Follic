@@ -18,7 +18,7 @@
 			<th>会員名</th>
 			<th>総計</th>
 		</tr>
-		<% s.search_histories.each do |history| %>
+		<% s.search_histories.reverse do |history| %>
 		<tr>
 			<td><%= history.status %></td>
 			<td><%= history.created_at %></td>
@@ -44,6 +44,7 @@
 	<% @histories.each do |history| %>
 		<!-- ステータス -->
 		<% total_price = 0 %>
+
 		<div class="purchase-area">
 			<% history.cart_histories.each do |ch| %>
 				<table class="inline-table">
