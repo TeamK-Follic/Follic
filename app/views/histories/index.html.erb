@@ -12,7 +12,6 @@
 		<% end %>
 	</div>
 
-	<div>
 	<table border="1">
 		<tr>
 			<th>ステータス</th>
@@ -20,9 +19,9 @@
 			<th>会員名</th>
 			<th>総計</th>
 		</tr>
-		<% @search_histories.reverse do |history| %>
+		<% @search_histories.each do |history| %>
 		<tr>
-			<td><%= history.status %></td>
+			<td><%= history.status_id %></td>
 			<td><%= history.created_at %></td>
 			<td><%= history.user.name %></td>
 			<td>
@@ -34,7 +33,6 @@
 		</tr>
 		<% end %>
 	</table>
-</div>
 
 <%= paginate @search_histories %>
 

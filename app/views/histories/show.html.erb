@@ -5,24 +5,16 @@
 	<!-- ステータスのラジオボタン -->
 	<div class="field">
 	  <div class="radio-status">
-	    <%= f.radio_button :status, :receptionist, checked: "checked" %>
-	    <%= f.label :status, :receptionist %>
-
+	    <%= f.radio_button :status, :receptionist, checked: "checked" %>受付
 	  </div>
 	  <div class="radio-status">
-	    <%= f.radio_button :status, :preparation, checked: "checked" %>
-	    <%= f.label :status, :preparation %>
-
+	    <%= f.radio_button :status, :preparation, checked: "checked" %>準備中
 	  </div>
 	  <div class="radio-status">
-	    <%= f.radio_button :status, :shipped, checked: "checked" %>
-	    <%= f.label :status, :shipped %>
-
+	    <%= f.radio_button :status, :shipped, checked: "checked" %>出荷済み
 	  </div>
 	  <div class="radio-status">
-	    <%= f.radio_button :status, :cancel, checked: "checked" %>
-	    <%= f.label :status, :cancel %>
-
+	    <%= f.radio_button :status, :cancel, checked: "checked" %>キャンセル
 	  </div>
 	</div>
 		<div>
