@@ -34,7 +34,6 @@ class HistoriesController < ApplicationController
       cart.destroy
     end
     redirect_to histories_path
-
   end
 
   def update
