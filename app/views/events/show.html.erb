@@ -3,15 +3,17 @@
       <%= link_to edit_event_path do %><i class="fas fa-cogs edit-btn"></i><% end %>
     <% end %>
 </h3>
-
-  <div>
+<div class="center-block">
+  <div class="event-show-item">
     <%= attachment_image_tag @artist, :image, :fill, 300, 300 %>
   </div>
-  <div>
-    <p><%= @event.name %></p>
-    <p><%= @event.artist_id %></p>
-    <p><%= @event.datetime %></p>
-    <p><%= @event.detail %></p>
+  <div class="event-show-item event-show-box2">
+    <div class="show-item event-name"><%= @event.name %></div>
+    <div class="show-item"><%= @event.datetime %></div>
+    <div class="show-item event-detail"><%= @event.detail %></div>
   </div>
 
-<%= link_to "戻る", artist_path(@event.artist_id) %>
+  <div class="event-show-item event-show-box3">
+    <%= link_to "戻る", artist_path(@event.artist_id), class:"btn btn-primary" %>
+  </div>
+</div>
