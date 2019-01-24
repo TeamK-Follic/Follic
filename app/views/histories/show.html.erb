@@ -27,18 +27,20 @@
 	</div>
 		<div>
 			<table>
+      <% total_price = 0 %>
   		<% @cart_histories.each do |ch| %>
   			<tr>
           <td>%= ch.item.title %></td>
   			  <td><%= ch.amount %></td>
-	    			<td>小計:<%= sub_total = ch.amount * ch.price %></td>
+	    		<td>小計:<%= sub_total = ch.amount * ch.price %></td>
+          <% total_price = total_price + sub_total %>
         </tr>
   		<% end %>
       </table>
   	<div>
   		<table>
   			<tr>お買い物合計金額（税込）</tr>
-  			<tr><%  %></tr>
+  			<tr><% total_price %></tr>
   		</table>
   		<%= @history.payment_id %>
   	</div>
