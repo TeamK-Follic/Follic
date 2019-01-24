@@ -1,11 +1,13 @@
 <h3>購入履歴</h3>
 
+<% total_price = 0 %>
+
 <!-- 会員ログインと管理者ログインで画面の構造が異なるので、if分岐で対応します -->
 <% if manager_signed_in? %>
 
 	<div class="searchbox center-block">
-		<%= s.search_form_for search do |f| %>
-			<%= f.text_field :history_user_name_or_history_user_name_kana_cont ,placeholder: '会員名' %>
+		<%= search_form_for @search do |f| %>
+			<%= f.text_field :user_name_cont ,placeholder: '会員名' %>
 			<%= f.submit ("検索") , class: 'd-btn' %>
 		<% end %>
 	</div>
@@ -18,14 +20,14 @@
 			<th>会員名</th>
 			<th>総計</th>
 		</tr>
-		<% s.search_histories.reverse do |history| %>
+		<% @search_histories.reverse do |history| %>
 		<tr>
 			<td><%= history.status %></td>
 			<td><%= history.created_at %></td>
 			<td><%= history.user.name %></td>
 			<td>
 				<% history.cart_histories.each do |ch| %>
-					<% total_price += ch.price * ch.amount %>
+					<% total_price = total_price + ch.price * ch.amount %>
 				<% end %>
 				<%= total_price %> 円(税込)
 			</td>
@@ -34,7 +36,7 @@
 	</table>
 </div>
 
-<%= paginate search_users %>
+<%= paginate @search_histories %>
 
 
 <% elsif user_signed_in? %>
@@ -43,7 +45,6 @@
 	</div>
 	<% @histories.each do |history| %>
 		<!-- ステータス -->
-		<% total_price = 0 %>
 
 		<div class="purchase-area">
 			<% history.cart_histories.each do |ch| %>
