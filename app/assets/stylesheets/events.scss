@@ -1,3 +1,31 @@
+.event {
+	width: 40%;
+	margin: 0 auto;
+}
+.event-header {
+	background-color: #ffffff;
+	text-align: center;
+	line-height: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	color: #428bca;
+	width: 100%;
+}
+.event-area {
+	border: solid 1px #EEEEEE;
+	padding: 50px ;
+}
+.event-footer {
+	text-align: center;
+}
+.btn {
+	width: 100%;
+}
+
+.event-td {
+	padding: 10px 20px;
+}
 
 /*イベント詳細*/
 .event-show-item{
@@ -22,28 +50,3 @@
 
 .show-item{
 	margin: 15px 0;
-
-.event{
-	width: 40%;
-	margin: 0 auto;
-}
-.event-header {
-	background-color: #ffffff;
-	text-align: center;
-	line-height: 10px;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 20px;
-	color: #428bca;
-	width: 100%;
-}
-.event-area {
-	border: solid 1px #EEEEEE;
-	padding: 50px ;
-}
-.event-footer {
-	text-align: center;
-}
-.btn {
-	width: 100%;
-}

@@ -5,9 +5,8 @@
 				<% @labels.each do |label| %>
 				<th class="label-th"><%= label.name %></th>
 				<div class="edit-destroy">
-					
-				<td><%= link_to "編集", edit_label_path(label.id), class: 'btn btn-default' %></td>
-				<td><%= link_to "削除", label_path(label.id), class: 'btn btn-danger', method: :delete %></td>
+					<td><%= link_to "編集", edit_label_path(label.id), class: 'btn btn-default' %></td>
+					<td><%= link_to "削除", label_path(label.id), class: 'btn btn-danger', method: :delete %></td>
 				</div>
 				<% end %>
 			</tr>
