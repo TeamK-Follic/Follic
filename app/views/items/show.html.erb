@@ -6,32 +6,28 @@
 	<% end %>
 </h3>
 <div class="center-block">
-	<div>
-		<div>
-			<%= attachment_image_tag @item, :image %>
-			<p><%= @item.label.name %></p>
-		</div>
-		<div>
-			<%= @item.type.name %>
-			<%= @item.title %>
-			<%= @item.artist.name %>
-			<%= @item.genre.name %>
-		</div>
-		<div>
-			<%= @item.price %>
-			<%= form_for [@item, @cart] do |f| %>
-				<%= f.text_field :amount %>
-				<%= f.submit 'カートに入れる' %>
-			<% end %>
-		</div>
-		<div>
-			<p class="music_list">収録曲</p>
+	<%= attachment_image_tag @item, :image, :fill, 2000, 2000, class:"item-show-item item-img" %>
+	<div class="item-show-item item-box1">
+		<div class=""><%= @item.label.name %></div>
+		<div class=""><%= @item.type.name %></div>
+		<div class="item-name"><%= @item.title %></div>
+		<div class=""><%= link_to @item.artist.name, artist_path(@item.artist_id) %></div>
+		<div class=""><%= @item.genre.name %></div>
+		<div class="item-box2">
+			<div>＜収録曲＞</div>
 			<% @item.discs.each do |disc| %>
-			  <p><%= disc.name %></p>
+			  <div class=""><%= disc.name %></div>
 				<% disc.musics.each_with_index do |music, i| %>
-				  <p><%= "#{i+1}.#{music.name}" %></p>
+				  <div class=""><%= "#{i+1}.#{music.name}" %></div>
 				<% end %>
 			<% end %>
 		</div>
+	</div>
+	<div class="item-show-item item-box3">
+		<div class="item-price"><%= @item.price %>円<span class="price-tax">（税込）</span></div>
+		<%= form_for [@item, @cart] do |f| %>
+			<div class=""><%= f.text_field :amount, :size => "5*5" %></div>
+			<div class=""><%= f.submit 'カートに入れる' %></div>
+		<% end %>
 	</div>
 </div>
