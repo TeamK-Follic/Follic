@@ -17,8 +17,8 @@ class EventsController < ApplicationController
 
   def create
     @artist = Artist.find(params[:artist_id])
-  	@event.artist_id = @artist.id
     @event = @artist.events.new(event_params)
+  	@event.artist_id = @artist.id
     if @event.save
       redirect_to event_path(@event.id), notice: 'イベントを追加しました'
     else
