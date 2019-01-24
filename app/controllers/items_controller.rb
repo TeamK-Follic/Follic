@@ -32,6 +32,7 @@ class ItemsController < ApplicationController
       render "items/new"
     end
   end
+
   def update
   	@item = Item.find(params[:id])
     if @item.update(item_params)

@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   resources :carts, :only => [:index, :create, :update, :destroy]
 
   resources :histories, :only => [:show, :index, :create, :update] do
-    resource :cart_histories, only: [:create]
+    resource :cart_histories, only: [:create, :destroy]
   end
   resources :cart_histories, :only => [:create]
   resources :following_artists, :only => [:index, :show, :create, :destroy]

@@ -42,4 +42,4 @@
 </div>
 
 <%= link_to "カートに戻る",carts_path, class: "d-inline bg-default" %>
-<%= link_to "購入",histories_path, class: "d-inline bg-default", method: :post %>
+<%= link_to "購入",histories_path(@carts), class: "d-inline bg-default", method: :post %>
