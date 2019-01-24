@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  # before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+
   def new
     @artist = Artist.find(params[:id])
     @item = Item.new

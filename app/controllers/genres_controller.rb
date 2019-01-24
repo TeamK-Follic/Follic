@@ -1,5 +1,6 @@
 class GenresController < ApplicationController
-  # before_action :authenticate_manager!
+  before_action :authenticate_manager!
+
   def new
     @genre = Genre.new
   end
