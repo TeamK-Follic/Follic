@@ -6,22 +6,22 @@
   <div class="event-area">
     <table>
         <tr>
-          <td>イベント名</td>
+          <td class="event-td">イベント名</td>
           <td><%= f.text_field :name, placeholder:"イベント名" %></td>
         </tr>
 
         <tr>
-          <td>アーティスト名</td>
+          <td class="event-td">アーティスト名</td>
           <td><%= @artist.name %></td>
         </tr>
 
         <tr>
-          <td>開始日時</td>
+          <td class="event-td">開始日時</td>
           <td><%= f.text_field :datetime, placeholder:"開始日時" %></td>
         </tr>
 
         <tr>
-          <td>イベント紹介文</td>
+          <td class="event-td">イベント紹介文</td>
           <td><%= f.text_area :detail, placeholder:"イベント紹介文"  %></td>
         </tr>
     </table>
