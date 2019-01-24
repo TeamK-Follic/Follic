@@ -9,7 +9,7 @@ class HistoriesController < ApplicationController
       @search = History.ransack(params[:q])
       @search_histories = @search.result.page(params[:page]).reverse_order
     elsif user_signed_in?
-      @histories = current_user.histories.all
+      @histories = current_user.histories.all.reverse_order
     else
       redirect_to users_about_path
     end
@@ -18,7 +18,7 @@ class HistoriesController < ApplicationController
   def create
     @user = User.find(current_user.id)
     @carts = @user.carts
-    @history = @user.histories.new
+    @history = @user.histories.new(history_params)
     # @historyに紐づいたcart_historiesに、保存すべきデータをコピー
     @carts.each do |cart|
       ch = @history.cart_histories.new
@@ -30,6 +30,9 @@ class HistoriesController < ApplicationController
     @history.status_id = 1
     @history.payment_id = 1
     @history.save
+    @carts.each do |cart|
+      cart.destroy
+    end
     redirect_to histories_path
 
   end

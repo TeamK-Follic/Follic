@@ -5,26 +5,25 @@
 </div>
 
 <div class="cart-area clearfix">
- <% @carts.each do |cart| %>
-  <div class="cart_box">
-    <%= attachment_image_tag cart.item, :image %>
-  </div>
-  <div class="cart-box">
-    <%= cart.item.title %>
-    <%= cart.item.artist.name %>
-  </div>
-  <div class="cart-box">
-    <%= form_for(cart) do |f| %>
+  <% total_price = 0 %>
+  <% @carts.each do |cart| %>
+    <div class="cart_box">
+      <%= attachment_image_tag cart.item, :image %>
+    </div>
+    <div class="cart-box">
+      <%= cart.item.title %>
+      <%= cart.item.artist.name %>
+    </div>
+    <div class="cart-box">
       <p>数量</p><%= cart.amount %>
       <p>単価（税込）</p><%= cart.item.price %>
+    </div>
+    <% total_price = total_price + cart.amount * cart.item.price %>
+  <% end %>
 
-    <% end %>
+  <div class="total-price">
+    <%= total_price %>
   </div>
- <% end %>
-
- <div class="total-price">
-   <!-- お買い物合計額 -->
- </div>
 </div>
 
 <div class="destination-tag">送付先</div>
@@ -32,8 +31,15 @@
   <%= current_user.address %>
   <%= link_to "住所を変更する方は\nマイページから編集をお願いします", user_path(current_user), class: 'btn btn-default' %>
 </div>
+
+<%= form_for(@history) do |f| %>
+
 <div class="payment-select-box">
-  <!-- 支払方法　enum -->
+  支払方法：
+  <%= f.radio_button :payment_id, 1 %>クレジットカード 
+  <%= f.radio_button :payment_id, 2 %>銀行振込 
+  <%= f.radio_button :payment_id, 3 %>コンビニ支払 
+  <%= f.radio_button :payment_id, 4 %>代金引換 
 </div>
 <div>
   <p class="confirm-character">
@@ -42,4 +48,5 @@
 </div>
 
 <%= link_to "カートに戻る",carts_path, class: "d-inline bg-default" %>
-<%= link_to "購入",histories_path(@carts), class: "d-inline bg-default", method: :post %>
+<%= f.submit "購入", class: "d-inline bg-default" %>
+<% end %>
