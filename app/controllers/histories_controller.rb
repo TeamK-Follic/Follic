@@ -16,10 +16,22 @@ class HistoriesController < ApplicationController
   end
 
   def create
-      cart_history = Cart_history.find(params[:id])
-      history.cart_history_id = History.id
-      history.save
-      redirect_to histories_path
+    @user = User.find(current_user.id)
+    @carts = @user.carts
+    @history = @user.histories.new
+    # @historyに紐づいたcart_historiesに、保存すべきデータをコピー
+    @carts.each do |cart|
+      ch = @history.cart_histories.new
+      ch.item_id = cart.item.id    # カートに含まれる商品のitem_id
+      ch.price = cart.item.price   # カートに含まれる商品の価格
+      ch.amount = cart.amount      # カートに含まれる商品の数量
+    end
+    # データが出揃ったので保存
+    @history.status_id = 1
+    @history.payment_id = 1
+    @history.save
+    redirect_to histories_path
+
   end
 
   def update
@@ -32,7 +44,7 @@ class HistoriesController < ApplicationController
   def history_params
     params.require(:history).permit(
       :status_id, :postal_code, :address, :name, :payment_id,
-      users_attributes: [:name, :name_kana, :postal_code, :address, :phone_number, :email, :encrypted_password, :deleted_user
+      cart_histories_attributes: [:id, :history_id, :item_id, :price, :amount, :_destroy
       ]
     )
   end

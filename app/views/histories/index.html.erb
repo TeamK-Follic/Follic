@@ -43,36 +43,38 @@
 	</div>
 	<% @histories.each do |history| %>
 		<!-- ステータス -->
+		<% total_price = 0 %>
 		<div class="purchase-area">
-
 			<% history.cart_histories.each do |ch| %>
 				<table class="inline-table">
 					<tbody>
 						<tr>
-							<td><%= ch.item.title %></td>
-							<td><%= ch.artist.name %></td>
-							<td><%= ch.amount %></td>
+							<td colspan="2">タイトル：<%= ch.item.title %></td>
+						</tr>
+						<tr>
+							<td colspan="2">アーティスト名：<%= ch.item.artist.name %></td>
+						</tr>
+						<tr>
+							<td>数量：<%= ch.amount %></td>
 							<td>
-								<p>小計</p>
-								<% sub_total = ch.amount * ch.price %><%= sub_total %>
+								<p>小計:<%= sub_total = ch.amount * ch.price %></p>
 							</td>
 						</tr>
 					</tbody>
 				</table>
+				<% total_price = total_price + sub_total %>
 			<% end %>
 
 			<div class="total-price">
-				<% history.cart_histories.each do |ch| %>
-					<% total_price += ch.price * cd.amount %>
-				<% end %>
 				<%= total_price %> 円(税込)
 			</div>
 			<div class="payment-method">
-				<%= payment.name %>
+				支払方法：
 			</div>
 			<div class="user-address">
-				<%= user.address %>
+				<%= history.address %>
 			</div>
 		</div>
 	<% end %>
+
 <% end %>
