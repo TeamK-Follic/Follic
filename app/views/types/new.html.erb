@@ -1,2 +1,5 @@
-<h1>Types#new</h1>
-<p>Find me in app/views/types/new.html.erb</p>
+<h3>商品タイプ追加</h3>
+  <%= form_for(@type) do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit "登録" %>
+  <% end %>

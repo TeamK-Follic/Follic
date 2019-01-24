@@ -6,8 +6,11 @@ class TypesController < ApplicationController
   def create
   	type = Type.new(type_params)
   	type.save
+    redirect_to items_path
   end
 
   private
-  params.require(@type).permit(:name)
+  def type_params
+    params.require(@type).permit(:name)
+  end
 end

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'types/new'
-  get 'types/create'
   root 'items#index'
 
   get 'carts/confirm'
@@ -36,6 +34,7 @@ Rails.application.routes.draw do
   resources :following_artists, :only => [:index, :show, :create, :destroy]
   resources :labels, :only => [:index, :edit, :new, :create, :update, :destroy]
   resources :genres, :only => [:new, :create]
+  resources :types, :only => [:new, :create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
