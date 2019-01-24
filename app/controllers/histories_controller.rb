@@ -16,16 +16,21 @@ class HistoriesController < ApplicationController
   end
 
   def create
-   #  user = User.find(params[:id])
-  	# history = User.history.new(history_params)
-   #  history.user_id = user.id
-   #  history.save
-   #  redirect_to histories_path
-      cart_history = Cart_history.new(cart_history_params)
-      cart_history.save
-      history = History.new(history_params)
-      history.cart_history_id = history.id
-      history.save
+    @user = User.find(current_user.id)
+    @carts = @user.carts
+    @history = @user.histories.new
+    # @historyに紐づいたcart_historiesに、保存すべきデータをコピー
+    @carts.each do |cart|
+      ch = @history.cart_histories.new
+      ch.item_id = cart.item.id    # カートに含まれる商品のitem_id
+      ch.price = cart.item.price   # カートに含まれる商品の価格
+      ch.amount = cart.amount      # カートに含まれる商品の数量
+    end
+    # データが出揃ったので保存
+    @history.status_id = 1
+    @history.payment_id = 1
+    @history.save
+    redirect_to histories_path
   end
 
   def update
