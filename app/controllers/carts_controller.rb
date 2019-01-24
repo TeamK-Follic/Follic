@@ -12,7 +12,9 @@ class CartsController < ApplicationController
   end
 
   def confirm
-    @carts = User.find(current_user.id).carts.all
+    @user =User.find(current_user.id)
+    @carts = @user.carts.all
+    @history = @user.histories.new
   end
 
   def create

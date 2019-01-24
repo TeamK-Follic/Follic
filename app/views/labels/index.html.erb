@@ -1,13 +1,15 @@
 <h3>レーベル一覧</h3>
-
-<% @labels.each do |label| %>
-	<table class="label-name">
-		<tbody>
-			<tr>
-				<td><%= label.name %></td>
+	<table>
+		<tbody class="label-t">
+			<tr class="label-r">
+				<% @labels.each do |label| %>
+				<th class="label-th"><%= label.name %></th>
+				<div class="edit-destroy">
+					
 				<td><%= link_to "編集", edit_label_path(label.id), class: 'btn btn-default' %></td>
-				<td><%= link_to "削除", label_path(label.id), class: 'btn btn-default', method: :delete %></td>
+				<td><%= link_to "削除", label_path(label.id), class: 'btn btn-danger', method: :delete %></td>
+				</div>
+				<% end %>
 			</tr>
 		</tbody>
 	</table>
-<% end %>
