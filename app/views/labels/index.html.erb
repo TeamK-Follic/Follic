@@ -1,11 +1,9 @@
 <h3>レーベル一覧</h3>
-
-
 	<table>
-		<tbody>
-			<tr>
+		<tbody class="label-t">
+			<tr class="label-r">
 				<% @labels.each do |label| %>
-				<th><%= label.name %></th>
+				<th class="label-th"><%= label.name %></th>
 				<div class="edit-destroy">
 					
 				<td><%= link_to "編集", edit_label_path(label.id), class: 'btn btn-default' %></td>
