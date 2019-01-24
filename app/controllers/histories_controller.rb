@@ -16,10 +16,16 @@ class HistoriesController < ApplicationController
   end
 
   def create
-      cart_history = Cart_history.find(params[:id])
-      history.cart_history_id = History.id
+   #  user = User.find(params[:id])
+  	# history = User.history.new(history_params)
+   #  history.user_id = user.id
+   #  history.save
+   #  redirect_to histories_path
+      cart_history = Cart_history.new(cart_history_params)
+      cart_history.save
+      history = History.new(history_params)
+      history.cart_history_id = history.id
       history.save
-      redirect_to histories_path
   end
 
   def update
