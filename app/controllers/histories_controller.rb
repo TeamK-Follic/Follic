@@ -2,6 +2,7 @@ class HistoriesController < ApplicationController
   # before_action :authenticate_manager!, only: [:update, :destroy]
   def show
     @history = History.find(params[:id])
+    @cart_histories = @history.cart_histories
   end
 
   def index
@@ -27,8 +28,7 @@ class HistoriesController < ApplicationController
       ch.amount = cart.amount      # カートに含まれる商品の数量
     end
     # データが出揃ったので保存
-    @history.status_id = 1
-    @history.payment_id = 1
+    @history.status_id = 0
     @history.save
     @carts.each do |cart|
       cart.destroy
