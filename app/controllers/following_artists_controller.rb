@@ -1,7 +1,17 @@
 class FollowingArtistsController < ApplicationController
   def index
-    @fartists = current_user.following_artists.all
-  end
+     @user = User.find(current_user.id)
+     @artist = Artist.find(current_user.id)
+     @artists = Artist.all
+     @events = Event.all
+     @items = Item.all
+  #   if @fartists.exist?
+  #       @artists.each do |artist|
+  #     fartist.event_id = artist.event.id
+  #     fartist.item_id = artist.item.id
+  #      end
+  # end
+end
 
   def show
     @fartists = current_user.following_artists.all
@@ -11,9 +21,12 @@ class FollowingArtistsController < ApplicationController
   end
 
   def create
-  	artist = Artist.find(params[:artist_id])
-    follow = current_user.following_artists.new(artist_id: artist.id)
-    follow.save
+    @user = User.find(current_user.id)
+  	@artists = user.artists
+    @events = artist.events
+    @items = artist.items
+    @fartists = artists
+    @fartist.save
     redirect_to artist_path(artist)
   end
 
@@ -22,5 +35,12 @@ class FollowingArtistsController < ApplicationController
     follow = current_user.following_artists.find_by(artist_id: artist.id)
     follow.destroy
     redirect_to artist_path(artist)
+  end
+
+  private
+  def following_artist_params
+    params.require(:following_artist).permit(
+      users_attributes: [:id, :deleted_user],
+      artists_attributes: [:id, :name, :image])
   end
 end
