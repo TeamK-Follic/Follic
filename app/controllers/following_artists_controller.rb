@@ -7,16 +7,10 @@ class FollowingArtistsController < ApplicationController
      @artist = Artist.find(current_user.id)
      @events = @artist.events
      @items = @artist.items
-  #   if @fartists.exist?
-  #       @artists.each do |artist|
-  #     fartist.event_id = artist.event.id
-  #     fartist.item_id = artist.item.id
-  #      end
-  # end
 end
 
   def show
- 
+
   end
 
   def create
