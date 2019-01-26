@@ -1,4 +1,6 @@
 class TypesController < ApplicationController
+  before_action :authenticate_manager!
+
   def new
   	@type = Type.new
   end

@@ -1,5 +1,5 @@
 class DiscsController < ApplicationController
-   # before_action :authenticate_manager!
+   before_action :authenticate_manager!
 
    def create
    	disc = Disc.new(disc_params)

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  # before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
 
   def new
     @event = Event.new
