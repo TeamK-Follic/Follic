@@ -5,7 +5,7 @@
       <!-- CD一覧 -->
       <div class="col-xs-4">
         <div class="f-list-wrapper">
-          <%= link_to '/items/:id' do %>
+          <%= link_to items_path(@item) do %>
             <%= render 'following_artists/items', items: @items %>
           <% end %>
         </div>
@@ -19,10 +19,10 @@
             <%= link_to following_artists_path do %>
               <div class="f-list clearfix">
                 <div class="f-list-thumbnail">
-                  <%= attachment_image_tag artist, :image, :fill, 40, 40, class: "img-circle" %>
+                  <%= attachment_image_tag @artist, :image, :fill, 40, 40 %>
                 </div>
                 <p class="f-list-text">
-                  <%= artist.name %>
+                  <%= @artist.name %>
                 </p>
               </div>
             <% end %>
@@ -35,7 +35,9 @@
       <!-- イベント一覧 -->
       <div class="col-xs-4">
         <div class="f-list-wrapper">
-          <%= render 'following_artists/events', events: @events %>
+          <%= link_to events_path do %>
+            <%= render 'following_artists/events', events: @events %>
+          <% end %>
         </div>
       </div>
 

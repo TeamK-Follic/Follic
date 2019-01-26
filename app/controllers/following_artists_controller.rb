@@ -3,10 +3,10 @@ class FollowingArtistsController < ApplicationController
 
   def index
      @user = User.find(current_user.id)
+     @artists = @user.following_artists
      @artist = Artist.find(current_user.id)
-     @artists = Artist.all
-     @events = Event.all
-     @items = Item.all
+     @events = @artist.events
+     @items = @artist.items
   #   if @fartists.exist?
   #       @artists.each do |artist|
   #     fartist.event_id = artist.event.id
@@ -16,19 +16,14 @@ class FollowingArtistsController < ApplicationController
 end
 
   def show
-    @fartists = current_user.following_artists.all
-    @fartist = FollowingArtist.find(params[:id]).artist
-    @items = @fartist.items
-    @events = @fartist.events
+ 
   end
 
   def create
     @user = User.find(current_user.id)
-  	@artists = user.artists
-    @events = artist.events
-    @items = artist.items
-    @fartists = artists
-    @fartist.save
+  	@artists = @user.artists
+    @events = @artist.events
+    @items = @artist.items
     redirect_to artist_path(artist)
   end
 

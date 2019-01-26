@@ -7,35 +7,52 @@
 	width: 800px;
 	background-color: #E6E6E6
 }
-
 .artist-name{
 	font-size: 25px;
 }
-
 .artist-title{
 	height: 30px;
 }
-
 .artist-new{
 	font-size: 15px;
 }
 
-
 .artist-image{
 	margin: 15px 0;
 }
-
 .profile-item {
 	margin: 10px;
 }
-
 .delete-btn {
 	width: 200px;
 	margin: 100px 0;
 }
-
 .more-btn {
 	width: 100px;
 	text-align: right;
 	margin: 0 90%;
+}
+.artist {
+	width: 40%;
+	margin: 0 auto;
+}
+.artist-header h3 {
+	background-color: #ffffff;
+	text-align: center;
+	line-height: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px;
+	color: #428bca;
+	width: 100%;
+}
+.artsist-area {
+	border: solid 1px #EEEEEE;
+	padding: 35px ;
+}
+.artist-footer {
+	text-align: center;
+}
+.btn {
+	width: 100%;
 }
