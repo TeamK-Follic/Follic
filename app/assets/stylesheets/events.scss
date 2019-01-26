@@ -32,7 +32,7 @@
 	float: left;
 }
 .event-show-box2{
-	width: 500px;
+	width: 50%;
 	height: 300px;
 	padding: 0 30px;
 }
@@ -44,8 +44,8 @@
 	font-size: 20px;
 }
 .event-show-box3{
+	position: relative; top:20px;
 	width: 60px;
-	margin: 20px auto;
 }
 
 .show-item{

@@ -5,29 +5,29 @@
 	<%= form_for(@user) do |f| %>
 		<div class="form-area">
 				<table>
-					<tr>
-						<td>名前</td>
-						<td><%= f.text_field :name %></td>
+					<tr  class="mypage">
+						<td class="mypage-item">名前</td>
+						<td class="mypage-item"><%= f.text_field :name %></td>
 					</tr>
-					<tr>
-						<td>名前（カナ)</td>
-						<td><%= f.text_field :name_kana %></td>
+					<tr class="mypage">
+						<td class="mypage-item">名前（カナ)</td>
+						<td class="mypage-item"><%= f.text_field :name_kana %></td>
 					</tr>
-					<tr>
-						<td>郵便番号</td>
-						<td><%= f.text_field :postal_code %></td>
+					<tr class="mypage">
+						<td class="mypage-item">郵便番号</td>
+						<td class="mypage-item"><%= f.text_field :postal_code %></td>
 					</tr>
-					<tr>
-						<td>住所</td>
-						<td><%= f.text_field :address %></td>
+					<tr class="mypage">
+						<td class="mypage-item">住所</td>
+						<td class="mypage-item"><%= f.text_field :address %></td>
 					</tr>
-					<tr>
-						<td>電話番号</td>
-						<td><%= f.text_field :phone_number %></td>
+					<tr class="mypage">
+						<td class="mypage-item">電話番号</td>
+						<td class="mypage-item"><%= f.text_field :phone_number %></td>
 					</tr>
-					<tr>
-						<td>メールアドレス</td>
-						<td><%= f.text_field :email %></td>
+					<tr class="mypage">
+						<td class="mypage-item">メールアドレス</td>
+						<td class="mypage-item"><%= f.text_field :email %></td>
 					</tr>
 				</table>
 		</div>

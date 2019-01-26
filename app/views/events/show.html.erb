@@ -13,7 +13,9 @@
     <div class="show-item event-detail"><%= @event.detail %></div>
   </div>
 
-  <div class="event-show-item event-show-box3">
-    <%= link_to "戻る", artist_path(@event.artist_id), class:"btn btn-primary" %>
+  <div class="event-show-box3">
+    <div>
+      <%= link_to "戻る", artist_path(@event.artist_id), class:"btn btn-primary" %>
+    </div>
   </div>
 </div>
