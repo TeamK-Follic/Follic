@@ -1,5 +1,7 @@
 class HistoriesController < ApplicationController
-  # before_action :authenticate_manager!, only: [:update, :destroy]
+  before_action :authenticate_manager!, only: [:update, :destroy]
+  before_action :authenticate_user!, only: [:show, :index, :create]
+
   def show
     @history = History.find(params[:id])
     @cart_histories = @history.cart_histories

@@ -1,5 +1,6 @@
 class MusicsController < ApplicationController
-	# before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+	before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+
 	def create
 		music = Music.new(music_params)
 		music.save

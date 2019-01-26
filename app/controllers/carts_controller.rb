@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @carts = User.find(current_user.id).carts.all

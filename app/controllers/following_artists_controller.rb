@@ -1,4 +1,6 @@
 class FollowingArtistsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @fartists = current_user.following_artists.all
   end
