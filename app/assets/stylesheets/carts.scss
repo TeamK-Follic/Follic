@@ -1,6 +1,10 @@
-.cart-box:nth-child(-n + 2){
+
+
+.cart-box {
 	float: left;
 }
-.cart-box:last-child {
-	float: right;
+
+.cart-area {
+	width: 40%;
+	height: 250px;
 }
