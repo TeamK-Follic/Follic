@@ -8,7 +8,7 @@
   <% total_price = 0 %>
   <% @carts.each do |cart| %>
     <%= form_for(cart) do |f| %>
-      <div class="cart-block">
+      <div>
         <div class="cart-box">
           <%= attachment_image_tag cart.item , :image, :fill, 250, 250, class:"cart-box" %>
         </div>
@@ -21,7 +21,7 @@
         <div class="cart-box cart-item">
           <p>数量 : <%= f.text_field :amount, value:"#{cart.amount}" %></p>
           <p>在庫数 : <%= cart.item.stock %></p>
-          <p>単価（税込）: <%= cart.item.price %> 円</p>
+          <p>単価（税込）: <%= cart.item.price %>円</p>
           <div class="cart-btn"><%= f.submit "更新",class: 'cart-update btn' %></div>
           <div  class="cart-btn"><%= link_to "削除", cart_path(cart), class: 'cart-delete btn', method: :delete %></div>
         </div>
@@ -32,7 +32,7 @@
   <% end %>
   <div class="cart-box2">
     <div class="cart-total">
-      <p>お買い物合計金額</p>
+      お買い物合計金額<br>
       <span class="total-price"><%= total_price %>円</span>（税込）
     </div>
 
