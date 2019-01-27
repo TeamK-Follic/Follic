@@ -18,7 +18,10 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
-
+$(function(){
+	setTimeout(function(){
+	$('.notice').fadeOut()}, 3000)
+});
 
 
 $(function(){
