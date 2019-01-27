@@ -17,7 +17,7 @@
 
     <!-- フラッシュメッセージ -->
     <% flash.each do |key, value| %>
-      <p>
+      <p class="header-name">
         <% if manager_signed_in? %>
           <%= content_tag(:div, "[管理者権限]#{value}", class: "#{key}") %>
         <% else %>
@@ -34,49 +34,49 @@
           <li>
             <div class="nav-item">
              <%= link_to items_path do %>
-              <i class="glyphicon glyphicon-cd"></i><p>CD</p>
+              <i class="glyphicon glyphicon-cd"></i><p class="header-name">CD</p>
              <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to artists_path do %>
-               <i class="fas fa-users"></i><p>アーティスト</p>
+               <i class="fas fa-users"></i><p class="header-name">アーティスト</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to carts_path do %>
-               <i class="fas fa-cart-plus"></i><p>カート</p>
+               <i class="fas fa-cart-plus"></i><p class="header-name">カート</p>
              <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item-logo">
               <%= link_to items_path do %>
-                <p>follic</p>
+                <p class="header-name">follic</p>
               <% end %>
             </div>
           </li>
           <li>
            <div class="nav-item">
             <%= link_to following_artists_path do %>
-              <i class="fas fa-user-check"></i><p>フォローアーティスト</p>
+              <i class="fas fa-user-check"></i><p class="header-name">フォローアーティスト</p>
             <% end %>
           </div>
           </li>
           <li>
            <div class="nav-item">
             <%= link_to user_path(current_user.id)  do %>
-              <i class="fas fa-user-tag"></i><p>マイページ</p>
+              <i class="fas fa-user-tag"></i><p class="header-name">マイページ</p>
             <% end %>
            </div>
           </li>
           <li>
            <div class="nav-item">
             <%= link_to destroy_user_session_path, method: :delete do %>
-             <i class="fas fa-sign-out-alt"></i><p>ログアウト</p>
+             <i class="fas fa-sign-out-alt"></i><p class="header-name">ログアウト</p>
             <% end %>
            </div>
           </li>
@@ -91,14 +91,14 @@
           <li>
             <div class= "nav-item">
               <%= link_to items_path do %>
-                <i class="glyphicon glyphicon-cd"></i><p>CD</p>
+                <i class="glyphicon glyphicon-cd"></i><p class="header-name">CD</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to artists_path do %>
-                <i class="fas fa-users"></i><p>アーティスト</p>
+                <i class="fas fa-users"></i><p class="header-name">アーティスト</p>
               <% end %>
             </div>
           </li>
@@ -109,28 +109,28 @@
           <li>
             <div class="nav-item-logo">
               <%= link_to items_path do %>
-                <p>follic</p>
+                <p class="header-name">follic</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to users_path do %>
-                <i class="far fa-address-card"></i><p>会員一覧</p>
+                <i class="far fa-address-card"></i><p class="header-name">会員一覧</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to histories_path do %>
-                <i class="far fa-file-alt"></i><p>受注一覧</p>
+                <i class="far fa-file-alt"></i><p class="header-name">受注一覧</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to destroy_manager_session_path, method: :delete do %>
-                <i class="fas fa-sign-out-alt"></i><p>ログアウト</p>
+                <i class="fas fa-sign-out-alt"></i><p class="header-name">ログアウト</p>
               <% end %>
             </div>
           </li>
@@ -144,42 +144,42 @@
           <li>
             <div class="nav-item">
               <%= link_to items_path do %>
-                <i class="glyphicon glyphicon-cd"></i><p>CD</p>
+                <i class="glyphicon glyphicon-cd"></i><p class="header-name">CD</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to artists_path do %>
-                <i class="fas fa-users"></i><p>アーティスト</p>
+                <i class="fas fa-users"></i><p class="header-name">アーティスト</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to about_path  do %>
-                <i class="fas fa-question-circle"></i><p>follicとは</p>
+                <i class="fas fa-question-circle"></i><p class="header-name">follicとは</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item-logo">
               <%= link_to items_path do %>
-                <p>follic</p>
+                <p class="header-name">follic</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to new_user_session_path do %>
-                <i class="fas fa-sign-in-alt"></i><p>ログイン</p>
+                <i class="fas fa-sign-in-alt"></i><p class="header-name">ログイン</p>
               <% end %>
             </div>
           </li>
           <li>
             <div class="nav-item">
               <%= link_to new_user_registration_path do %>
-                <i class="fas fa-user-plus"></i><p>新規登録</p>
+                <i class="fas fa-user-plus"></i><p class="header-name">新規登録</p>
               <% end %>
             </div>
           </li>

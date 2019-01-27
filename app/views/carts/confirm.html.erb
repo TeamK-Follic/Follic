@@ -1,52 +1,58 @@
 <h3>カート内容確認</h3>
 
-<div class="cart-item-tag">
+<div class="center-block cart-item-tag">
   <p>カート内の商品</p>
 </div>
 
-<div class="cart-area clearfix">
-  <% total_price = 0 %>
-  <% @carts.each do |cart| %>
-    <div class="cart_box">
-      <%= attachment_image_tag cart.item, :image %>
-    </div>
-    <div class="cart-box">
-      <%= cart.item.title %>
-      <%= cart.item.artist.name %>
-    </div>
-    <div class="cart-box">
-      <p>数量</p><%= cart.amount %>
-      <p>単価（税込）</p><%= cart.item.price %>
-    </div>
-    <% total_price = total_price + cart.amount * cart.item.price %>
-  <% end %>
+<div class="center-block">
+  <div class="clearfix">
+    <% total_price = 0 %>
+    <% @carts.each do |cart| %>
+      <div class="cart-block">
+        <div class="cart-box">
+          <%= attachment_image_tag cart.item , :image, :fill, 250, 250, class:"cart_box" %>
+        </div>
+        <div class="cart-box cart-item">
+          <%= cart.item.title %>
+          <%= cart.item.artist.name %>
+        </div>
+      </div>
+      <div class="cart-box cart-item">
+        <p>数量</p><%= cart.amount %>
+        <p>単価（税込）</p><%= cart.item.price %>
+      </div>
+      <% total_price = total_price + cart.amount * cart.item.price %>
+    <% end %>
 
-  <div class="total-price">
-    <%= total_price %>
+    <div class="cart-total">
+      <p>お買い物合計金額</p>
+      <span class="total-price"><%= total_price %>円</span>（税込）
+    </div>
   </div>
-</div>
 
-<div class="destination-tag">送付先</div>
-<div class="address-box">
-  <%= current_user.address %>
-  <%= link_to "住所を変更する方は\nマイページから編集をお願いします", user_path(current_user), class: 'btn btn-default' %>
-</div>
+  <div class="destination-tag">送付先</div>
+  <div class="address-box">
+    <%= current_user.address %>
+    <%= link_to "住所を変更する方は\nマイページから編集をお願いします", user_path(current_user), class: 'btn btn-default' %>
+  </div>
 
-<%= form_for(@history) do |f| %>
+  <%= form_for(@history) do |f| %>
 
-<div class="payment-select-box">
-  支払方法：
-  <%= f.radio_button :payment_id, 1 %>クレジットカード 
-  <%= f.radio_button :payment_id, 2 %>銀行振込 
-  <%= f.radio_button :payment_id, 3 %>コンビニ支払 
-  <%= f.radio_button :payment_id, 4 %>代金引換 
+  <div class="payment-select-box">
+    支払方法：
+    <%= f.radio_button :payment_id, 1 %>クレジットカード 
+    <%= f.radio_button :payment_id, 2 %>銀行振込 
+    <%= f.radio_button :payment_id, 3 %>コンビニ支払 
+    <%= f.radio_button :payment_id, 4 %>代金引換 
+  </div>
+  <div>
+    <p class="confirm-character">
+      以上の内容で購入します。<br>よろしければ「購入」、<br>内容を変更する場合は「カートに戻る」を<br>クリックしてください。
+    </p>
+  </div>
+  <div class="cart-btn">
+    <%= link_to "カートに戻る",carts_path, class: "d-inline bg-default" %>
+    <%= f.submit "購入", class: "d-inline bg-default" %>
+  </div>
+  <% end %>
 </div>
-<div>
-  <p class="confirm-character">
-    以上の内容で購入します。<br>よろしければ「購入」、<br>内容を変更する場合は「カートに戻る」を<br>クリックしてください。
-  </p>
-</div>
-
-<%= link_to "カートに戻る",carts_path, class: "d-inline bg-default" %>
-<%= f.submit "購入", class: "d-inline bg-default" %>
-<% end %>
