@@ -7,10 +7,9 @@ class FollowingArtistsController < ApplicationController
      @artist = Artist.find(current_user.id)
      @events = @artist.events
      @items = @artist.items
-end
+  end
 
   def show
-
   end
 
   def create
@@ -35,3 +34,4 @@ end
       artists_attributes: [:id, :name, :image])
   end
 end
+

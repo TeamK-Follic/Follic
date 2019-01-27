@@ -17,3 +17,19 @@
 //= require nested_form_fields
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+
+
+$(function(){
+	$(".adjust").userincr().data({
+		'min':0,
+		'max':100
+	});
+	$(".adjust").userincr({
+		buttonlabels:{
+			'dec':'▼',
+			'inc':'▲'
+		},
+	});
+});
