@@ -55,12 +55,10 @@
     <% end %>
   </h4>
 
-  <table class="table">
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.datetime %></td>
-        <td><%= link_to event.name, event_path(event.id) %></td>
-      </tr>
-    <% end %>
-  </table>
+  <div id ="events">
+    <%= render 'artists/eventlist', events: @events %>
+  </div>
+
+
+
 </div>

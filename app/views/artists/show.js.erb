@@ -1,0 +1,2 @@
+$('#events').append("<%= escape_javascript(render 'events', object: @events) %>")
+$("#more_link").replaceWith("<%= escape_javascript(link_to_next_page(@events, 'もっと見る', remote: true, id: 'more_link')) %>");

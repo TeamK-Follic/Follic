@@ -12,4 +12,9 @@ class Artist < ApplicationRecord
   def followed_by?(user)
     following_artists.where(user_id: user.id).exists?
   end
+
+  class Artits < ActiveRecord::Base
+    paginates_per 5
+  end
+
 end
