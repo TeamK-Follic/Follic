@@ -52,7 +52,4 @@ class HistoriesController < ApplicationController
       ]
     )
   end
-  # def search_params
-  #   params.require(@search).permit(:user_id, :payment_id, :status_id, :postal_code, :address, :name)
-  # end
 end

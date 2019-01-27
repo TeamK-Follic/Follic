@@ -3,9 +3,8 @@ class CartsController < ApplicationController
 
   def index
     @carts = User.find(current_user.id).carts.all
-    @cart = Cart.new
+    @carts = User.new
   end
-  
   def show
     @cart_history = User.find(current_user.id).cart_history.find(params[:id])
     @history = current_user.hitory.find(params[:id])
@@ -18,7 +17,7 @@ class CartsController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
+    @item = Item.new
     @cart = @item.carts.new(cart_params)
     @cart.item_id = @item.id
     @cart.user_id = current_user.id
