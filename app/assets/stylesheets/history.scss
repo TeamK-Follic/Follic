@@ -1,31 +1,23 @@
 .purchase-day-tag {
-	background-color: pink;
+	height: 40px;
+	padding-top: 10px;
+	color: #FFFFFF;
+	background-color: #428bca;
+}
+.history-box {
+	border :solid 1px #cccccc;
+}
+.payment-method, .user-address{
+	width: 92%;
+	margin: 5px auto;
+	border :solid 1px #cccccc;
 }
 
-.purchase-area {
-	background-color: gray;
-}
-
-.inline-table{
-	background-color: green;
-}
-.total-price{
-	background-color: blue;
-}
-.payment-method{
-	background-color: red;
-}
-.user-address{
-	background-color: #FF0000;
-}
-.history-subtota {
-	background-color: red;
-}
-.inline-table {
-	border :solid 1px black;
-}
 .history-title {
-	width: 300px;
+	width: 350px;
+}
+.history-ratist {
+	width: 250px;
 }
 .history-item {
 	width: 150px;

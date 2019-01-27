@@ -40,45 +40,55 @@
 
 	<!-- 会員ログイン時 -->
 	<% elsif user_signed_in? %>
-		<div class="purchase-day-tag">
-			<p>購入日時</p>
-		</div>
-		<% @histories.each do |history| %>
-			<!-- ステータス -->
+		<div class="history-box">
+			<% @histories.each do |history| %>
+				<div class="purchase-day-tag">
+					<%= history.created_at %>
+				</div>
+				<!-- ステータス -->
 
-			<div class="purchase-area">
-				<% history.cart_histories.each do |ch| %>
+				<div class="purchase-area">
 					<table class="inline-table">
-						<thead>
+						<% history.cart_histories.each do |ch| %>
+							<thead>
+								<tr>
+									<td class="history-title">タイトル</td>
+									<td class="history-ratist">アーティスト名</td>
+									<td class="history-item">数量</th>
+									<td class="history-item">小計</th>
+								</tr>
+							</thead>
 							<tr>
-								<th class="history-title">タイトル</td>
-								<th class="history-item">アーティスト名</td>
-								<th class="history-item">数量</th>
-								<th class="history-item">小計</th>
+								<th><%= ch.item.title %></th>
+								<th><%= ch.item.artist.name %></th>
+								<th><%= ch.amount %></th>
+								<th><%= sub_total = ch.amount * ch.price %>円</th>
 							</tr>
-						</thead>
+							<% total_price = total_price + sub_total %>
+						<% end %>
 						<tr>
-							<th><%= ch.item.title %></th>
-							<th><%= ch.item.artist.name %></th>
-							<th><%= ch.amount %></th>
-							<th><%= sub_total = ch.amount * ch.price %></th>
+							<td colspan="3"></td>
+							<td>合計金額</td>
+						</tr>
+						<tr>
+							<td colspan="3"></td>
+							<td>
+								<font size="5"><b><%= total_price %> 円</b></font>(税込)
+							</td>
 						</tr>
 					</table>
-					<div class="history-subtotal"></div>
-					<% total_price = total_price + sub_total %>
-				<% end %>
 
-				<div class="total-price">
-					<%= total_price %> 円(税込)
+					<div class="payment-method">
+						<p>支払方法</p>
+						<!-- 選択した支払い方法の表示 -->
+					</div>
+					<div class="user-address">
+						<p>送付先</p>
+						<%= history.address %>
+					</div>
 				</div>
-				<div class="payment-method">
-					支払方法：
-				</div>
-				<div class="user-address">
-					<%= history.address %>
-				</div>
-			</div>
-		<% end %>
+			<% end %>
+		</div>
 
 	<% end %>
 </div>
