@@ -22,12 +22,17 @@ class HistoriesController < ApplicationController
     @user = User.find(current_user.id)
     @carts = @user.carts
     @history = @user.histories.new(history_params)
+    if @history.payment_id == 0
+      redirect_to carts_confirm_path, alert: '支払方法を選択して下さい。'
+      return
+    end
     @carts.each do |cart|
       # 在庫数チェック
       amount = cart.amount
       stock = cart.item.stock
       if amount > stock
         redirect_to carts_path, alert: '他のユーザーの商品の購入により、入力の数量を準備できません。購入数量を変更してください。'
+        return
       end
       # @historyに紐づいたcart_historiesに、保存すべきデータをコピー
       ch = @history.cart_histories.new

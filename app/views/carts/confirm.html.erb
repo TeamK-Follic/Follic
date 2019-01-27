@@ -40,6 +40,7 @@
 
   <div class="payment-select-box">
     支払方法：
+    <%= f.radio_button :payment_id, 0, checked: true, id:'invisible' %> 
     <%= f.radio_button :payment_id, 1 %>クレジットカード 
     <%= f.radio_button :payment_id, 2 %>銀行振込 
     <%= f.radio_button :payment_id, 3 %>コンビニ支払 

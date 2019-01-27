@@ -57,6 +57,11 @@ html, body {
   opacity: 0.8;
 }
 
+/* ラジオボタン非表示 */
+#invisible{
+  display: none;
+}
+
 header {
 	width: 100%;
 	background-color: #FFFFFF;
