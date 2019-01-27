@@ -1,10 +1,53 @@
+
 .cart-box {
 	float: left;
 }
-
 .cart-area {
-	width: 30%;
+	width: 40%;
 }
 .cart-item {
 	height: 150px;
+	width: 36%;
+	border-bottom: solid 1px #cccccc;
+	margin-top: 10px;
+}
+.cart-total {
+	width: 100%;
+	padding-left: 83%;
+}
+.total-price {
+	font-size: 30px;
+}
+.cart-btn {
+	width: 100px;
+	display: inline-block;
+}
+.cart-update {
+	background: #7aabd6;
+	color: #FFFFFF;
+}
+.cart-delete {
+	background: #d66464;
+	color: #FFFFFF;
+}
+.cart-box2 {
+	width: 30%;
+	position: relative;left: 70%
+}
+
+/*カート内容確認画面*/
+.mm1 {
+	background-color: pink;
+}
+.mm2 {
+	background-color: blue;
+}
+.destination-tag {
+	background-color: gray;
+}
+.address-box {
+	background-color: red;
+}
+.address-box {
+	background-color: green;
 }

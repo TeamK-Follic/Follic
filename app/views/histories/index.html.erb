@@ -40,8 +40,8 @@
 
 	<!-- 会員ログイン時 -->
 	<% elsif user_signed_in? %>
-		<div class="history-box">
-			<% @histories.each do |history| %>
+		<% @histories.each do |history| %>
+			<div class="history-box">
 				<% total_price = 0 %>
 				<div class="purchase-day-tag">
 					<%= history.created_at %>
@@ -88,8 +88,8 @@
 						<%= history.address %>
 					</div>
 				</div>
-			<% end %>
-		</div>
+			</div>
+		<% end %>
 
 	<% end %>
 </div>
