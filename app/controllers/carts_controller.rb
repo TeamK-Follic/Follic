@@ -29,7 +29,7 @@ class CartsController < ApplicationController
   end
 
   def create
-    @item = Item.new
+    @item = Item.find(params[:item_id])
     @cart = @item.carts.new(cart_params)
     if @cart.amount > @item.stock
       redirect_to carts_path, alert: '入力した数量に対し、在庫数が足りません。購入数量を変更してください。'
