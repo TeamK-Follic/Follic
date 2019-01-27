@@ -25,9 +25,23 @@
 	</div>
 	<div class="item-show-item item-box3">
 		<div class="item-price"><%= @item.price %>円<span class="price-tax">（税込）</span></div>
-		<%= form_for [@item, @cart] do |f| %>
-			<div class=""><%= f.text_field :amount, :size => "5*5" %></div>
-			<div class=""><%= f.submit 'カートに入れる' %></div>
+
+		<!-- ログイン時、管理者ログイン時、未ログイン時で表示を変える -->
+		<% if manager_signed_in? %>
+			<% if item.stock == 0 %>
+		    <span>売切</span>
+		  <% else %>
+				<div class=""><%= item.stock %></div>
+			<% end %>
+		<% else %>
+			<%= form_for [@item, @cart] do |f| %>
+				<% if @item.stock == 0 %>
+		    	<span>売切</span>
+		    <% else %>
+					<div class=""><%= f.text_field :amount, :size => "5*5" %></div>
+					<div class=""><%= f.submit 'カートに入れる' %></div>
+				<% end %>
+			<% end %>
 		<% end %>
 	</div>
 </div>
