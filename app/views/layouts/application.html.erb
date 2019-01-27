@@ -17,11 +17,13 @@
 
     <!-- フラッシュメッセージ -->
     <% flash.each do |key, value| %>
+
       <% if manager_signed_in? %>
         <%= content_tag(:div, "[管理者権限]#{value}", class: "#{key}", id: "flash") %>
       <% else %>
         <%= content_tag(:div, value, class: "#{key}", id: "flash") %>
       <% end %>
+
     <% end %>
     <!-- フラッシュメッセージ ここまで -->
     <header class="clearfix">
