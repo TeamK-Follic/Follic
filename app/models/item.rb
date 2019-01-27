@@ -13,7 +13,13 @@ class Item < ApplicationRecord
 
   accepts_nested_attributes_for :discs, allow_destroy: true
 
-  validates :title, presence: true
-  validates :price, presence: true
-  validates :stock, presence: true
+  validates :title, presence: true, length: {maximum: 40}
+  validates :price, presence: true, length: {maximum: 7}
+  validates :stock, presence: true, length: {maximum: 7}
+
+  validates :artist_id, presence: true
+  validates :type_id, presence: true
+  validates :genre_id, presence: true
+  validates :label_id, presence: true
+
 end

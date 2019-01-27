@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root 'items#index'
 
   get 'carts/confirm'
-  get 'users/about'
+  get 'about' => 'users#about', as: "about"
   get 'events/new/:id' => 'events#new', as: 'new_event'
   get 'items/new/:id' => 'items#new', as: 'new_item'
 
