@@ -8,6 +8,8 @@ class CartsController < ApplicationController
     @cart = Cart.new
   end
 
+
+
   def show
     @cart_history = User.find(current_user.id).cart_history.find(params[:id])
     @history = current_user.hitory.find(params[:id])
