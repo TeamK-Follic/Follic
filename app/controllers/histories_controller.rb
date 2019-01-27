@@ -22,17 +22,30 @@ class HistoriesController < ApplicationController
     @user = User.find(current_user.id)
     @carts = @user.carts
     @history = @user.histories.new(history_params)
-    # @historyに紐づいたcart_historiesに、保存すべきデータをコピー
     @carts.each do |cart|
+      # 在庫数チェック
+      amount = cart.amount
+      stock = cart.item.stock
+      if amount > stock
+        redirect_to carts_path, alert: '他のユーザーの商品の購入により、入力の数量を準備できません。購入数量を変更してください。'
+      end
+      # @historyに紐づいたcart_historiesに、保存すべきデータをコピー
       ch = @history.cart_histories.new
       ch.item_id = cart.item.id    # カートに含まれる商品のitem_id
       ch.price = cart.item.price   # カートに含まれる商品の価格
       ch.amount = cart.amount      # カートに含まれる商品の数量
     end
-    # データが出揃ったので保存
+    # ユーザーデータのコピー
     @history.status_id = 0
+    @history.postal_code = @user.postal_code
+    @history.address = @user.address
+    @history.name = @user.name
     @history.save
+    # 購入した商品の最古を減らし、カートの中身削除
     @carts.each do |cart|
+      item = Item.find(cart.item.id)        # カートに含まれる商品を呼び出す
+      item.stock = item.stock - cart.amount # 商品の在庫を、購入した数量分だけ減らす
+      item.save                             # 商品情報の更新
       cart.destroy
     end
     redirect_to histories_path

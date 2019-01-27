@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :histories, dependent: :destroy
   has_many :carts, dependent: :destroy
   has_many :following_artists, dependent: :destroy
-  
+
 
   validates :name, presence: true, length:{maximum: 20}
   validates :name_kana, presence: true
