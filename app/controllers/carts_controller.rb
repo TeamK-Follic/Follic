@@ -5,7 +5,7 @@ class CartsController < ApplicationController
 
   def index
     @carts = User.find(current_user.id).carts.all
-    @carts = User.new
+    @cart = Cart.new
   end
 
 
