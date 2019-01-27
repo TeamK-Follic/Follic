@@ -1,7 +1,6 @@
 <h3>購入履歴</h3>
 
 <div class="center-block">
-	<% total_price = 0 %>
 
 	<!-- 会員ログインと管理者ログインで画面の構造が異なるので、if分岐で対応します -->
 	<!-- 管理者ログイン時 -->
@@ -22,17 +21,18 @@
 				<th>総計</th>
 			</tr>
 			<% @search_histories.each do |history| %>
-			<tr>
-				<td><%= history.status_id %></td>
-				<td><%= history.created_at %></td>
-				<td><%= history.user.name %></td>
-				<td>
-					<% history.cart_histories.each do |ch| %>
-						<% total_price = total_price + ch.price * ch.amount %>
-					<% end %>
-					<%= total_price %> 円(税込)
-				</td>
-			</tr>
+				<% total_price = 0 %>
+				<tr>
+					<td><%= history.status_id %></td>
+					<td><%= history.created_at %></td>
+					<td><%= history.user.name %></td>
+					<td>
+						<% history.cart_histories.each do |ch| %>
+							<% total_price = total_price + ch.price * ch.amount %>
+						<% end %>
+						<%= total_price %> 円(税込)
+					</td>
+				</tr>
 			<% end %>
 		</table>
 
@@ -42,6 +42,7 @@
 	<% elsif user_signed_in? %>
 		<div class="history-box">
 			<% @histories.each do |history| %>
+				<% total_price = 0 %>
 				<div class="purchase-day-tag">
 					<%= history.created_at %>
 				</div>
