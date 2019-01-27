@@ -30,6 +30,7 @@ $(function(){
 	$('.alert').fadeOut()}, 10000)
 });
 
+// XXX
 
 $(function(){
 	$(".adjust").userincr().data({
