@@ -14,10 +14,10 @@ Rails.application.routes.draw do
 
 
   resources :users, :only => [:show, :index, :edit, :update] do
-    resource :following_artists, only: [:index, :show, :create, :destroy]
+    resource :following_artists, only: [:create, :destroy]
   end
   resources :artists do
-    resource :following_artists, only: [:index, :show, :create, :destroy]
+    resource :following_artists, only: [:create, :destroy]
     resource :items, only: [:show, :index, :edit, :create, :destroy]
     resource :events, only: [:new, :show, :edit, :update, :create, :destroy]
   end

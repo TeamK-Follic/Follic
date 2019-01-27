@@ -13,10 +13,9 @@ class FollowingArtistsController < ApplicationController
   end
 
   def create
-    @user = User.find(current_user.id)
-  	@artists = @user.artists
-    @events = @artist.events
-    @items = @artist.items
+    artist = Artist.find(params[:artist_id])
+    fartist = current_user.following_artists.new(artist_id: artist.id)
+    fartist.save
     redirect_to artist_path(artist)
   end
 
@@ -27,11 +26,5 @@ class FollowingArtistsController < ApplicationController
     redirect_to artist_path(artist)
   end
 
-  private
-  def following_artist_params
-    params.require(:following_artist).permit(
-      users_attributes: [:id, :deleted_user],
-      artists_attributes: [:id, :name, :image])
-  end
 end
 
