@@ -18,7 +18,17 @@
 //= require bootstrap-sprockets
 //= require_tree .
 
+// フラッシュメッセージ
 
+$(function(){
+	setTimeout(function(){
+	$('.notice').fadeOut()}, 3000)
+});
+
+$(function(){
+	setTimeout(function(){
+	$('.alert').fadeOut()}, 10000)
+});
 
 
 $(function(){

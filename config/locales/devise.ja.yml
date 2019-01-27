@@ -1,4 +1,16 @@
 ja:
+  activerecord:
+    attributes:
+      user:
+        name: 名前
+        name_kana: 名前(カナ)
+        postal_code: 郵便番号
+        address: 住所
+        phone_number: 電話番号
+        password: パスワード
+        password_confirmation: パスワード確認
+        email: メールアドレス
+
   errors:
     messages:
       not_found: "は見つかりませんでした"
@@ -7,6 +19,14 @@ ja:
 #      already_confirmed: "was already confirmed"
       not_locked: "は凍結されていません"
 #      not_locked: "was not locked"
+      not_saved: "登録に失敗しました。"
+      taken: "は既に使用されています。"
+      blank: "が入力されていません。"
+      too_short: "は%{count}文字以上に設定して下さい。"
+      too_long: "は%{count}文字以下に設定して下さい。"
+      invalid: "は有効でありません。"
+      confirmation: "が内容とあっていません。"
+      wrong_length: "は7桁の数字で入力してください。"
 
   devise:
     failure:
@@ -24,6 +44,7 @@ ja:
 #      timeout: 'Your session expired, please sign in again to continue.'
       inactive: 'アカウントがアクティベートされていません。'
 #      inactive: 'Your account was not activated yet.'
+      not_found_in_database: "未登録のメールアドレスです。"
     sessions:
       signed_in: 'ログインしました。'
 #      signed_in: 'Signed in successfully.'
