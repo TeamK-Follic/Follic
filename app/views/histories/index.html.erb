@@ -1,80 +1,84 @@
 <h3>購入履歴</h3>
 
-<% total_price = 0 %>
+<div class="center-block">
+	<% total_price = 0 %>
 
-<!-- 会員ログインと管理者ログインで画面の構造が異なるので、if分岐で対応します -->
-<% if manager_signed_in? %>
+	<!-- 会員ログインと管理者ログインで画面の構造が異なるので、if分岐で対応します -->
+	<!-- 管理者ログイン時 -->
+	<% if manager_signed_in? %>
 
-	<div class="searchbox center-block">
-		<%= search_form_for @search do |f| %>
-			<%= f.text_field :user_name_cont ,placeholder: '会員名' %>
-			<%= f.submit ("検索") , class: 'd-btn' %>
-		<% end %>
-	</div>
-
-	<table border="1">
-		<tr>
-			<th>ステータス</th>
-			<th>受注日(購入日)</th>
-			<th>会員名</th>
-			<th>総計</th>
-		</tr>
-		<% @search_histories.each do |history| %>
-		<tr>
-			<td><%= history.status_id %></td>
-			<td><%= history.created_at %></td>
-			<td><%= history.user.name %></td>
-			<td>
-				<% history.cart_histories.each do |ch| %>
-					<% total_price = total_price + ch.price * ch.amount %>
-				<% end %>
-				<%= total_price %> 円(税込)
-			</td>
-		</tr>
-		<% end %>
-	</table>
-
-<%= paginate @search_histories %>
-
-
-<% elsif user_signed_in? %>
-	<div class="purchase-day-tag center-block">
-		<p>購入日時</p>
-	</div>
-	<% @histories.each do |history| %>
-		<!-- ステータス -->
-
-		<div class="purchase-area">
-			<% history.cart_histories.each do |ch| %>
-				<table class="inline-table">
-					<tbody>
-						<tr>
-							<td colspan="2">タイトル：<%= ch.item.title %></td>
-						</tr>
-						<tr>
-							<td colspan="2">アーティスト名：<%= ch.item.artist.name %></td>
-						</tr>
-						<tr>
-							<td>数量：<%= ch.amount %></td>
-							<td>
-								<p>小計:<%= sub_total = ch.amount * ch.price %></p>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<% total_price = total_price + sub_total %>
+		<div class="searchbox center-block">
+			<%= search_form_for @search do |f| %>
+				<%= f.text_field :user_name_cont ,placeholder: '会員名' %>
+				<%= f.submit ("検索") , class: 'd-btn' %>
 			<% end %>
-
-			<div class="total-price">
-				<%= total_price %> 円(税込)
-			</div>
-			<div class="payment-method">
-				支払方法：
-			</div>
-			<div class="user-address">
-				<%= history.address %>
-			</div>
 		</div>
-	<% end %>
 
-<% end %>
+		<table border="1">
+			<tr>
+				<th>ステータス</th>
+				<th>受注日(購入日)</th>
+				<th>会員名</th>
+				<th>総計</th>
+			</tr>
+			<% @search_histories.each do |history| %>
+			<tr>
+				<td><%= history.status_id %></td>
+				<td><%= history.created_at %></td>
+				<td><%= history.user.name %></td>
+				<td>
+					<% history.cart_histories.each do |ch| %>
+						<% total_price = total_price + ch.price * ch.amount %>
+					<% end %>
+					<%= total_price %> 円(税込)
+				</td>
+			</tr>
+			<% end %>
+		</table>
+
+	<%= paginate @search_histories %>
+
+	<!-- 会員ログイン時 -->
+	<% elsif user_signed_in? %>
+		<div class="purchase-day-tag">
+			<p>購入日時</p>
+		</div>
+		<% @histories.each do |history| %>
+			<!-- ステータス -->
+
+			<div class="purchase-area">
+				<% history.cart_histories.each do |ch| %>
+					<table class="inline-table">
+						<thead>
+							<tr>
+								<th class="history-item">タイトル</td>
+								<th>アーティスト名</td>
+								<th>数量</th>
+								<th>小計</th>
+							</tr>
+						</thead>
+						<tr>
+							<th><%= ch.item.title %></th>
+							<th><%= ch.item.artist.name %></th>
+							<th><%= ch.amount %></th>
+							<th><%= sub_total = ch.amount * ch.price %></th>
+						</tr>
+					</table>
+					<div class="history-subtotal"></div>
+					<% total_price = total_price + sub_total %>
+				<% end %>
+
+				<div class="total-price">
+					<%= total_price %> 円(税込)
+				</div>
+				<div class="payment-method">
+					支払方法：
+				</div>
+				<div class="user-address">
+					<%= history.address %>
+				</div>
+			</div>
+		<% end %>
+
+	<% end %>
+</div>
