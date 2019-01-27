@@ -31,14 +31,17 @@ class CartsController < ApplicationController
   def create
     @item = Item.find(params[:item_id])
     @cart = @item.carts.new(cart_params)
-    if @cart.amount > @item.stock
-      redirect_to carts_path, alert: '入力した数量に対し、在庫数が足りません。購入数量を変更してください。'
-      return
-    end
     @cart.item_id = @item.id
     @cart.user_id = current_user.id
     if @cart.save
+      if @cart.amount > @item.stock
+        @cart.destroy
+        redirect_to item_path(@cart.item.id), alert: '入力した数量に対し、在庫数が足りません。もう一度やり直してください。'
+        return
+      end
       redirect_to carts_path, notice: 'カートに商品を追加しました'
+    else
+      redirect_to item_path(@cart.item.id), alert: '購入数量を入力してください'
     end
   end
 
@@ -49,7 +52,9 @@ class CartsController < ApplicationController
       return
     end
     if @cart.update(cart_params)
-      redirect_to carts_path, notice: '商品の内容を変更しました'
+      redirect_to carts_path, notice: '数量を変更しました'
+    else
+      redirect_to carts_path, alert: '数量の変更に失敗しました'
     end
   end
 
