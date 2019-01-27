@@ -17,6 +17,7 @@
 
     <!-- フラッシュメッセージ -->
     <% flash.each do |key, value| %>
+<<<<<<< HEAD
       <p class="header-name">
         <% if manager_signed_in? %>
           <%= content_tag(:div, "[管理者権限]#{value}", class: "#{key}") %>
@@ -24,6 +25,13 @@
           <%= content_tag(:div, value, class: "#{key}") %>
         <% end %>
       </p>
+=======
+      <% if manager_signed_in? %>
+        <%= content_tag(:div, "[管理者権限]#{value}", class: "#{key}", id: "flash") %>
+      <% else %>
+        <%= content_tag(:div, value, class: "#{key}", id: "flash") %>
+      <% end %>
+>>>>>>> master
     <% end %>
     <!-- フラッシュメッセージ ここまで -->
     <header class="clearfix">

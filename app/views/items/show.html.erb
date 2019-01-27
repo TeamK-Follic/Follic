@@ -28,10 +28,10 @@
 
 		<!-- ログイン時、管理者ログイン時、未ログイン時で表示を変える -->
 		<% if manager_signed_in? %>
-			<% if item.stock == 0 %>
+			<% if @item.stock == 0 %>
 		    <span>売切</span>
 		  <% else %>
-				<div class=""><%= item.stock %></div>
+				<div class=""><%= @item.stock %></div>
 			<% end %>
 		<% else %>
 			<%= form_for [@item, @cart] do |f| %>
