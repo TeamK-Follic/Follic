@@ -44,7 +44,7 @@
 			<div class="history-box">
 				<% total_price = 0 %>
 				<div class="purchase-day-tag">
-					<%= history.created_at %>
+					購入日：<%= simple_time(history.created_at) %>
 				</div>
 				<!-- ステータス -->
 

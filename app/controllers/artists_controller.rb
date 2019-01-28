@@ -8,7 +8,7 @@ class ArtistsController < ApplicationController
   def show
   	@artist = Artist.find(params[:id])
     @items = @artist.items.all.reverse_order.limit(3)
-    @events = @artist.events.all.reverse_order
+    @events = @artist.events.page(params[:page]).per(5).order('datetime ASC')
   end
 
   def index
