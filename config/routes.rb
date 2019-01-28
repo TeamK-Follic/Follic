@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'about' => 'users#about', as: "about"
   get 'events/new/:id' => 'events#new', as: 'new_event'
   get 'items/new/:id' => 'items#new', as: 'new_item'
+  patch 'users/:id' => 'users#unsubscribe', as: 'unsubscribe_user'
 
   devise_for :managers
   devise_for :users

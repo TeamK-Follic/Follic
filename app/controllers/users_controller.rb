@@ -21,12 +21,20 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:id])
-    if @user.update
+    if @user.update(user_params)
       redirect_to user_path(@user.id), notice: '会員情報を編集しました'
     else
       flash.now[:alert] = '会員情報の追加に失敗しました'
       render :edit
     end
+  end
+
+  def unsubscribe
+    user =  User.find(current_user.id)
+    user.deleted_user = 1
+    user.save
+    reset_session
+    redirect_to items_path, alert: '退会しました。'
   end
 
   def ensure_login_user
@@ -38,6 +46,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:name, :name_kana, :postal_code, :address, :phone_number, :email, :encrypted_password, :deleted_user)
+    params.require(:name, :name_kana, :postal_code, :address, :phone_number, :email)
   end
 end
