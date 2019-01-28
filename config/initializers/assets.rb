@@ -16,3 +16,4 @@ Rails.application.config.assets.precompile += %w( jquery-ui-timepicker-addon.js 
 Rails.application.config.assets.precompile += %w( jquery-ui-timepicker-ja.js )
 Rails.application.config.assets.precompile += %w( jquery-ui-timepicker-addon.css )
 Rails.application.config.assets.precompile += %w( jquery.jpostal.js )
+Rails.application.config.assets.precompile += %w( jquery.number-spinner.js )
