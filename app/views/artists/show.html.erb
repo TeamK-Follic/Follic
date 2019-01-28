@@ -8,13 +8,13 @@
     <% if user_signed_in? %>
 
       <% if @artist.followed_by?(current_user) %>
-        <%= link_to artist_following_artists_path(@artist), method: :delete do %>
-          <span class="d-btn follow-btn">フォローを外す</span>
+        <%= link_to artist_following_artists_path(@artist), class: "follow-btn followed", method: :delete do %>
+          <span>フォロー中</span>
         <% end %>
 
       <% else %>
-        <%= link_to artist_following_artists_path(@artist), method: :post do %>
-          <span class="d-btn follow-btn">フォローする</span>
+        <%= link_to artist_following_artists_path(@artist), class: "follow-btn", method: :post do %>
+          <span class="d-btn"><i class="fas fa-plus"></i>フォローする</span>
         <% end %>
       <% end %>
 
