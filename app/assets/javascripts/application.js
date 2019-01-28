@@ -30,6 +30,12 @@ $(function(){
 	$('.alert').fadeOut()}, 10000)
 });
 
+// Datetime Picker
+// 使用したいtext_fieldに、id: "datepicker" を付与
+$( function() {
+    $( "#datetimepicker" ).datetimepicker();
+  });
+
 // XXX
 
 $(function(){
