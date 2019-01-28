@@ -47,19 +47,6 @@ $(function () {
     }
   });
 });
-
-// $(function(){
-// 	$(".adjust").userincr().data({
-// 		'min':0,
-// 		'max':100
-// 	});
-// 	$(".adjust").userincr({
-// 		buttonlabels:{
-// 			'dec':'▼',
-// 			'inc':'▲'
-// 		},
-// 	});
-// });
 $('.fartist-menu').on({
 	'mouseenter': function(){
 		$(this)
@@ -75,4 +62,10 @@ $('.fartist-menu').on({
 				duration: 300
 			});
 	}
+});
+$(function() {
+    $('.stock-btn').numberSpinner({
+    	upButtonText: '＋',
+    	downButtonText: 'ー'
+    });
 });
