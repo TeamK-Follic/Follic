@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :authenticate_manager!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :unsubscribed_user?, only: [:index]
 
   def new
     @artist = Artist.find(params[:id])
@@ -47,6 +48,15 @@ class ItemsController < ApplicationController
   	item = Item.find(params[:id])
     item.destroy
     redirect_to items_path, notice: '商品情報を削除しました'
+  end
+
+  def unsubscribed_user?
+    if user_signed_in?
+      if current_user.deleted_user == 1
+        reset_session
+        redirect_to items_path, alert: '退会済みのユーザーです。'
+      end
+    end
   end
 
   private
