@@ -29,3 +29,31 @@ $(function(){
 	setTimeout(function(){
 	$('.alert').fadeOut()}, 10000)
 });
+// $(function(){
+// 	$(".adjust").userincr().data({
+// 		'min':0,
+// 		'max':100
+// 	});
+// 	$(".adjust").userincr({
+// 		buttonlabels:{
+// 			'dec':'▼',
+// 			'inc':'▲'
+// 		},
+// 	});
+// });
+$('.fartist-menu').on({
+	'mouseenter': function(){
+		$(this)
+			.addClass('is-active')
+			.find('.f-list-wrapper').velocity('slideDown',{
+				duration: 300
+			});
+	},
+	'mouseleave': function(){
+		$(this)
+			.removeClass('is-active')
+			.find('.f-list-wrapper').velocity('slideUp',{
+				duration: 300
+			});
+	}
+});
