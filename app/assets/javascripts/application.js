@@ -29,6 +29,25 @@ $(function(){
 	setTimeout(function(){
 	$('.alert').fadeOut()}, 10000)
 });
+
+// Datetime Picker
+// 使用したいtext_fieldに、id: "datepicker" を付与
+$(function() {
+    $( "#datetimepicker" ).datetimepicker();
+  });
+
+// jpPostal
+$(function () {
+  $('#user_postal_code').jpostal({
+    postcode : [
+      '#user_postal_code'
+    ],
+    address : {
+      '#user_address' : '%3%4%5'
+    }
+  });
+});
+
 // $(function(){
 // 	$(".adjust").userincr().data({
 // 		'min':0,
