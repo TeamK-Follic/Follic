@@ -6,16 +6,17 @@
 	float: left;
 }
 .cart-area {
-	width: 40%;
+	width: 200px;
 }
 .cart-item {
 	height: 150px;
-	width: 36%;
+	width: 335px;
 	border-bottom: solid 1px #cccccc;
 	margin-top: 10px;
 }
-.cart-total {
-	width: 100%;
+.cart-box2 {
+	width: 200px;
+	position: relative; left: 650px;
 }
 .total-price {
 	font-size: 30px;
@@ -33,10 +34,7 @@
 	background: #d66464;
 	color: #FFFFFF;
 }
-.cart-box2 {
-	width: 200px;
-	position: relative; left: 70%;
-}
+
 .cart-box3 {
 	text-align: center;
 }
@@ -47,19 +45,19 @@
 	display: inline-block;
 }
 .address-box {
-	width: 30%;
+	width: 280px;
 	margin-left: 20px;
 	position: relative; top: 25px;
 }
 .destination-tag {
-	width: 67%;
+	width: 600px;
 	height: 80px;
 	font-size: 17px;
 	border: solid 1px #cccccc;
 }
 
 .payment-select-box {
-	width: 67%;
+	width: 600px;
 	height: 80px;
 	font-size: 17px;
 	padding-top: 15px;
