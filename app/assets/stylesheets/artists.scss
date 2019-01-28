@@ -18,9 +18,15 @@
 .artist-new{
 	font-size: 15px;
 }
-
-.artist-image{
+.artist-profile {
 	margin: 15px 0;
+}
+.artist-block{
+	display: inline-block;
+}
+.artist-intro {
+	width: 500px;
+	margin-left: 50px;
 }
 .profile-item {
 	margin: 10px;

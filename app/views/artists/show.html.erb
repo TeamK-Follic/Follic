@@ -24,7 +24,10 @@
     <% end %>
   </div>
 
-  <div class="artist-image"><%= attachment_image_tag @artist, :image, :fill, 300, 300 %><%= @artist.intro %></div>
+  <div class="artist-profile">
+    <%= attachment_image_tag @artist, :image, :fill, 300, 300, class:"artist-block" %>
+    <div class="artist-intro artist-block"><%= @artist.intro %></div>
+  </div>
 
   <h4 class="artist-show-item">CD情報
     <% if manager_signed_in? %>

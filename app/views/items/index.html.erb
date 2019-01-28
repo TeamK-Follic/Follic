@@ -1,4 +1,9 @@
-<h3>商品一覧</h3>
+<h3>商品一覧
+  <% if manager_signed_in? %>
+    <%= link_to "ジャンル新規追加", new_genre_path, class:"genre-new btn btn-default new-btn" %>
+    <%= link_to "レーベル新規追加", new_label_path, class:"btn btn-default new-btn label-new" %>
+  <% end %>
+  </h3>
 
 <div class="center-block">
   <!-- 検索バー -->
