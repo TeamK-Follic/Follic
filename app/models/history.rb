@@ -4,6 +4,6 @@ class History < ApplicationRecord
   accepts_nested_attributes_for :cart_histories, allow_destroy: true
 
   enum status_id:{receptionist: 0,preparation: 1,shipped: 2,cancel: 3}
-  # enum payment_id:{credit_card: 0,banking: 1,store: 2,cash: 3}
+  # enum payment_id:{no_choice:0 ,credit_card: 1,banking: 2,store: 3,cash: 4}
 
 end

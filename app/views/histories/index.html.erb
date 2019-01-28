@@ -23,7 +23,7 @@
 			<% @search_histories.each do |history| %>
 				<% total_price = 0 %>
 				<tr>
-					<td><%= history.status_id %></td>
+					<td><%= link_to history.status_id_i18n, history_path(history.id) %></td>
 					<td><%= history.created_at %></td>
 					<td><%= history.user.name %></td>
 					<td>
