@@ -18,6 +18,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
+    @search = Label.ransack(params[:q])
     @search_labels = @search.result.page(params[:page]).reverse_order
   end
 

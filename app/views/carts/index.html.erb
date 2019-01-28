@@ -19,7 +19,7 @@
         </div>
 
         <div class="cart-box cart-item">
-          <p>数量 : <%= f.text_field :amount, value:"#{cart.amount}" %></p>
+          数量 : <%= f.text_field :amount, value:"#{cart.amount}" %>
           <p>在庫数 : <%= cart.item.stock %></p>
           <p>単価（税込）: <%= cart.item.price %>円</p>
           <div class="cart-btn"><%= f.submit "更新",class: 'cart-update btn' %></div>

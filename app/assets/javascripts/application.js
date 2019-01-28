@@ -69,3 +69,9 @@ $(function() {
     	downButtonText: 'ー'
     });
 });
+$(function() {
+    $('.item_amount').Spinner({
+    	upButtonText: '＋',
+    	downButtonText: 'ー'
+    });
+});
