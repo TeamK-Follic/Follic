@@ -2,19 +2,18 @@
 <div>
 	<div><%= @history.created_at %>/<%= @history.user_id %></div>
 	<%= form_for(@history) do |f| %>
-	<!-- ステータスのラジオボタン -->
 	<div class="field">
 	  <div class="radio-status">
-	    <%= f.radio_button :status, :receptionist, checked: "checked" %>受付
+	    <%= f.radio_button :status_id, :receptionist, checked: true %>受付
 	  </div>
 	  <div class="radio-status">
-	    <%= f.radio_button :status, :preparation, checked: "checked" %>準備中
+	    <%= f.radio_button :status_id, :preparation %>準備中
 	  </div>
 	  <div class="radio-status">
-	    <%= f.radio_button :status, :shipped, checked: "checked" %>出荷済み
+	    <%= f.radio_button :status_id, :shipped %>出荷済み
 	  </div>
 	  <div class="radio-status">
-	    <%= f.radio_button :status, :cancel, checked: "checked" %>キャンセル
+	    <%= f.radio_button :status_id, :cancel %>キャンセル
 	  </div>
 	</div>
 		<div>
@@ -22,7 +21,7 @@
       <% total_price = 0 %>
   		<% @cart_histories.each do |ch| %>
   			<tr>
-          <td>%= ch.item.title %></td>
+          <td><%= ch.item.title %></td>
   			  <td><%= ch.amount %></td>
 	    		<td>小計:<%= sub_total = ch.amount * ch.price %></td>
           <% total_price = total_price + sub_total %>

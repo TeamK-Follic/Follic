@@ -1,0 +1,8 @@
+ja:
+  enums:
+    history:
+      status_id:
+        receptionist: 受付
+        preparation: 出荷準備中
+        shipped: 出荷済
+        cancel: 注文キャンセル
