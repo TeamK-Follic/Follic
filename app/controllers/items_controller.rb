@@ -19,7 +19,6 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @search_labels = @search.result.page(params[:page]).reverse_order
   end
 
   def create
