@@ -32,9 +32,21 @@ $(function(){
 
 // Datetime Picker
 // 使用したいtext_fieldに、id: "datepicker" を付与
-$( function() {
+$(function() {
     $( "#datetimepicker" ).datetimepicker();
   });
+
+// jpPostal
+$(function () {
+  $('#user_postal_code').jpostal({
+    postcode : [
+      '#user_postal_code'
+    ],
+    address : {
+      '#user_address' : '%3%4%5'
+    }
+  });
+});
 
 // XXX
 
