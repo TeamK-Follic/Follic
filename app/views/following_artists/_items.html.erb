@@ -1,17 +1,18 @@
-<!--  <p>アーティストを選択してください。</p> -->
+<% if items.nil? %>
+  <p>商品を選択してください。</p>
+<% else %>
   <% items.each do |item| %>
   <%= link_to item_path(item) do %>
     <div class="f-list clearfix">
       <div class="f-list-thumbnail">
-        <%= attachment_image_tag item, :image, :fill, 40, 40, fallback: "no_image.png"%>
-
+        <%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.png"%>
       </div>
-
-      <p class="f-list-text">
-        <%= item.type.name %>
-        <p>NEW</p>
-        <%= item.title %>
-      </p>
+        <p class="f-list-text">
+          <%= item.title %>
+          <%= item.type.name %>
+          <!-- <p>NEW</p> -->
+        </p>
     </div>
     <% end %>
   <% end %>
+<% end %>
