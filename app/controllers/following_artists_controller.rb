@@ -3,13 +3,18 @@ class FollowingArtistsController < ApplicationController
 
   def index
      @user = User.find(current_user.id)
-     @artists = @user.following_artists
+     @artists = @user.following_artists.all
      @artist = Artist.find(current_user.id)
      @events = @artist.events
      @items = @artist.items
   end
 
   def show
+    @user = User.find(current_user.id)
+     @artists = @user.following_artists.all
+     @artist = Artist.find(current_user.id)
+     @events = @artist.events.all
+     @items = @artist.items.all
   end
 
   def create

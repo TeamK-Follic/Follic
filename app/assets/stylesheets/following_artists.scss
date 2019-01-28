@@ -5,17 +5,17 @@
 }
 
 .f-list-wrapper{
-  width: 100%;
+  width: 80%;
   height: 250px;
   overflow: scroll;
-  background-color: blue; // 範囲確認用 後で消します
+/*  background-color: blue; // 範囲確認用 後で消します*/
 }
 
 .f-list{
-  width: 95%;
+  width: 100%;
   height: 40px;
   margin: 10px auto;
-  background-color: orange; // 範囲確認用 後で消します
+  /*background-color: orange; // 範囲確認用 後で消します*/
 }
 
 .f-list-thumbnail{
@@ -30,8 +30,9 @@
   margin: 10px;
 }
 .follow-artist {
-  width: 70%;
-  margin: 0 auto;
+   margin: 0 auto;
+   height: 2000px;
+   padding: 0 0 0 75px;
 }
 .follow-artist-header {
   background-color: #ffffff;
@@ -43,7 +44,25 @@
   color: #428bca;
   width: 100%;
 }
+.row {
+ width: 1170px;
+}
 .follow-artist-area {
   border: solid 1px #cccccc;
   padding: 35px ;
 }
+
+/*.main-menu {
+  position: fixed;
+  left: -200px;
+  width: 300px;
+  height: 100%;
+  padding:0 50px 0 0;
+  background: rgba(195, 165, 115, 0.8);
+}
+.fartist-menu {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+*/

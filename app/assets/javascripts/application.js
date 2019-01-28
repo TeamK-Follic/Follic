@@ -29,36 +29,31 @@ $(function(){
 	setTimeout(function(){
 	$('.alert').fadeOut()}, 10000)
 });
-
-// Datetime Picker
-// 使用したいtext_fieldに、id: "datepicker" を付与
-$(function() {
-    $( "#datetimepicker" ).datetimepicker();
-  });
-
-// jpPostal
-$(function () {
-  $('#user_postal_code').jpostal({
-    postcode : [
-      '#user_postal_code'
-    ],
-    address : {
-      '#user_address' : '%3%4%5'
-    }
-  });
-});
-
-// XXX
-
-$(function(){
-	$(".adjust").userincr().data({
-		'min':0,
-		'max':100
-	});
-	$(".adjust").userincr({
-		buttonlabels:{
-			'dec':'▼',
-			'inc':'▲'
-		},
-	});
+// $(function(){
+// 	$(".adjust").userincr().data({
+// 		'min':0,
+// 		'max':100
+// 	});
+// 	$(".adjust").userincr({
+// 		buttonlabels:{
+// 			'dec':'▼',
+// 			'inc':'▲'
+// 		},
+// 	});
+// });
+$('.fartist-menu').on({
+	'mouseenter': function(){
+		$(this)
+			.addClass('is-active')
+			.find('.f-list-wrapper').velocity('slideDown',{
+				duration: 300
+			});
+	},
+	'mouseleave': function(){
+		$(this)
+			.removeClass('is-active')
+			.find('.f-list-wrapper').velocity('slideUp',{
+				duration: 300
+			});
+	}
 });

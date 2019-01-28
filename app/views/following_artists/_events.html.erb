@@ -2,14 +2,15 @@
   <p>アーティストを選択してください。</p>
 <% else %>
   <% @events.each do |event| %>
-    <div class="f-list clearfix">
-      <div class="f-list-thumbnail">
-        <%= attachment_image_tag event.artist, :image, :fill, 40, 40, class: "img-circle", fallback: "" %>
+    <%= link_to event_path(event.id) do %>
+      <div class="f-list clearfix">
+        <div class="f-list-thumbnail">
+          <%= attachment_image_tag event.artist, :image, :fill, 60, 60, fallback: "no_image.png" %>
+        </div>
+        <p class="f-list-text">
+          <%= event.name %>
+        </p>
       </div>
-
-      <p class="f-list-text">
-        <%= event.name %>
-      </p>
-    </div>
+    <% end %>
   <% end %>
 <% end %>
