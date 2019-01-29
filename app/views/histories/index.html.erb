@@ -6,37 +6,39 @@
 	<!-- 管理者ログイン時 -->
 	<% if manager_signed_in? %>
 
-		<div class="searchbox center-block">
+		<div class="searchbox">
 			<%= search_form_for @search do |f| %>
 				<%= f.text_field :user_name_cont ,placeholder: '会員名' %>
 				<%= f.submit ("検索") , class: 'd-btn' %>
 			<% end %>
 		</div>
 
-		<table border="1">
-			<tr>
-				<th>ステータス</th>
-				<th>受注日(購入日)</th>
-				<th>会員名</th>
-				<th>総計</th>
-			</tr>
-			<% @search_histories.each do |history| %>
-				<% total_price = 0 %>
-				<tr>
-					<td><%= link_to history.status_id_i18n, history_path(history.id) %></td>
-					<td><%= history.created_at %></td>
-					<td><%= history.user.name %></td>
-					<td>
-						<% history.cart_histories.each do |ch| %>
-							<% total_price = total_price + ch.price * ch.amount %>
-						<% end %>
-						<%= total_price %> 円(税込)
-					</td>
+		<div class="">
+			<table border="1" class="user-list">
+				<tr bgcolor="#428bca" class="user-index-item user-list-height">
+					<th class="history-list-item1">ステータス</th>
+					<th class="history-list-item2">受注日(購入日)</th>
+					<th class="history-list-item3">会員名</th>
+					<th class="history-list-item4">総計</th>
 				</tr>
-			<% end %>
-		</table>
+				<% @search_histories.each do |history| %>
+					<% total_price = 0 %>
+					<tr class="user-list-height">
+						<td><div class="status-btn"><%= link_to history.status_id_i18n, history_path(history.id), class:"btn btn-primary" %></div></td>
+						<td><%= simple_time(history.created_at) %></td>
+						<td><%= history.user.name %></td>
+						<td>
+							<% history.cart_histories.each do |ch| %>
+								<% total_price = total_price + ch.price * ch.amount %>
+							<% end %>
+							<%= total_price %> 円(税込)
+						</td>
+					</tr>
+				<% end %>
+			</table>
 
-	<%= paginate @search_histories %>
+			<%= paginate @search_histories %>
+		</div>
 
 	<!-- 会員ログイン時 -->
 	<% elsif user_signed_in? %>
