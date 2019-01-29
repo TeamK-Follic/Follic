@@ -1,5 +1,26 @@
-<h3>レーベル追加</h3>
-<%= form_for(@label) do |f| %>
-  <%= f.text_field :name, placeholder:"レーベル名" %>
-  <%= f.submit "送信" %>
-<% end %>
+<div class="form">
+	<h3 class="form-header">レーベル追加</h3>
+
+	<div class="form-area"">
+		<div>
+			<%= form_for(@label) do |f| %>
+			  <span class="label-new-btn"><%= f.text_field :name, placeholder:"レーベル名" %></span>
+			  <span class="label-new-btn"><%= f.submit "新規追加", class:"btn btn-primary" %></span>
+			<% end %>
+		</div>
+
+		<h4 class="artist-show-item labels">レーベル一覧</h4>
+		<div>
+			<% @labels.each do |labels| %>
+			<table class="label-list">
+				<tr>
+					<td class="label-name label-item"><%= labels.name %></td>
+					<td class="label-item"><%= link_to "編集", edit_label_path(labels.id), class: 'btn btn-default label-btn label-item' %></td>
+					<td class="label-item"><%= link_to "削除", label_path(labels.id), class: 'btn btn-danger label-btn label-item', method: :delete %></td>
+					</span>
+				</tr>
+			</table>
+			<% end %>
+		</div>
+	</div>
+</div>

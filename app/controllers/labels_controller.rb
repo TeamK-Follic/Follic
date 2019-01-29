@@ -3,6 +3,7 @@ class LabelsController < ApplicationController
 
   def new
     @label = Label.new
+    @labels = Label.all
   end
 
   def index
@@ -16,19 +17,19 @@ class LabelsController < ApplicationController
   def create
     label = Label.new(label_params)
     label.save
-    redirect_to labels_path
+    redirect_to new_label_path
   end
 
   def update
     label = Label.find(params[:id])
     label.update(label_params)
-    redirect_to labels_path
+    redirect_to new_label_path
   end
 
   def destroy
     label = Label.find(params[:id])
     label.destroy
-    redirect_to labels_path
+    redirect_to new_label_path
   end
 
   private
