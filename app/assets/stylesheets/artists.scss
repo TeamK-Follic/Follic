@@ -3,10 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .artist-show-item{
-	height: 40px;
-	padding-top: 10px;
+	height: 50px;
+	padding-top: 2px;
 	padding-left: 10px;
 	border-bottom: solid 3px #428bca;
+	margin: 30px auto;
+}
+.artist-show {
+	display: inline-block;
 }
 .artist-name{
 	font-size: 25px;
@@ -38,7 +42,7 @@
 .more-btn {
 	width: 100px;
 	text-align: right;
-	margin: 0 90%;
+	margin: 0 85%;
 }
 .artist {
 	width: 40%;

@@ -29,11 +29,12 @@
     <div class="artist-intro artist-block"><%= @artist.intro %></div>
   </div>
 
-  <h4 class="artist-show-item">CD情報
+  <div class="artist-show-item">
+    <h4 class="artist-show">CD情報</h4>
     <% if manager_signed_in? %>
-      <%= link_to "新規追加", new_item_path(@artist.id), class:"d-btn new-btn" %>
+      <%= link_to "新規追加", new_item_path(@artist.id), class:"d-btn btn btn-default new-btn artist-show" %>
     <% end %>
-  </h4>
+  </div>
   <% @items.each do |item| %>
     <div class="thumbnail-contents">
       <%= link_to (item_path(item.id)) do %>
@@ -50,13 +51,14 @@
     </div>
   <% end %>
 
-  <div class="more-btn"><%= link_to 'もっと見る', "/items?utf8=✓&q%5Bartist_name_cont%5D=#{@artist.name}" %></div>
+  <div class="more-btn"><%= link_to 'もっと見る', "/items?utf8=✓&q%5Bartist_name_cont%5D=#{@artist.name}", class: "btn btn-primary" %></div>
 
-  <h4 class="artist-show-item">イベント情報
+  <div class="artist-show-item">
+    <h4 class="artist-show">イベント情報</h4>
     <% if manager_signed_in? %>
-      <%= link_to 'イベント追加', new_event_path(@artist.id), class:"d-btn new-btn" %>
+      <%= link_to 'イベント追加', new_event_path(@artist.id), class:"d-btn btn btn-default new-btn artist-show" %>
     <% end %>
-  </h4>
+  </div>
 
   <div id ="events">
     <%= render 'artists/eventlist', events: @events %>

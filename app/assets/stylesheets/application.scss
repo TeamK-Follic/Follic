@@ -109,11 +109,13 @@ h3 {
 
 /*編集ボタンのアイコン*/
 
-.edit-btn, .new-btn, .follow-btn{
+.new-btn, .follow-btn{
 	float: right;
+	width: 120px;
+	margin-top: 5px;
 }
-.genre-new, .label-new {
-	width: 150px;
+.edit-btn {
+	float: right;
 }
 
 
