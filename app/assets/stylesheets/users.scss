@@ -23,10 +23,31 @@
 .btn {
 	width: 100%;
 }
-table {
+.user-table {
 	margin: 0 auto;
 }
-
+/*マイページ*/
+.mypage-form-header {
+	background-color: #ffffff;
+	text-align: center;
+	line-height: 10px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 20px 0;
+	border: solid 1px #cccccc;
+	color: #428bca;
+	width: 100%;
+	background-color: pink;
+}
+.mypage-title {
+	height: 50px;
+	margin: 0 auto;
+	color: #428bca;
+	background-color: #FFFFFF;
+	border :solid 1px #cccccc;
+	margin-top: 10px;
+	padding-top: 10px;
+}
 .mypage {
 	height: 50px;
 }

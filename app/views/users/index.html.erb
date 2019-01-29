@@ -1,6 +1,6 @@
 <h3>会員一覧</h3>
 
-<div class="searchbox center-block">
+<div class="center-block">
 	<%= search_form_for @search do |f| %>
 	<%= f.text_field :name_cont ,placeholder: '会員名' %>
 	<%= f.submit ("検索") , class: 'd-btn' %>
@@ -8,7 +8,7 @@
 </div>
 
 <div class="center-block">
-	<table border="1" class="user-list">
+	<table border="1" class="user-table user-list">
 		<tr bgcolor="#428bca" class="user-index-item user-list-height">
 			<th class="user-list-item1">名前</th>
 			<th class="user-list-item2">名前（カナ）</th>
