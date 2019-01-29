@@ -1,14 +1,15 @@
-<h3>レーベル編集</h3>
+<div class="form">
+<h3 class="form-header">レーベル編集</h3>
 
-
-<table>
-	<tbody>
-		<tr>
-			<%= form_for(@label) do |f| %>
-				<td colspan="3">レーベル名</td>
-				<td><%= f.text_field :name %></td>
-				<td><%= f.submit "完了" %></td>
-			<% end %>
-		</tr>
-	</tbody>
-</table>
+	<div class="form-area">
+		<table>
+			<tr>
+				<%= form_for(@label) do |f| %>
+					<td colspan="3">レーベル名</td>
+					<td><%= f.text_field :name %></td>
+			</tr>
+		</table>
+	</div>
+	<td><%= f.submit "保存", class:"btn btn-primary" %></td>
+	<% end %>
+</div>
