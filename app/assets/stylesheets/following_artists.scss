@@ -59,24 +59,22 @@
   color: #fff;
   padding: 0 5px;
   background: #9fb7d4;
-  border-bottom: 1px solid #eee;
   box-sizing: border-box;
   transition: 0.5s;
 }
 .main-menu > li:hover {
   color: orange;
   background: #afc6e2;
-  transition: 0.5s;
 }
 .main-menu li:hover > ul > li {
   overflow: visible;
+  transition-delay: 3s;
 }
+
 .main-menu li ul li {
   overflow: hidden;
   height: 0;
-/*  left: 110px;
-*/  list-style: none;
-  transition: 0.2s;
+  list-style: none;
 }
 .event-ul {
   width: 0;
@@ -84,7 +82,7 @@
 }
 .event-list {
   right: 180px;
-  bottom: 94px;
+  bottom: 65px;
 }
 .item-ul {
   width: 0;
@@ -92,7 +90,7 @@
 }
 .item-list {
   left: 175px;
-  bottom: 95px;
+  bottom: 65px;
   width: 40px;
 }
 /* li ul.item-lll {

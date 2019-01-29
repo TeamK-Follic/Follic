@@ -6,11 +6,12 @@ class FollowingArtistsController < ApplicationController
      @artists = @user.following_artists.all
      @artist = Artist.find(current_user.id)
      @events = @artist.events
+     @fevents = Artist.find(fartist.artist_id).events.name
      @items = @artist.items
   end
 
   def show
-    @user = User.find(current_user.id)
+     @user = User.find(current_user.id)
      @artists = @user.following_artists.all
      @artist = Artist.find(current_user.id)
      @events = @artist.events.all
