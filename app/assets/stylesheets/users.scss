@@ -44,9 +44,13 @@ table {
 	width: 100%;
 	border: solid 1px #cccccc;
 }
-th{
-	height: 30px;
+.user-list-item1, .user-list-item2 {
+	width: 50%;
 }
+
 .user-index-item {
 	color: #FFFFFF;
+}
+.user-list-height {
+	height: 50px;
 }
