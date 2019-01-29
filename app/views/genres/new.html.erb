@@ -1,6 +1,26 @@
-<h3>ジャンル新規登録</h3>
+<div class="form">
+	<h3 class="form-header">ジャンル新規登録</h3>
 
-<%= form_for (@genre) do |f| %>
-<p>ジャンル名 <%= f.text_field :name %></p>
-<p><%= f.submit "登録" %></p>
-<% end %>
+	<div class="form-area"">
+		<div>
+			<%= form_for(@genre) do |f| %>
+			  <span class="label-new-btn"><%= f.text_field :name, placeholder:"ジャンル名" %></span>
+			  <span class="label-new-btn"><%= f.submit "新規追加", class:"btn btn-primary" %></span>
+			<% end %>
+		</div>
+
+		<h4 class="artist-show-item labels">レーベル一覧</h4>
+		<div>
+			<% @genres.each do |genres| %>
+			<table class="label-list">
+				<tr>
+					<td class="label-name label-item"><%= genres.name %></td>
+					<td class="label-item"><%= link_to "編集", edit_genre_path(genres.id), class: 'btn btn-default label-btn label-item' %></td>
+					<td class="label-item"><%= link_to "削除", genre_path(genres.id), class: 'btn btn-danger label-btn label-item', method: :delete %></td>
+					</span>
+				</tr>
+			</table>
+			<% end %>
+		</div>
+	</div>
+</div>
