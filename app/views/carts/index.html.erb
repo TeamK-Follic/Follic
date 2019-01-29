@@ -36,11 +36,11 @@
       <span class="total-price"><%= total_price %>円</span>（税込）
     </div>
 
-    <div class="buy-button">
-      <%= link_to "戻る", :back, class: 'btn btn-default' %>
-    </div>
-    <div class="buy-button">
+    <div>
       <%= link_to "購入手続きへ進む", carts_confirm_path, class: 'btn btn-primary' %>
     </div>
+  </div>
+  <div class="buy-btn">
+    <%= link_to "戻る", :back, class: 'btn btn-default' %>
   </div>
 </div>

@@ -5,7 +5,7 @@
 	</div>
 	<div class="item-area">
 	<%= form_for(@item) do |f| %>
-		<table>
+		<table class="item-table">
 			<tbody>
 				<tr>
 					<th>アルバム/シングル名</th>
@@ -18,7 +18,7 @@
 				<tr>
 					<th>レーベル名</th>
 					<td>
-						<%= search_form_for @search do |s| %>
+						<%= form_for(@label) do |s| %>
 						<%= s.label :label %>
 						<% end %>
 					</td>

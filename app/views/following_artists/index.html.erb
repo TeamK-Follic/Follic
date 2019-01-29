@@ -6,47 +6,29 @@
   <div class= "follow-artist-header">
     <h3>フォローアーティスト一覧</h3>
   </div>
-  <div class="container">
-    <div class="row">
 
-      <nav class="follow-nav">
-        <ul class="main-menu">
-          <li class="artist-title">アーティスト名</li>
-                 <% @artists.each do |fartist| %>
-                 <li>
-                  <%= link_to artist_path(fartist.artist.id) do %>
-                  <%= attachment_image_tag fartist.artist, :image, :fill, 60, 60, fallback: "no_image.png" %>
-                  <%= fartist.artist.name %>
-                  <% end %>
-
-                <ul class="event-ul">
-
-                      <li class="event-list">イベント</li>
-                      <%= link_to events_path do %>
-                        <% @events.each do |event| %>
-                        <li class="event-list">
-                          <%= attachment_image_tag event.artist, :image, :fill, 60, 60, fallback: "no_image.png" %>
-                          <% end %>
-                        </li>
-                           <%=  %>
-                      <% end %>
-                  </ul>
-
-                    <ul class="item-ul">
-                      <li class="item-list">CD</li>
-                       <% @items.each do |item| %>
-                       <li class="item-list">
-                            <%= link_to item_path(item) do %>
-                            <%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.png"%>
-                              <%= item.title %>
-                            <% end %>
-                      <% end %>
-                     </li>
-                    </ul>
+  <div class="row">
+    <nav class="follow-nav">
+      <ul class="main-menu">
+        <li class="artist-title">アーティスト名</li>
+          <% @fartists.each do |fartist| %>
+            <li>
+              <%= link_to following_artist_path(fartist.artist_id) do %>
+                <%= attachment_image_tag fartist.artist, :image, :fill, 60, 60, fallback: "no_image.png" %>
+                <%= fartist.artist.name %>
               <% end %>
-           </li>
+
+
+              <ul class="event-ul">
+                <li class="event-list">イベント</li>
+              </ul>
+              <ul class="item-ul">
+                <li class="item-list">CD</li>
+              </ul>
+            </li>
+          <% end %>
+        </li>
       </ul>
-      </nav>
-    </div>
+    </nav>
   </div>
 </div>
