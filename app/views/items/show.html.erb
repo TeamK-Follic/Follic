@@ -10,7 +10,17 @@
 	<div class="item-show-item item-box1">
 		<div class=""><%= @item.label.name %></div>
 		<div class=""><%= @item.type.name %></div>
-		<div class="item-name"><%= @item.title %></div>
+		<div class="item-name">
+			<%= @item.title %>
+			<!-- 日付の比較 -->
+			<% create_day = @item.created_at %>
+			<% today = Time.zone.now %>
+			<% compared_parameter = today - 1.day %>
+			<% if compared_parameter < create_day %>
+				<span class="new-item">!NEW!</span>
+			<% end %>
+			<!-- 日付の比較ここまで -->
+		</div>
 		<div class=""><%= link_to @item.artist.name, artist_path(@item.artist_id) %></div>
 		<div class=""><%= @item.genre.name %></div>
 		<div class="item-box2">

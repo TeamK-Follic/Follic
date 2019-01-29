@@ -3,12 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .artist-show-item{
-	height: 20px;
-	width: 100%;
-	background-color: #E6E6E6
+	height: 50px;
+	padding-top: 2px;
+	padding-left: 10px;
+	border-bottom: solid 3px #428bca;
+	margin: 30px auto;
+}
+.artist-show {
+	display: inline-block;
 }
 .artist-name{
 	font-size: 25px;
+	font-weight: bold;
 }
 .artist-title{
 	height: 30px;
@@ -16,9 +22,15 @@
 .artist-new{
 	font-size: 15px;
 }
-
-.artist-image{
+.artist-profile {
 	margin: 15px 0;
+}
+.artist-block{
+	display: inline-block;
+}
+.artist-intro {
+	width: 500px;
+	margin-left: 50px;
 }
 .profile-item {
 	margin: 10px;
@@ -30,7 +42,7 @@
 .more-btn {
 	width: 100px;
 	text-align: right;
-	margin: 0 90%;
+	margin: 0 85%;
 }
 .artist {
 	width: 40%;
@@ -55,4 +67,17 @@
 }
 .btn {
 	width: 100%;
+}
+.follow-btn {
+	width: 150px;
+	height: 35px;
+	font-size: 15px;
+	border-radius: 20px;
+	text-align: center;
+	padding-top: 6px;
+	border: solid 1px #cccccc;
+}
+.followed {
+	color: #FFFFFF;
+	background-color: #428bca;
 }

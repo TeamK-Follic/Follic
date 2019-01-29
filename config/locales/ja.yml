@@ -6,3 +6,12 @@ ja:
         preparation: 出荷準備中
         shipped: 出荷済
         cancel: 注文キャンセル
+
+ja:
+  enums:
+    history:
+      payment_id:
+        credit_card: クレジットカード
+        banking: 銀行振込
+        convenience_store: コンビニ支払
+        cash: 代金引換
