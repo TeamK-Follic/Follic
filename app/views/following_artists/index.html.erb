@@ -1,4 +1,6 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="jquery.panelslider.min.js"></script> -->
+
 
 <div class="follow-artist">
   <div class= "follow-artist-header">
@@ -7,40 +9,42 @@
   <div class="container">
     <div class="row">
 
-      <nav class="main-menu">
-        <ul class="fartist-menu">
-          <div class="col-xs-4">
-            <div class="f-list-wrapper">
-                <%= render 'following_artists/items', items: @items %>
-            </div>
-          </div>
-        </ul>
-
-        <ul>
-           <div class="col-xs-4">
-            <div class="f-list-wrapper">
-          <% @artists.each do |fartist| %>
-              <div class="f-list clearfix" onmouseover="mouseover();" onmouseout="mouseout();">
-                <div class="f-list-thumbnail">
+      <nav class="follow-nav">
+        <ul class="main-menu">
+          <li class="artist-title">アーティスト名</li>
+          <li>
+                 <% @artists.each do |fartist| %>
+                  <%= link_to artist_path(fartist.artist.id) do %>
                   <%= attachment_image_tag fartist.artist, :image, :fill, 60, 60, fallback: "no_image.png" %>
-                </div>
-                <%= link_to artist_path(fartist.artist.id) do %>
                   <%= fartist.artist.name %>
-                <% end %>
-              </div>
-            <% end %>
-        </div>
-      </div>
-        </ul>
-        <ul class="fartist-menu">
-          <div class="col-xs-4">
-        <div class="f-list-wrapper">
-            <%= render 'following_artists/events', events: @events %>
-        </div>
-      </div>
-        </ul>
-      </nav>
+                  <% end %>
 
+                <ul class="event-ul">
+                      <li class="event-list">イベント</li>
+                      <li class="event-list">
+                        <% @events.each do |event| %>
+                          <%= link_to event_path(event.id) do %>
+                          <%= attachment_image_tag event.artist, :image, :fill, 60, 60, fallback: "no_image.png" %>
+                          <%= event.name %>
+                          <% end %>
+                      <% end %>
+                  </ul>
+
+                    <ul class="item-ul">
+                      <li class="item-list">CD</li>
+                      <li class="item-list">
+                       <% @items.each do |item| %>
+                            <%= link_to item_path(item) do %>
+                            <%= attachment_image_tag item, :image, :fill, 60, 60, fallback: "no_image.png"%>
+                              <%= item.title %>
+                            <% end %>
+                      <% end %>
+                     </li>
+                    </ul>
+            <% end %>
+           </li>
+      </ul>
+      </nav>
     </div>
   </div>
 </div>

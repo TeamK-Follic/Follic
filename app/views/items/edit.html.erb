@@ -1,5 +1,4 @@
-
-
+<script type="text/javascript" src="jquery.number-spinner.js"></script>
 
 <div class="item">
 	<div class="item-header">
@@ -20,7 +19,9 @@
 				<tr>
 					<th>レーベル名</th>
 					<td>
-						<%= @item.label.name %>
+						<%= search_form_for @search do |s| %>
+						<%= s.label :label %>
+						<% end %>
 					</td>
 				</tr>
 				<tr>
@@ -29,9 +30,9 @@
 						<%= f.nested_fields_for :discs do |ff| %>
 							<%= ff.text_field :name, placeholder:"ディスク名" %> / <%= ff.remove_nested_fields_link 'ディスクの削除' %>
 							<%= ff.nested_fields_for :musics do |fff| %>
-		          	<%= fff.text_field :name, placeholder:"曲名" %> / <%= fff.remove_nested_fields_link '曲の削除', class:"d-btn" %>
-		        	<% end %>
-		        	<%= ff.add_nested_fields_link :musics, '曲の追加' %>
+		          				<%= fff.text_field :name, placeholder:"曲名" %> / <%= fff.remove_nested_fields_link '曲の削除', class:"d-btn" %>
+		        			<% end %>
+		        			<%= ff.add_nested_fields_link :musics, '曲の追加' %>
 						<% end %>
 						<%= f.add_nested_fields_link :discs, 'ディスクの追加' %>
 					</td>
