@@ -47,25 +47,34 @@ $(function () {
     }
   });
 });
-$('.fartist-menu').on({
-	'mouseenter': function(){
-		$(this)
-			.addClass('is-active')
-			.find('.f-list-wrapper').velocity('slideDown',{
-				duration: 300
-			});
-	},
-	'mouseleave': function(){
-		$(this)
-			.removeClass('is-active')
-			.find('.f-list-wrapper').velocity('slideUp',{
-				duration: 300
-			});
-	}
-});
+
+// $('.fartist-menu').on({
+// 	'mouseenter': function(){
+// 		$(this)
+// 			.addClass('is-active')
+// 			.find('.f-list-wrapper').velocity('slideDown',{
+// 				duration: 300
+// 			});
+// 	},
+// 	'mouseleave': function(){
+// 		$(this)
+// 			.removeClass('is-active')
+// 			.find('.f-list-wrapper').velocity('slideUp',{
+// 				duration: 300
+// 			});
+// 	}
+// });
+
 $(function() {
     $('.stock-btn').numberSpinner({
     	upButtonText: '＋',
     	downButtonText: 'ー'
     });
 });
+$(function() {
+    $('.item_amount').Spinner({
+    	upButtonText: '＋',
+    	downButtonText: 'ー'
+    });
+});
+

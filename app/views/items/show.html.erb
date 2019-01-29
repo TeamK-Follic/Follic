@@ -48,7 +48,7 @@
 				<% if @item.stock == 0 %>
 		    	<span>売切</span>
 		    <% else %>
-					<div class=""><%= f.text_field :amount, :size => "5*5" %></div>
+					<div class="item_amount"><%= f.text_field :amount, :size => "5*5" %></div>
 					<div class=""><%= f.submit 'カートに入れる' %></div>
 				<% end %>
 			<% end %>
