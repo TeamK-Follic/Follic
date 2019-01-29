@@ -1,9 +1,15 @@
 <div class="form">
-	<div class="form-header">
-		<h3>マイページ</h3>
+	<div class="mypage-form-header">
+		<h3 class="mypage-title">
+			<% if manager_signed_in? %>
+				<%= @user.name %>さんのマイページ
+			<% elsif user_signed_in? %>
+				<%= current_user.name %>さんのマイページ
+			<% end %>
+		</h3>
 	</div>
 	<div class="form-area">
-		<table>
+		<table class="user-table">
 			<tr class="mypage">
 				<td class="mypage-item">名前</td>
 				<td class="mypage-item"><%= @user.name %></td>

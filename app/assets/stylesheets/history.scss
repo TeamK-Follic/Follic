@@ -10,14 +10,20 @@
 	margin-top: 10px;
 	border :solid 1px #cccccc;
 }
+.inline-table {
+	margin: 10px auto;
+}
 .payment-method, .user-address{
-	width: 92%;
-	margin: 5px auto;
+	width: 650px;
+	margin: 5px 15px;
 	border :solid 1px #cccccc;
 }
 
 .history-title {
 	width: 350px;
+}
+.history-title2 {
+	width: 1200px;
 }
 .history-ratist {
 	width: 250px;
@@ -43,4 +49,27 @@
 .status-btn {
 	width: 150px;
 	margin: 0 auto;
+}
+
+/*ステータス詳細画面*/
+.field {
+	width: 570px;
+	height: 50px;
+	padding-left: 15px;
+	border :solid 2px #428bca;
+	border-radius: 10px;
+}
+.radio-status {
+	font-size: 18px;
+	width: 130px;
+	margin-top: 13px;
+	display: inline-block;
+}
+.history-item-info {
+	border-bottom: solid 1px #cccccc;
+}
+.history-total-price {
+	width: 200px;
+	padding-left: 15px;
+	margin-left: 750px;
 }

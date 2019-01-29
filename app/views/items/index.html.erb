@@ -20,7 +20,6 @@
           <%= attachment_image_tag item, :image, :fill ,150, 150, class:"contents-item" %>
 
             <p>
-              <%= item.artist.name %>
               <!-- 日付の比較 -->
                 <% create_day = item.created_at %>
                 <% today = Time.zone.now %>

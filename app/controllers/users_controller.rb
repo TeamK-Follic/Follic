@@ -20,7 +20,12 @@ class UsersController < ApplicationController
   end
 
   def update
-  	@user = User.find(params[:id])
+    if manager_signed_in?
+    	@user = User.find(params[:id])
+    else user_signed_in?
+      @user = User.find(current_user.id)
+    end
+
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: '会員情報を編集しました'
     else
@@ -30,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
-    user =  User.find(current_user.id)
+    user = User.find(current_user.id)
     user.deleted_user = 1
     user.save
     reset_session

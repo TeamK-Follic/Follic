@@ -52,20 +52,20 @@
 
 				<div class="purchase-area">
 					<table class="inline-table">
-						<% history.cart_histories.each do |ch| %>
-							<thead>
-								<tr>
-									<td class="history-title">タイトル</td>
-									<td class="history-ratist">アーティスト名</td>
-									<td class="history-item">数量</th>
-									<td class="history-item">小計</th>
-								</tr>
-							</thead>
+						<thead>
 							<tr>
-								<th><%= ch.item.title %></th>
-								<th><%= ch.item.artist.name %></th>
-								<th><%= ch.amount %></th>
-								<th><%= sub_total = ch.amount * ch.price %>円</th>
+								<th class="history-title">タイトル</th>
+								<th class="history-ratist">アーティスト名</th>
+								<th class="history-item">数量</th>
+								<th class="history-item">小計</th>
+							</tr>
+						</thead>
+						<% history.cart_histories.each do |ch| %>
+							<tr class="user-list-height history-item-info">
+								<td><%= ch.item.title %></td>
+								<td><%= ch.item.artist.name %></td>
+								<td><%= ch.amount %></td>
+								<td><%= sub_total = ch.amount * ch.price %>円</td>
 							</tr>
 							<% total_price = total_price + sub_total %>
 						<% end %>
