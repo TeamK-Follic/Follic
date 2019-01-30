@@ -1,3 +1,3 @@
 <% events.each do |event| %>
-  <p><%= event.datetime %> / <%= link_to event.name, event_path(event.id) %></p>
+  <p><%= simple_time(event.datetime) %> / <%= link_to event.name, event_path(event.id) %></p>
 <% end %>
