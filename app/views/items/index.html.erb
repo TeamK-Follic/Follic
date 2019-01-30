@@ -15,27 +15,30 @@
   <div class="center-block-artists">
     <% @search_items.each do |item| %>
       <div class="thumbnail-contents">
-        <div>
+        <div class="item-table">
           <%= link_to (item_path(item.id)) do %>
-          <%= attachment_image_tag item, :image, :fill ,150, 150, class:"contents-item" %>
+          <%= attachment_image_tag item, :image, :fill ,400, 400, class:"contents-item" %>
 
-            <p>
-              <!-- 日付の比較 -->
-                <% create_day = item.created_at %>
-                <% today = Time.zone.now %>
-                <% compared_parameter = today - 1.day %>
-                <% if compared_parameter < create_day %>
-                  <span class="new-item">!NEW!</span>
-                <% end %>
-              <!-- 日付の比較ここまで -->
-              </p>
-            <p><%= item.title %> / <%= item.price %>円(税込)
-            </p>
+            <p class="artist-profile"><%= item.title %></p>
           <% end %>
           <p><%= link_to item.artist.name, artist_path(item.artist.id) %></p>
-          <% if item.stock == 0 %>
-            <span>売切</span>
-          <% end %>
+          <div>
+            <div class="new-soldout">
+                <!-- 日付の比較 -->
+                  <% create_day = item.created_at %>
+                  <% today = Time.zone.now %>
+                  <% compared_parameter = today - 1.day %>
+                  <% if compared_parameter < create_day %>
+                    <p class="new-item">!NEW!</p>
+                  <% elsif item.stock == 0 %>
+                    <font color="red"><b>売切</b></font>
+                  <% else %>
+                    <p>　　　</p>
+                  <% end %>
+                <!-- 日付の比較ここまで -->
+            </div>
+            <div class="item-index-price"><%= item.price %>円(税込)</div>
+          </div>
         </div>
       </div>
     <% end %>
