@@ -1,8 +1,8 @@
-<div class="item">
-  <div class="item-header">
-    <h3>商品情報の追加</h3>
+<div class="form">
+  <div>
+    <h3 class="item-header item-area">商品情報の追加</h3>
   </div>
-  <div class="center-block item-area">
+  <div class="item-area">
     <%= form_for [@artist, @item] do |f| %>
       <p>アーティスト名 <%= @artist.name %></p>
       <p><%= f.radio_button :type_id, 1 %>アルバム <%= f.radio_button :type_id, 2 %>シングル</p>
@@ -28,7 +28,10 @@
 
       <p>在庫数 <%= f.text_field :stock %></p>
       <p>ジャケット画像 <%= f.attachment_field :image %></p>
-      <p><%= f.submit "追加", class: "btn btn-primary "%></p>
-    <% end %>
   </div>
+</div>
+<div class="form">
+  <%= f.submit "追加", class: "btn btn-primary "%>
+  <% end %>
+  <%= link_to "戻る", artist_path(@artist), class: "btn btn-default" %>
 </div>
