@@ -30,11 +30,15 @@ class UsersController < ApplicationController
   end
 
   def unsubscribe
-    user = User.find(current_user.id)
+    user = User.find(params[:id])
     user.deleted_user = 1
     user.save
-    reset_session
-    redirect_to items_path, alert: '退会しました。'
+    if user_signed_in?
+      reset_session
+      redirect_to items_path, alert: '退会しました。'
+    elsif manager_signed_in?
+      redirect_to users_path, notice: '会員の退会処理が完了しました'
+    end
   end
 
   def ensure_login_user
