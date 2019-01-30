@@ -13,7 +13,7 @@ class ArtistsController < ApplicationController
 
   def index
     @search = Artist.ransack(params[:q])
-    @search_artists = @search.result.page(params[:page]).reverse_order
+    @search_artists = @search.result.page(params[:page]).per(9).reverse_order
   end
 
   def edit
