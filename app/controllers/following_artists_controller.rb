@@ -3,7 +3,6 @@ class FollowingArtistsController < ApplicationController
 
   def index
      @user = User.find(current_user.id)
-
      @fartists = @user.following_artists.all
      @events = Event.all
      @items = Item.all
