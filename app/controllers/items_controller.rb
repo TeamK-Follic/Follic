@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
 
   def index
     @search = Item.ransack(params[:q])
-    @search_items = @search.result.page(params[:page]).reverse_order
+    @search_items = @search.result.page(params[:page]).per(9).reverse_order
   end
 
   def edit
