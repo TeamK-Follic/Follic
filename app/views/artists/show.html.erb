@@ -1,32 +1,34 @@
 <h3>アーティスト詳細</h3>
 <div class="center-block">
-  <div class="artist-title">
-    <span class="artist-name">
-      <%= @artist.name %>
-    </span>
 
-    <% if user_signed_in? %>
-
-      <% if @artist.followed_by?(current_user) %>
-        <%= link_to artist_following_artists_path(@artist), class: "follow-btn followed", method: :delete, "data-confirm" => "フォローを外しますか？" do %>
-          <span>フォロー中</span>
-        <% end %>
-
-      <% else %>
-        <%= link_to artist_following_artists_path(@artist), class: "follow-btn", method: :post do %>
-          <span class="d-btn"><i class="fas fa-plus"></i>フォローする</span>
-        <% end %>
-      <% end %>
-
-    <% elsif manager_signed_in? %>
-        <%= link_to edit_artist_path do %><i class="fas fa-cogs edit-btn"></i><% end %>
-    <% else %>
-    <% end %>
-  </div>
-
-  <div class="artist-profile">
+  <div class="profile">
     <%= attachment_image_tag @artist, :image, :fill, 300, 300, class:"artist-block" %>
-    <div class="artist-intro artist-block"><%= @artist.intro %></div>
+    <div class="artist-intro artist-block">
+      <div class="artist-name">
+        <%= @artist.name %>
+        <div class="artist-title">
+          <% if user_signed_in? %>
+            <% if @artist.followed_by?(current_user) %>
+              <%= link_to artist_following_artists_path(@artist), class: "follow-btn followed", method: :delete, "data-confirm" => "フォローを外しますか？" do %>
+                <span>フォロー中</span>
+              <% end %>
+
+            <% else %>
+              <%= link_to artist_following_artists_path(@artist), class: "follow-btn", method: :post do %>
+                <span class="d-btn"><i class="fas fa-plus"></i>フォローする</span>
+              <% end %>
+            <% end %>
+
+          <% elsif manager_signed_in? %>
+            <%= link_to edit_artist_path do %>
+              <i class="fas fa-cogs edit-btn"></i>
+            <% end %>
+          <% else %>
+          <% end %>
+        </div>
+      </div>
+      <%= @artist.intro %>
+    </div>
   </div>
 
   <div class="artist-show-item">
@@ -41,15 +43,27 @@
         <%= attachment_image_tag item, :image, class:"contents-item" %>
         <font size="4"><b><%= item.title %></b></font>
         <div><%= item.artist.name %></div>
-        <div class="price-stock">
-          <p><%= item.price %>円</p>
-          <% if item.stock == 0 %>
-            <span>売切</span>
-          <% end %>
-        </div>
+        <div>
+            <div class="new-soldout">
+                <!-- 日付の比較 -->
+                  <% create_day = item.created_at %>
+                  <% today = Time.zone.now %>
+                  <% compared_parameter = today - 1.day %>
+                  <% if compared_parameter < create_day %>
+                    <p class="new-item">!NEW!</p>
+                  <% elsif item.stock == 0 %>
+                    <font color="red"><b>売切</b></font>
+                  <% else %>
+                    <p>　　　</p>
+                  <% end %>
+                <!-- 日付の比較ここまで -->
+            </div>
+            <div class="item-index-price"><%= item.price %>円(税込)</div>
+          </div>
       <% end %>
     </div>
   <% end %>
+
 
   <div class="more-btn"><%= link_to 'もっと見る', "/items?utf8=✓&q%5Bartist_name_cont%5D=#{@artist.name}", class: "btn btn-primary" %></div>
 
