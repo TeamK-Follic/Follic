@@ -30,18 +30,38 @@ class CartsController < ApplicationController
 
   def create
     @item = Item.find(params[:item_id])
-    @cart = @item.carts.new(cart_params)
-    @cart.item_id = @item.id
-    @cart.user_id = current_user.id
-    if @cart.save
+    # 同じ商品のカートが既にあるか確認
+    @cart = Cart.find_by(item_id: @item.id)
+    if @cart.blank?
+      # カートが存在しない場合、カートを新しく作る
+      @cart = @item.carts.new(cart_params)
+      @cart.item_id = @item.id
+      @cart.user_id = current_user.id
+      if @cart.save
+        if @cart.amount > @item.stock
+          @cart.destroy
+          redirect_to item_path(@cart.item.id), alert: '入力した数量に対し、在庫数が足りません。もう一度やり直してください。'
+          return
+        end
+        redirect_to carts_path, notice: 'カートに商品を追加しました'
+      else
+        redirect_to item_path(@cart.item.id), alert: '購入数量を入力してください'
+      end
+
+    else
+      # カートが存在する場合、カートの数量を増やす
+      add_amount = params[:cart][:amount].to_i
+      if add_amount == 0
+        redirect_to item_path(@cart.item.id), alert: '購入数量を入力してください'
+        return
+      end
+      @cart.amount = @cart.amount + add_amount
       if @cart.amount > @item.stock
-        @cart.destroy
         redirect_to item_path(@cart.item.id), alert: '入力した数量に対し、在庫数が足りません。もう一度やり直してください。'
         return
       end
+      @cart.save
       redirect_to carts_path, notice: 'カートに商品を追加しました'
-    else
-      redirect_to item_path(@cart.item.id), alert: '購入数量を入力してください'
     end
   end
 
