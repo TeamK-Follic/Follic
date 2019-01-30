@@ -4,31 +4,8 @@
   display: block;
 }
 .follow-nav{
-  font-size: 10px;
   margin: 0 400px;
 }
-/*.f-list-wrapper{
-  width: 80%;
-  height: 250px;
-  overflow: scroll;
-/*  background-color: blue; // 範囲確認用 後で消します*/
-
-/*.f-list{
-  width: 100%;
-  height: 40px;
-  margin: 10px auto;
-}*/
-/*
-.f-list-text{
-  float: left;
-  font-size: 10px;
-  font-weight: bold;
-  margin: 10px;
-}*/
-/*.follow-artist {
-   margin: 0 auto;
-   padding: 0 0 0 75px;
-}*/
 .follow-artist-header {
   background-color: #ffffff;
   text-align: center;
@@ -41,15 +18,21 @@
 }
 .row {
   margin: 0 auto;
-  height: 200px;
+  height: 800px;
+}
+li {
+  white-space: nowrap;
 }
 .main-menu li {
   position: relative;
-  width: 170px;
-
+  width: 280px;
 }
 .main-menu > li {
   border-bottom: none;
+  width: 280px;
+}
+.event-list .item-list {
+  height: 180px;
 }
 .main-menu li:hover > ul > li {
   border-bottom: none;
@@ -72,38 +55,40 @@
 }
 
 .main-menu li ul li {
-/*  overflow: hidden;
-  height: 0;*/
+  overflow: hidden;
+  height: 0;
   list-style: none;
 }
 .event-ul {
   width: 0;
   height: 0;
 }
+.artist-list {
+  left: 350px;
+
+}
 .event-list {
-  right: 180px;
-  bottom: 65px;
+  left: 70px;
+  bottom: 219px;
+
 }
 .item-ul {
-  width: 0;
   height: 0;
 }
 .item-list {
-  left: 175px;
-  bottom: 65px;
+  left: 630px;
+  bottom: 219px;
   width: 40px;
 }
-/* li ul.item-lll {
-  left: 200px;
-}*/
-/*.follow-artist-area {
-  border: solid 1px #cccccc;
-  padding: 35px ;
-}*/
-/*.main-menu {
-  margin: 0 auto;
-}*/
-/*.menu-box{
-  float: left;
-  margin: auto 120px;
-}*/
+.artist-image {
+  width: 400px;
+  height: 400px;
+}
+.artist {
+  width: 100px;
+  height: 100px;
+}
+.item-images {
+  height: 100px;
+  width: 100px;
+}
