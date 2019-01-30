@@ -11,6 +11,7 @@
 .artist-name{
 	font-size: 25px;
 	font-weight: bold;
+	margin-bottom: 50px;
 }
 .artist-title{
 	height: 30px;
@@ -18,15 +19,16 @@
 .artist-new{
 	font-size: 15px;
 }
-.artist-profile {
+.profile {
+	height: 500px;
 	margin: 15px 0;
 }
 .artist-block{
-	display: inline-block;
+	float: left;
 }
 .artist-intro {
-	width: 500px;
-	margin-left: 50px;
+	width: 400px;
+	margin: 0 20px;
 }
 .profile-item {
 	margin: 10px;
@@ -41,10 +43,10 @@
 	margin: 0 85%;
 }
 .artist {
-	width: 40%;
+	width: 500px;
 	margin: 0 auto;
 }
-.artist-header h3 {
+.artist-header {
 	background-color: #ffffff;
 	text-align: center;
 	line-height: 10px;
@@ -54,7 +56,7 @@
 	color: #428bca;
 	width: 100%;
 }
-.artsist-area {
+.artist-area {
 	border: solid 1px #cccccc;
 	padding: 35px ;
 }
