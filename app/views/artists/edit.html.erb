@@ -1,17 +1,19 @@
 <div class="artist">
-	<div class="artist-header">
-		<h3>アーティストプロフィール編集</h3>
+	<div>
+		<h3 class="artist-header">アーティストプロフィール編集</h3>
 	</div>
 	<%= form_for(@artist) do |f| %>
-	<div class="artist-area center-block">
-		<%= f.text_field :name, class: "profile-item" %>
-		<%= f.attachment_field :image, class: "profile-item" %>
-		<%= f.text_area :intro, class: "profile-item" %>
+	<div class="artist-area">
+		<p>アーティスト名：<%= f.text_field :name, class: "profile-item" %></p>
+		<p>アーティスト写真
+		<%= f.attachment_field :image, class: "profile-item" %></p>
+		<p>アーティスト紹介
+		<%= f.text_area :intro, size: "60x10", class: "profile-item" %></p>
 	</div>
 	<div class="artist-footer">
 		<%= f.submit '更新', class: "btn btn-primary" %>
 		<%= link_to '戻る', artist_path, class: "btn btn-default" %>
-		<%= link_to 'アーティストの削除', artist_path(@artist.id),	 class: "d-btn btn btn-danger", method: :delete %>
+		<%= link_to 'アーティストの削除', artist_path(@artist.id),	 class: "d-btn btn btn-danger artist-profile", method: :delete %>
 	</div>
 	<% end %>
 </div>

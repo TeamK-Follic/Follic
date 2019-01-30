@@ -1,32 +1,20 @@
-
-<h3>アーティスト新規追加</h3>
-<table>
+<div class="artist">
+  <div>
+    <h3 class="artist-header">アーティスト新規追加</h3>
+  </div>
   <%= form_for(@artist) do |f| %>
-    <tr>
-      <td>アーティスト名</td>
-      <td><%= f.text_field :name, placeholder:"アーティスト名" %></td>
-    </tr>
+  <div class="artist-area">
+    <p>アーティスト名：<%= f.text_field :name, placeholder:"アーティスト名", class: "profile-item" %></p>
+    <p>アーティスト名(カナ)：<%= f.text_field :name_kana, placeholder:"アーティスト名(カナ)" %></p>
+    <p>アーティスト写真
+    <%= f.attachment_field :image, class: "profile-item" %></p>
+    <p>アーティスト紹介
+    <%= f.text_area :intro, size: "60x10", placeholder:"アーティスト紹介", class: "profile-item" %></p>
+  </div>
 
-    <tr>
-      <td>アーティスト名(カナ)</td>
-      <td><%= f.text_field :name_kana, placeholder:"アーティスト名(カナ)" %></td>
-    </tr>
-
-    <tr>
-      <td>アーティスト紹介</td>
-      <td><%= f.text_area :intro, placeholder:"アーティスト紹介" %></td>
-    </tr>
-
-    <tr>
-      <td>アーティスト写真</td>
-      <td><%= f.attachment_field :image %></td>
-    </tr>
-
-    <tr>
-      <td colspan="2">
-        <%= link_to '戻る', artists_path, class:"d-btn" %> <%= f.submit '保存' %>
-      </td>
-    </tr>
-
+  <div class="artist-footer">
+    <%= f.submit '保存', class: "btn btn-primary" %>
+    <%= link_to '戻る', artists_path, class:"d-btn btn btn-default" %>
+  </div>
   <% end %>
-</table>
+</div>

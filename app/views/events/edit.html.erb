@@ -11,35 +11,35 @@
 
 <div class="event">
   <%= form_for(@event) do |f| %>
-  <div class="evant-header">
-    <h3>イベント情報編集</h3>
-  </div>
-  <div class="event-area">
-  <table>
-      <tr>
-        <td>イベント名</td>
-        <td><%= f.text_field :name %></td>
-      </tr>
+    <div>
+      <h3 class="event-header">イベント情報編集</h3>
+    </div>
+    <div class="event-area">
+      <table>
+          <tr>
+            <td class="event-td">イベント名</td>
+            <td><%= f.text_field :name %></td>
+          </tr>
 
-      <tr>
-        <td>アーティスト名</td>
-        <td><%= @event.artist.name %></td>
-      </tr>
+          <tr>
+            <td class="event-td">アーティスト名</td>
+            <td><%= @event.artist.name %></td>
+          </tr>
 
-      <tr>
-        <td>開始日時</td>
-        <td><%= f.text_field :datetime, id:"datetimepicker" %></td>
-      </tr>
+          <tr>
+            <td class="event-td">開始日時</td>
+            <td><%= f.text_field :datetime, id:"datetimepicker" %></td>
+          </tr>
 
-      <tr>
-        <td>イベント紹介文</td>
-        <td><%= f.text_area :detail %></td>
-      </tr>
-  </table>
-  </div>
-  <div>
-    <%= f.submit '保存', class:"btn btn-primary" %>
-    <%= link_to '戻る', artists_path, class:"btn btn-dafault" %>
-  </div>
+          <tr>
+            <td class="event-td">イベント紹介文</td>
+            <td><%= f.text_area :detail, size: "35x10" %></td>
+          </tr>
+      </table>
+    </div>
+    <div class="event-footer">
+      <%= f.submit '保存', class:"btn btn-primary" %>
+      <%= link_to '戻る', artists_path, class:"btn btn-default" %>
+    </div>
   <% end %>
 </div>
