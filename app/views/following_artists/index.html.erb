@@ -6,21 +6,19 @@
   <div class="row">
     <nav class="follow-nav">
       <ul class="main-menu">
-        <li class="artist-title">アーティスト名</li>
+        <li class="artist-list">アーティスト名</li>
             <li>
-               <% @fartists.each do |fartist| %>
-              <%= link_to following_artist_path(fartist.artist.id) do %>
+              <% @fartists.each do |fartist| %>
+              <%= link_to artist_path(fartist.artist) do %>
+              <li class="artist-list">
                 <%= attachment_image_tag fartist.artist, :image, :fill, 60, 60, fallback: "no_image.png" %>
-                <%= fartist.artist.name %>
+                <%= link_to following_artist_path(fartist.artist.id) do %>
+                  <%= fartist.artist.name %>
+                <% end %>
               <% end %>
+              </li>
             <% end %>
-            </li>
-                <!-- <ul class="event-ul">
-                  <li class="event-list">イベント</li>
-                </ul>
-                <ul class="item-ul">
-                  <li class="item-list">CD</li>
-              </ul> -->
+          </li>
       </ul>
     </nav>
   </div>
