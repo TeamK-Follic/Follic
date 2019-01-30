@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   get 'carts/confirm'
   get 'about' => 'users#about', as: "about"
+  get 'events/new/:id' => 'events#new', as: 'new_event'
+  get 'items/new/:id' => 'items#new', as: 'new_item'
 
   devise_for :managers
   devise_for :users
@@ -14,7 +16,7 @@ Rails.application.routes.draw do
   resources :artists do
     resource :following_artists, only: [:create, :destroy]
     resource :items, only: [:show, :index, :edit, :create, :destroy]
-    resource :events, only: [:new, :show, :edit, :update, :create, :destroy]
+    resource :events, only: [:show, :edit, :update, :create, :destroy]
   end
   resources :items, :only => [:new, :show, :index, :edit, :create, :update, :destroy] do
     resource :carts, only: [:create, :destroy]
