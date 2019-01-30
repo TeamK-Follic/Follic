@@ -1,57 +1,36 @@
-
 <div class="item">
 	<div class="item-header">
 		<h3>商品詳細編集</h3>
 	</div>
-	<div class="item-area">
+	<div class="center-block item-area">
 	<%= form_for(@item) do |f| %>
-		<table class="item-table">
-			<tbody>
-				<tr>
-					<th>アルバム/シングル名</th>
-					<td><%= f.text_field :title %></td>
-				</tr>
-				<tr>
-					<th>値段</th>
-					<td><%= f.text_field :price %></td>
-				</tr>
-				<tr>
-					<th>レーベル名</th>
-					<td>
-						<%= form_for(@label) do |s| %>
-						<%= s.label :label %>
-						<% end %>
-					</td>
-				</tr>
-				<tr>
-				 <th>ディスク枚数</th>
-					<td>
-						<%= f.nested_fields_for :discs do |ff| %>
-							<%= ff.text_field :name, placeholder:"ディスク名" %> / <%= ff.remove_nested_fields_link 'ディスクの削除' %>
-							<%= ff.nested_fields_for :musics do |fff| %>
-		          				<%= fff.text_field :name, placeholder:"曲名" %> / <%= fff.remove_nested_fields_link '曲の削除', class:"d-btn" %>
-		        			<% end %>
-		        			<%= ff.add_nested_fields_link :musics, '曲の追加' %>
-						<% end %>
-						<%= f.add_nested_fields_link :discs, 'ディスクの追加' %>
-					</td>
-				</tr>
-				<tr>
-					<th>曲名</th>
-					<td><%= f.text_field :price %></td>
-				</tr>
-				<tr>
-					<th>在庫数</th>
-					<td><%= f.text_field :stock, class:"stock-btn" %></td>
-				</tr>
-				<tr>
-					<th>ジャケット画像</th>
-					<td><%= f.attachment_field :image %></td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="item-table">
+			<p>アーティスト名 <%= @item.artist.name %></p>
+			<p><%= f.radio_button :type_id, 1 %>アルバム <%= f.radio_button :type_id, 2 %>シングル</p>
+			<p>商品タイトル <%= f.text_field :title %></p>
+			<p>値段 <%= f.text_field :price %>円(税抜)</p>
+			<p>レーベル名 <%= f.collection_select :label_id, Label.all, :id, :name %></p>
+			<p>ジャンル <%= f.collection_select :genre_id, Genre.all, :id, :name %></p>
+
+			 <th>ディスク枚数</th>
+				<%= f.nested_fields_for :discs do |ff| %>
+					<div>
+					 	<%= ff.text_field :name, placeholder:"ディスク名" %> / <%= ff.remove_nested_fields_link 'ディスクの削除' %>
+
+						<%= ff.nested_fields_for :musics do |fff| %>
+			          		<%= fff.text_field :name, placeholder:"曲名" %> / <%= fff.remove_nested_fields_link '曲の削除', class:"d-btn" %>
+			        	<% end %>
+			        	<%= ff.add_nested_fields_link :musics, '曲の追加' %>
+			        </div>
+				<% end %>
+					<%= f.add_nested_fields_link :discs, 'ディスクの追加' %>
+
+
+					<p>在庫数 <p><%= f.text_field :stock, class:"stock-btn" %></p>
+					<p>ジャケット画像 <%= f.attachment_field :image %></p>
+
 	</div>
-	<%= link_to "戻る",item_path(@item), class: "btn btn-default" %>
 	<%= f.submit  "保存", class: "btn btn-primary" %>
+	<%= link_to "戻る", item_path(@item), class: "btn btn-default" %>
 	<% end %>
 </div>
