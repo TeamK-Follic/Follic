@@ -3,14 +3,6 @@ class HistoriesController < ApplicationController
   before_action :authenticate_user!, only: [:create]
   before_action :user_or_manager_signed_in?, only: [:show, :index]
 
-  def user_or_manager_signed_in?
-    if user_signed_in?
-    elsif manager_signed_in?
-    else
-      redirect_to items_path, alert: 'ログインしてください。'
-    end
-  end
-
   def show
     @history = History.find(params[:id])
     @cart_histories = @history.cart_histories
