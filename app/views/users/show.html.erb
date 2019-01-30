@@ -1,13 +1,11 @@
 <div class="form">
-	<div class="mypage-form-header">
-		<h3 class="mypage-title">
-			<% if manager_signed_in? %>
-				<%= @user.name %>さんのマイページ
-			<% elsif user_signed_in? %>
-				<%= current_user.name %>さんのマイページ
-			<% end %>
-		</h3>
-	</div>
+	<h3 class="mypage-form-header">
+		<% if manager_signed_in? %>
+			<%= @user.name %>さんのマイページ
+		<% elsif user_signed_in? %>
+			<%= current_user.name %>さんのマイページ
+		<% end %>
+	</h3>
 	<div class="form-area">
 		<table class="user-table">
 			<tr class="mypage">
