@@ -38,9 +38,12 @@ class UsersController < ApplicationController
   end
 
   def ensure_login_user
-    @user = User.find(params[:id])
-    if @user.id != current_user.id
-      redirect_to items_path, alert: '許可されていないリクエストです。'
+    if manager_signed_in?
+    else
+      @user = User.find(params[:id])
+      if @user.id != current_user.id
+        redirect_to items_path, alert: '許可されていないリクエストです。'
+      end
     end
   end
 
