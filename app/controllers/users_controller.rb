@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_manager!, only: [:index]
-  # before_action :authenticate_user!, only: [:show, :index, :edit, :update]
-  # before_action :ensure_login_user, only: [:show, :edit, :update]
+  before_action :authenticate_manager!, only: [:index]
+  before_action :user_or_manager_signed_in?, only: [:show, :edit, :update, :unsubscribe]
+  before_action :ensure_login_user, only: [:show, :edit, :update, :unsubscribe]
 
   def about
   end
@@ -20,12 +20,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    if manager_signed_in?
-    	@user = User.find(params[:id])
-    else user_signed_in?
-      @user = User.find(current_user.id)
-    end
-
+    @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to user_path(@user.id), notice: '会員情報を編集しました'
     else
@@ -51,6 +46,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:name, :name_kana, :postal_code, :address, :phone_number, :email)
+    params.require(:user).permit(:name, :name_kana, :postal_code, :address, :phone_number, :email)
   end
 end
