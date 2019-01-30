@@ -54,7 +54,7 @@ class HistoriesController < ApplicationController
       item.save                             # 商品情報の更新
       cart.destroy
     end
-    redirect_to histories_path
+    redirect_to histories_path, notice: '購入が完了しました。'
   end
 
   def update
