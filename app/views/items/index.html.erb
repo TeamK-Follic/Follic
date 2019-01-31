@@ -17,7 +17,7 @@
       <div class="thumbnail-contents">
         <div class="item-table">
           <%= link_to (item_path(item.id)) do %>
-            <%= attachment_image_tag item, :image, :fill ,400, 400, class:"contents-item" %>
+            <%= attachment_image_tag item, :image, :fill ,400, 400, class:"contents-item", fallback: "no_image.png" %>
             <p class="artist-profile"><%= item.title %></p>
           <% end %>
           <p><%= link_to item.artist.name, artist_path(item.artist.id) %></p>

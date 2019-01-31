@@ -10,7 +10,7 @@
         <% @carts.each do |cart| %>
           <div class="cart-item-box">
             <div class="cart-box">
-              <%= attachment_image_tag cart.item , :image, :fill, 250, 250, class:"cart_box" %>
+              <%= attachment_image_tag cart.item , :image, :fill, 250, 250, class:"cart_box", fallback: "no_image.png" %>
             </div>
             <div class="cart-box cart-item">
               <font size="4"><b><%= cart.item.title %></b></font>

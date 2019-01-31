@@ -6,7 +6,7 @@
 	<% end %>
 </h3>
 <div class="center-block">
-	<%= attachment_image_tag @item, :image, :fill, 2000, 2000, class:"item-show-item item-img" %>
+	<%= attachment_image_tag @item, :image, :fill, 2000, 2000, class:"item-show-item item-img", fallback: "no_image.png" %>
 	<div class="item-show-item item-box1">
 		<div class=""><%= @item.label.name %></div>
 		<div class=""><%= @item.type.name %></div>
@@ -48,7 +48,7 @@
 				<% if @item.stock == 0 %>
 		    		<font color="red"><b>売切</b></font>
 		    	<% else %>
-					<div class="item_amount"><%= f.text_field :amount, :size => "5*5" %></div>
+					<div class="item_amount">数量：<%= f.text_field :amount, :size => "5*5" %></div>
 					<div class=""><%= f.submit 'カートに入れる' %></div>
 				<% end %>
 			<% end %>
