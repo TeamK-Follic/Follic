@@ -25,11 +25,11 @@ li {
 }
 .main-menu li {
   position: relative;
-  width: 280px;
+  width: 400px;
 }
 .main-menu > li {
   border-bottom: none;
-  width: 280px;
+  width: 400px;
 }
 .event-list .item-list {
   height: 180px;
@@ -64,31 +64,34 @@ li {
   height: 0;
 }
 .artist-list {
-  left: 350px;
-
+  margin: 3px auto;
 }
 .event-list {
-  left: 70px;
-  bottom: 219px;
-
+  right: 190px;
+  bottom: 490px;
+  margin: 3px 0;
 }
 .item-ul {
   height: 0;
 }
 .item-list {
-  left: 630px;
-  bottom: 219px;
+  left: 620px;
+  bottom: 490px;
   width: 40px;
+  margin: 3px 0;
 }
-.artist-image {
-  width: 400px;
-  height: 400px;
+.fartist-image {
+  width: 230px;
+  height: 230px;
 }
-.artist {
-  width: 100px;
-  height: 100px;
+.event-images {
+  width: 230px;
+  height: 230px;
 }
 .item-images {
-  height: 100px;
-  width: 100px;
-}
+  height: 230px;
+  width: 230px;
+}/*
+.current-artist {
+  border: solid 5px #428bca;
+}*/
