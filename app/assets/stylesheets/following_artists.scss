@@ -4,7 +4,7 @@
   display: block;
 }
 .follow-nav{
-  margin: 0 400px;
+  /*margin: 0 400px;*/
 }
 .follow-artist-header {
   background-color: #ffffff;
@@ -17,14 +17,14 @@
   width: 100%;
 }
 .row {
-  margin: 0 auto;
-  height: 800px;
+  /*margin: 0 auto;*/
+  /*height: 800px;*/
 }
 li {
   white-space: nowrap;
 }
 .main-menu li {
-  position: relative;
+ /* position: relative;*/
   width: 400px;
 }
 .main-menu > li {
@@ -59,25 +59,29 @@ li {
   height: 0;
   list-style: none;
 }
+.following-box {
+  width: 1250px;
+  height: 1200px;
+  margin: 0 auto;
+}
+.following-block {
+  margin: 0 8px;
+  float: left;
+}
+
 .event-ul {
-  width: 0;
-  height: 0;
 }
 .artist-list {
   margin: 3px auto;
 }
 .event-list {
-  right: 190px;
   bottom: 490px;
   margin: 3px 0;
 }
 .item-ul {
-  height: 0;
 }
 .item-list {
-  left: 620px;
   bottom: 490px;
-  width: 40px;
   margin: 3px 0;
 }
 .fartist-image {
@@ -85,12 +89,12 @@ li {
   height: 230px;
 }
 .event-images {
-  width: 230px;
-  height: 230px;
+  width: 150px;
+  height: 150px;
 }
 .item-images {
-  height: 230px;
-  width: 230px;
+  height: 150px;
+  width: 150px;
 }
 
 .current-artist {
