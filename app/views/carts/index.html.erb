@@ -13,9 +13,9 @@
           <%= attachment_image_tag cart.item , :image, :fill, 250, 250, class:"cart-box" %>
         </div>
         <div class="cart-box cart-item">
-          <font size="5"><b><%= cart.item.title %></b></font>
+          <font size="5"><b><%= link_to cart.item.title, item_path(cart.item.id) %></b></font>
             <br>
-            <p><%= cart.item.artist.name %></p>
+            <p><%= link_to cart.item.artist.name, artist_path(cart.item.artist.id) %></p>
         </div>
 
         <div class="cart-box cart-item">
