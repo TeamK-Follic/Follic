@@ -68,17 +68,16 @@ li {
   margin: 0 8px;
   float: left;
 }
-
-.event-ul {
-}
 .artist-list {
   margin: 3px auto;
 }
+.artist-list > a{
+  color: white;
+}
+
 .event-list {
   bottom: 490px;
   margin: 3px 0;
-}
-.item-ul {
 }
 .item-list {
   bottom: 490px;
@@ -98,7 +97,7 @@ li {
 }
 
 .main-menu > .current-artist {
-  font-weight: 5px;
+  font-weight: bold;
   color: #FFFFFF;
   background-color: #428bca;
 }
