@@ -1,5 +1,4 @@
 .cart-block {
-	padding: 10px 10px;
 	border: solid 1px #cccccc;
 }
 .cart-box {
@@ -11,19 +10,19 @@
 .cart-item-box {
 	height: 260px;
 	width: 950px;
+	border-bottom: solid 1px #cccccc;
 }
 .cart-item {
 	height: 250px;
 	width: 325px;
-	border-bottom: solid 1px #cccccc;
 	margin: 5px 10px;
 }
 .cart-box2 {
 	width: 200px;
-	position: relative;left: 750px;
 }
 .cart-total {
 	height: 100px;
+	position: relative;left: 750px;
 }
 .total-price {
 	font-size: 30px;
@@ -51,7 +50,7 @@
 
 /*カート内容確認画面*/
 .confirm-item {
-	margin-top: 30px;
+	margin: 10px 5px;
 	display: inline-block;
 }
 .address-box {
@@ -72,4 +71,5 @@
 	font-size: 17px;
 	padding-top: 15px;
 	border: solid 1px #cccccc;
+	margin: 10px 5px;
 }

@@ -5,10 +5,10 @@
 </div>
 
 <div class="cart-block center-block">
-    <div class="clearfix">
+    <div>
       <% total_price = 0 %>
         <% @carts.each do |cart| %>
-          <div>
+          <div class="cart-item-box">
             <div class="cart-box">
               <%= attachment_image_tag cart.item , :image, :fill, 250, 250, class:"cart_box" %>
             </div>
@@ -23,12 +23,15 @@
           <% total_price = total_price + cart.amount * cart.item.price %>
           </div>
         <% end %>
+    </div>
 
-      <div class="cart-box2">
-        <div>お買い物合計金額</div>
+    <div class="cart-box2">
+      <div class="cart-total">
+        お買い物合計金額<br>
         <span class="total-price"><%= total_price %>円</span>（税込）
       </div>
     </div>
+
 
     <div class="destination-tag confirm-item">
       <b>送付先</b><br>
