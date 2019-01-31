@@ -23,7 +23,7 @@ class HistoriesController < ApplicationController
     @user = User.find(current_user.id)
     @carts = @user.carts
     @history = @user.histories.new(history_params)
-    if @history.payment_id == 0
+    if @history.payment_id == "no_choice"
       redirect_to carts_confirm_path, alert: '支払方法を選択して下さい。'
       return
     end
