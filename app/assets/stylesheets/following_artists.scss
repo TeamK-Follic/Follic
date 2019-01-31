@@ -25,11 +25,11 @@ li {
 }
 .main-menu li {
  /* position: relative;*/
-  width: 400px;
+  width: 300px;
 }
 .main-menu > li {
   border-bottom: none;
-  width: 400px;
+  width: 300px;
 }
 .event-list .item-list {
   height: 180px;
@@ -60,11 +60,12 @@ li {
   list-style: none;
 }
 .following-box {
-  width: 1250px;
-  height: 1200px;
+  width: 950px;
+  height: 750px;
   margin: 0 auto;
 }
 .following-block {
+  height: 1200px;
   margin: 0 8px;
   float: left;
 }
@@ -84,16 +85,16 @@ li {
   margin: 3px 0;
 }
 .fartist-image {
-  width: 230px;
-  height: 230px;
+  width: 150px;
+  height: 150px;
 }
 .event-images {
-  width: 150px;
-  height: 150px;
+  width: 100px;
+  height: 100px;
 }
 .item-images {
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
 }
 
 .main-menu > .current-artist {
