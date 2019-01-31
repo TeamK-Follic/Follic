@@ -97,6 +97,8 @@ li {
   width: 150px;
 }
 
-.current-artist {
-  border: solid 5px #428bca;
+.main-menu > .current-artist {
+  font-weight: 5px;
+  color: #FFFFFF;
+  background-color: #428bca;
 }
