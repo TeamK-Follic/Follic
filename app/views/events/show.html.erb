@@ -8,9 +8,9 @@
     <%= attachment_image_tag @artist, :image, :fill, 300, 300, class:"event-image" %>
   </div>
   <div class="event-show-item event-show-box2">
-    <div class="show-item event-name"><%= @event.name %></div>
-    <div class="show-item"><%= simple_time(@event.datetime) %></div>
-    <div class="show-item event-detail"><%= @event.detail %></div>
+    <p class="show-item event-name"><%= @event.name %></p>
+    <p class="show-item"><%= simple_time(@event.datetime) %></p>
+    <p class="show-item event-detail"><%= @event.detail %></p>
   </div>
 
   <div class="event-show-box3">
