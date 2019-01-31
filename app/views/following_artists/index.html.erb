@@ -11,7 +11,7 @@
               <% @fartists.each do |fartist| %>
               <%= link_to artist_path(fartist.artist) do %>
               <li class="artist-list">
-                <%= attachment_image_tag fartist.artist, :image, :fill, 60, 60, fallback: "no_image.png" %>
+                <%= attachment_image_tag fartist.artist, :image, :fill, 500, 500, class: "fartist-image" %>
                 <%= link_to following_artist_path(fartist.artist.id) do %>
                   <%= fartist.artist.name %>
                 <% end %>
