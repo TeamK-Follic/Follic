@@ -1,4 +1,10 @@
-<h3>購入履歴</h3>
+<h3>
+	<% if manager_signed_in? %>
+		受注一覧
+	<% elsif user_signed_in? %>
+		購入履歴
+	<% end %>
+</h3>
 
 <div class="center-block">
 
