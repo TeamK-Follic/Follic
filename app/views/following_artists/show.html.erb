@@ -8,7 +8,7 @@
           <li class="artist-list">アーティスト名</li>
           <li>
             <% @fartists.each do |fartist| %>
-            <% if fartist.artist_id == fartist.artist.id %>
+            <% if fartist.artist_id == @artist.id %>
               <%= link_to artist_path(fartist.artist) do %>
               <li class="artist-list current-artist">
                 <%= attachment_image_tag fartist.artist, :image, :fill, 500, 500, class: "fartist-image" %>
