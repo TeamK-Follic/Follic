@@ -8,15 +8,22 @@
 .cart-area {
 	width: 200px;
 }
+.cart-item-box {
+	height: 260px;
+	width: 950px;
+}
 .cart-item {
-	height: 150px;
-	width: 335px;
+	height: 250px;
+	width: 325px;
 	border-bottom: solid 1px #cccccc;
-	margin-top: 10px;
+	margin: 5px 10px;
 }
 .cart-box2 {
 	width: 200px;
-	position: relative; left: 650px;
+	position: relative;left: 750px;
+}
+.cart-total {
+	height: 100px;
 }
 .total-price {
 	font-size: 30px;
