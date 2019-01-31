@@ -10,11 +10,18 @@
 <div class="center-block">
 	<table border="1" class="user-table user-list">
 		<tr bgcolor="#428bca" class="user-index-item user-list-height">
+			<th class="user-list-item2"></th>
 			<th class="user-list-item1">名前</th>
-			<th class="user-list-item2">名前（カナ）</th>
+			<th class="user-list-item1">名前（カナ）</th>
 		</tr>
 		<% @search_users.each do |user| %>
 		<tr class="user-list-height">
+			<td>
+				<% if user.deleted_user == 1 %>
+					<p class="deleted-item">退会済み</p>
+				<% else %>
+				<% end %>
+			</td>
 			<td><%= link_to user.name, user_path(user.id) %></td>
 			<td><%= user.name_kana %></td>
 		</tr>
@@ -22,4 +29,3 @@
 	</table>
 	<%= paginate @search_users %>
 </div>
-
