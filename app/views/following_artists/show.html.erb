@@ -10,8 +10,18 @@
             <% @events.each do |event| %>
               <%= link_to event_path(event) do %>
                 <li class="event-list">
-                  <%= attachment_image_tag event.artist, :image, :fill, 500, 500, class: "event-images" %>
-                  <%= event.name %>
+                  <!-- 日付の比較 -->
+                    <% create_day = event.created_at %>
+                    <% today = Time.zone.now %>
+                    <% compared_parameter = today - 1.day %>
+                    <% if compared_parameter < create_day %>
+                      <p><span class="new-item">!NEW!</span> <%= simple_time(event.datetime) %></p>
+                      <p><%= truncate(event.name, length: 12) %></p>
+                    <% else %>
+                      <p><%= simple_time(event.datetime) %></p>
+                      <p><%= truncate(event.name, length: 12) %></p>
+                    <% end %>
+                  <!-- 日付の比較ここまで -->
                 </li>
               <% end %>
             <% end %>
@@ -40,7 +50,7 @@
                   <% end %>
                 <% end %>
               <% end %>
-            </ul>
+          </ul>
 
 
               <ul class="following-block main-menu">
@@ -49,7 +59,18 @@
                     <%= link_to item_path(item) do %>
                       <li class="item-list">
                         <%= attachment_image_tag item, :image, :fill, 500, 500, fallback: "no_image.png", class: "item-images" %>
-                        <%= item.title %>
+                        <!-- 日付の比較 -->
+                          <% create_day = item.created_at %>
+                          <% today = Time.zone.now %>
+                          <% compared_parameter = today - 1.day %>
+                          <% if compared_parameter < create_day %>
+                            <span class="new-item">!NEW!</span> <%= item.title %>
+                          <% elsif item.stock == 0 %>
+                            <font color="red"><b>売切</b></font> <%= item.title %>
+                          <% else %>
+                            <%= item.title %>
+                          <% end %>
+                        <!-- 日付の比較ここまで -->
                       </li>
                     <% end %>
                   <% end %>
