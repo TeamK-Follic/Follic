@@ -18,7 +18,7 @@
 					 	<%= ff.text_field :name, placeholder:"ディスク名" %> / <%= ff.remove_nested_fields_link 'ディスクの削除' %>
 
 						<%= ff.nested_fields_for :musics do |fff| %>
-			          		<%= fff.text_field :name, placeholder:"曲名" %> / <%= fff.remove_nested_fields_link '曲の削除', class:"d-btn" %>
+			          		● <%= fff.text_field :name, placeholder:"曲名" %> / <%= fff.remove_nested_fields_link '曲の削除', class:"d-btn" %>
 			        	<% end %>
 			        	<%= ff.add_nested_fields_link :musics, '曲の追加' %>
 			        </div>
