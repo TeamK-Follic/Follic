@@ -33,6 +33,9 @@
 		<%= f.submit "登録", class:"btn btn-primary" %>
 	<% end %>
 			<%= link_to "戻る", user_path(@user), class:"btn btn-default" %>
-			<%= link_to "会員情報の削除",unsubscribe_user_path(@user), method: :patch, class:"btn btn-danger" %>
+
+			<% if @user.deleted_user != 1 %>
+				<%= link_to "会員情報の削除",unsubscribe_user_path(@user), method: :patch, class:"btn btn-danger" %>
+			<% end %>
 		</div>
 </div>
