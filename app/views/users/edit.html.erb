@@ -1,7 +1,5 @@
 <div class="form">
-	<div class="form-header">
-		<h3>マイページ編集</h3>
-	</div>
+	<h3 class="form-header">マイページ編集</h3>
 	<%= form_for(@user) do |f| %>
 		<div class="form-area">
 				<table class="user-table">
@@ -17,9 +15,9 @@
 						<td class="mypage-item">郵便番号</td>
 						<td class="mypage-item"><%= f.text_field :postal_code %></td>
 					</tr>
-					<tr class="mypage">
+					<tr>
 						<td class="mypage-item">住所</td>
-						<td class="mypage-item"><%= f.text_field :address %></td>
+						<td class="mypage-item"><%= f.text_area :address, size: "40×60" %></td>
 					</tr>
 					<tr class="mypage">
 						<td class="mypage-item">電話番号</td>
