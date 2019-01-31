@@ -58,8 +58,11 @@
 	width: 100%;
 	border: solid 1px #cccccc;
 }
-.user-list-item1, .user-list-item2 {
-	width: 50%;
+.user-list-item1 {
+	width: 400px;
+}
+.user-list-item2 {
+	width: 150px;
 }
 
 .user-index-item {
@@ -67,4 +70,12 @@
 }
 .user-list-height {
 	height: 50px;
+}
+.deleted-item {
+	width: 100px;
+	text-align: center;
+	margin: 0 auto;
+	border-radius: 3px;
+	background-color: #d66464;
+	color: #FFFFFF;
 }
