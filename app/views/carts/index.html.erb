@@ -8,11 +8,11 @@
   <% total_price = 0 %>
   <% @carts.each do |cart| %>
     <%= form_for(cart) do |f| %>
-      <div>
+      <div class="cart-item-box">
         <div class="cart-box">
           <%= attachment_image_tag cart.item , :image, :fill, 250, 250, class:"cart-box" %>
         </div>
-        <div class="cart-area cart-box cart-item">
+        <div class="cart-box cart-item">
           <font size="5"><b><%= cart.item.title %></b></font>
             <br>
             <p><%= cart.item.artist.name %></p>
@@ -34,10 +34,9 @@
     <div class="cart-total">
       お買い物合計金額<br>
       <span class="total-price"><%= total_price %>円</span>（税込）
-    </div>
-
-    <div>
-      <%= link_to "購入手続きへ進む", carts_confirm_path, class: 'btn btn-primary' %>
+      <div>
+        <%= link_to "購入手続きへ進む", carts_confirm_path, class: 'btn btn-primary' %>
+      </div>
     </div>
   </div>
   <div class="buy-btn">
