@@ -2,59 +2,61 @@
   <div class= "follow-artist-header">
     <h3>フォローアーティスト一覧</h3>
   </div>
-    <div class="row">
+    <div class="following-box">
       <nav class="follow-nav">
-        <ul class="main-menu">
-          <li class="artist-list">アーティスト名</li>
-          <li>
-            <% @fartists.each do |fartist| %>
-            <% if fartist.artist_id == @artist.id %>
-              <%= link_to artist_path(fartist.artist) do %>
-              <li class="artist-list current-artist">
-                <%= attachment_image_tag fartist.artist, :image, :fill, 500, 500, class: "fartist-image" %>
-                <%= link_to following_artist_path(fartist.artist.id) do %>
-                  <%= fartist.artist.name %>
-                <% end %>
-              <% end %>
-              </li>
 
-              <% else %>
-              <%= link_to artist_path(fartist.artist) do %>
-              <li class="artist-list">
-                <%= attachment_image_tag fartist.artist, :image, :fill, 500, 500, class: "fartist-image" %>
-                <%= link_to following_artist_path(fartist.artist.id) do %>
-                  <%= fartist.artist.name %>
-                <% end %>
+          <ul class="event-ul main-menu following-block">
+            <li class="event-list">イベント</li>
+            <% @events.each do |event| %>
+              <%= link_to event_path(event) do %>
+                <li class="event-list">
+                  <%= attachment_image_tag event.artist, :image, :fill, 500, 500, class: "event-images" %>
+                  <%= event.name %>
+                </li>
               <% end %>
-              </li>
             <% end %>
-            <% end %>
+          </ul>
 
-            <ul class="event-ul">
-              <li class="event-list">イベント</li>
-              <% @events.each do |event| %>
-                <%= link_to event_path(event) do %>
-                  <li class="event-list">
-                    <%= attachment_image_tag event.artist, :image, :fill, 500, 500, class: "event-images" %>
-                    <%= event.name %>
-                  </li>
-                <% end %>
-              <% end %>
-            </ul>
-
-            <ul class="item-ul">
-              <li class="item-list">CD</li>
-                <% @items.each do |item| %>
-                  <%= link_to item_path(item) do %>
-                    <li class="item-list">
-                      <%= attachment_image_tag item, :image, :fill, 500, 500, fallback: "no_image.png", class: "item-images" %>
-                      <%= item.title %>
+          <ul class="main-menu following-block">
+            <li class="artist-list">アーティスト名</li>
+            <li>
+              <% @fartists.each do |fartist| %>
+                <% if fartist.artist_id == @artist.id %>
+                  <%= link_to artist_path(fartist.artist) do %>
+                    <li class="artist-list current-artist">
+                      <%= attachment_image_tag fartist.artist, :image, :fill, 500, 500, class: "fartist-image" %>
+                      <%= link_to following_artist_path(fartist.artist.id) do %>
+                      <%= fartist.artist.name %>
                     </li>
                   <% end %>
                 <% end %>
+
+                <% else %>
+                  <%= link_to artist_path(fartist.artist) do %>
+                    <li class="artist-list">
+                      <%= attachment_image_tag fartist.artist, :image, :fill, 500, 500, class: "fartist-image" %>
+                      <%= link_to following_artist_path(fartist.artist.id) do %>
+                        <%= fartist.artist.name %>
+                      <% end %>
+                    </li>
+                  <% end %>
+                <% end %>
+              <% end %>
             </ul>
-          </li>
-        </ul>
+
+
+              <ul class="item-ul following-block main-menu">
+                <li class="item-list">CD</li>
+                  <% @items.each do |item| %>
+                    <%= link_to item_path(item) do %>
+                      <li class="item-list">
+                        <%= attachment_image_tag item, :image, :fill, 500, 500, fallback: "no_image.png", class: "item-images" %>
+                        <%= item.title %>
+                      </li>
+                    <% end %>
+                  <% end %>
+              </ul>
+            </li>
       </nav>
     </div>
   </div>
